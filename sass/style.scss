@@ -1,0 +1,156 @@
+/* http://v4-alpha.getbootstrap.com/getting-started/options/ */
+
+@import "bootstrap/bootstrap";
+
+$color-sidebar-background: #222;
+$color-sidebar-menu-plus: #D9534F;
+$color-sidebar-menu-a: #9d9d9d;
+$color-main-card-background: #f5f5f5;
+
+html {
+  font-size: 14px;
+}
+
+#sidebar, #poemBackNavbar {
+
+
+  & .poemMenu {
+
+    & a {
+      color: $color-sidebar-menu-a;
+
+      & i {
+        padding-right: 0.4rem;
+      }
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    & #logout {
+      padding-right: 1.2rem;
+    }
+
+    & ul li {
+
+      position: relative;
+
+      & a:first-child {
+        //display: inline-block;
+        padding-right: 0.3rem;
+        font-size: 1.1rem;
+        border-radius: 0;
+        text-transform: capitalize;
+
+        &:hover, &.active {
+          background-color: #080808;
+          color: #fff;
+        }
+      }
+
+      & a:nth-child(2) {
+        position: absolute;
+        top: 0.2rem;
+        right: 1rem;
+        color: $color-sidebar-menu-plus;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+#sidebar {
+  background-color: $color-sidebar-background;
+  color: #fff;
+  position: fixed;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 2rem;
+  top: 0;
+  bottom: 0;
+
+  & .avatar {
+    & img {
+      max-width: 30%;
+      height: auto;
+
+      & > p {
+        width: auto;
+      }
+    }
+  }
+
+  & .row:last-of-type {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+#main {
+
+  margin-bottom: 30px;
+
+  & .page-header {
+    margin-top: 2rem;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+  }
+
+  & .find {
+    margin-bottom: 2rem;
+  }
+
+  & .card {
+    & > .img-card {
+      height: 140px;
+      overflow-x: hidden;
+      background-color: $color-main-card-background;
+      border-radius: 0.25rem 0.25rem 0 0;
+
+      & .card-img-top {
+        height: 100%;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    & i {
+      padding-right: 0.4rem;
+    }
+
+    & .card-block {
+
+      transition-property: height;
+      transition-duration: 2s;
+
+      & .card-title, & .card-text {
+        font-family: "PT Sans";
+      }
+
+      & .card-title {
+        height: 2.3em;
+        overflow-y: hidden;
+      }
+
+      & .card-text {
+        height: 3em;
+        overflow-y: hidden;
+      }
+    }
+
+    & .card-footer p {
+      margin-bottom: 0;
+    }
+
+  }
+
+  & .more {
+    margin-top: 30px;
+  }
+
+}
