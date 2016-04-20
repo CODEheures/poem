@@ -27,8 +27,12 @@ if(isset($_GET['want']) && key_exists($_GET['want'],$type)){
     $_SESSION['menu']=$type[$_GET['want']]['menu'];
     $_SESSION['titre']=$type[$_GET['want']]['titre'];
     $_SESSION['nb_list']=$type[$_GET['want']]['nb_list'];
-
-    include('./includes/back/layout.php');
+    
 } else {
-    include('./index.html');
+    $_SESSION['page']=$type['lecons']['page'];
+    $_SESSION['menu']=$type['lecons']['menu'];
+    $_SESSION['titre']=$type['lecons']['titre'];
+    $_SESSION['nb_list']=$type['lecons']['nb_list'];
 }
+
+include('./includes/back/layout.php');
