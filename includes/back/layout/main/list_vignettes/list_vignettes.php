@@ -1,6 +1,7 @@
-<!-- champs de recherche dans une liste -->
-<div class="row find">
+<!-- Titre et champs de recherche dans mes leçons -->
+<div class="row vignettes-list find">
     <div class="col-sm-12">
+        <h2><?php print $h2 ?></h2>
         <form class="form-inline pull-sm-right">
             <div class="form-group">
                 <label for="find">Ajoutez un filtre</label>
@@ -15,21 +16,17 @@
     </div>
 </div>
 <!-- list -->
-<div class="row" id="list">
+<div class="row list-vignettes">
     <?php
-    for($i = 0; $i < $_SESSION['nb_list']; $i++) {
-        /* Pour les leçons */
-        if($_SESSION['page']=='lecons_list') include('./includes/back/layout/main/template_lists/vignette_lecons.php');
-        /* Pour les cours */
-        if($_SESSION['page']=='cours_list') include('./includes/back/layout/main/template_lists/vignette_cours.php');
-        /* Pour les sessions */
-        if($_SESSION['page']=='sessions_list') include('./includes/back/layout/main/template_lists/vignette_sessions.php');
+    for($i = 0; $i < $nbVignettes; $i++) {
+        /* Pour mes dernieres leçons */
+        include('./includes/back/layout/main/list_vignettes/vignette_'. $vignettes .'.php');
     }
     ?>
 </div>
 <div class="row more">
     <div class="col-sm-12">
-        <button type="button" class="btn btn-info-outline center-block" data-what="<?php echo $_SESSION['menu'] ?>">Charger plus de <?php echo $_SESSION['menu'] ?></button>
+        <button type="button" class="btn btn-info-outline center-block" data-what="<?php print $dataWhat ?>" data-quantity="<?php print $moreQuantity ?>">Charger plus de <?php echo $moreLink ?></button>
         <img class="center-block hidden-xs-up" src="/css/assets/loader1.gif" alt="loader fourmis" />
     </div>
 </div>

@@ -33,4 +33,3 @@ $resume = $resume.'...';
         </div>
     </div>
 </div>
-

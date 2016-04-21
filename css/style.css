@@ -4620,7 +4620,8 @@ html {
   font-size: 14px; }
 
 .disable-scroll {
-  overflow: hidden; }
+  overflow-x: hidden;
+  overflow-y: scroll; }
 
 #sidebar .poemMenu a, #poemBackNavbar .poemMenu a {
   color: #9d9d9d; }
@@ -4672,12 +4673,31 @@ html {
 
 #main {
   margin-bottom: 30px; }
+  #main #dashboard > .row:nth-of-type(1) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #222; }
+  #main #dashboard .indicator1, #main #dashboard .indicator2, #main #dashboard .indicator3, #main #dashboard .indicator4, #main #dashboard .indicator5, #main #dashboard .indicator6 {
+    text-align: center; }
+    #main #dashboard .indicator1 h3, #main #dashboard .indicator2 h3, #main #dashboard .indicator3 h3, #main #dashboard .indicator4 h3, #main #dashboard .indicator5 h3, #main #dashboard .indicator6 h3 {
+      font-weight: 900; }
+    #main #dashboard .indicator1 .card-footer, #main #dashboard .indicator2 .card-footer, #main #dashboard .indicator3 .card-footer, #main #dashboard .indicator4 .card-footer, #main #dashboard .indicator5 .card-footer, #main #dashboard .indicator6 .card-footer {
+      min-height: 4.5em; }
+  #main #dashboard input#critere {
+    min-width: 20vw; }
+  #main .results {
+    padding-top: 25px;
+    padding-bottom: 25px; }
   #main .page-header {
     margin-top: 2rem;
     border-bottom: 1px solid #eee;
     text-transform: uppercase; }
-  #main .find {
-    margin-bottom: 2rem; }
+  #main .vignettes-list {
+    margin-top: 30px; }
+    #main .vignettes-list h2 {
+      display: inline-block; }
+    #main .vignettes-list.find {
+      margin-bottom: 2rem; }
   #main .card > .img-card {
     height: 140px;
     overflow-x: hidden;

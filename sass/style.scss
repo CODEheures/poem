@@ -12,7 +12,8 @@ html {
 }
 
 .disable-scroll {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 
@@ -99,14 +100,54 @@ html {
 
   margin-bottom: 30px;
 
+  & #dashboard {
+
+    & > .row:nth-of-type(1) {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background-color: $color-sidebar-background;
+    }
+
+
+    & .indicator1, & .indicator2, & .indicator3, & .indicator4, & .indicator5, & .indicator6 {
+      text-align: center;
+
+      & h3 {
+        font-weight: 900;
+      }
+
+      & .card-footer {
+        min-height: 4.5em;
+      }
+    }
+
+    & input#critere {
+      min-width: 20vw;
+    }
+  }
+
+  & .results {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
   & .page-header {
     margin-top: 2rem;
     border-bottom: 1px solid #eee;
     text-transform: uppercase;
   }
 
-  & .find {
-    margin-bottom: 2rem;
+  & .vignettes-list {
+
+    margin-top: 30px;
+
+    & h2 {
+      display: inline-block;
+    }
+
+    &.find {
+      margin-bottom: 2rem;
+    }
   }
 
   & .card {
