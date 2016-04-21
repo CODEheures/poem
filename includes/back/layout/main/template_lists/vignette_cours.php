@@ -19,7 +19,7 @@ $resume = $resume.'...';
         <div class="card-block">
             <h5 class="card-title"><?php echo $cours ?></h5>
             <p class="card-text"><?php echo $resume ?></p>
-            <a href="#" class="btn btn-primary">Modifier</a>
+            <a href="/index.php?want=back_cours_modif" class="btn btn-primary">Modifier</a>
         </div>
         <div class="card-footer text-muted">
             <div class="row">

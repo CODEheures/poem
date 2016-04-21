@@ -4,20 +4,40 @@
 <script>
     $(document).ready(function () {
 
-        //chargement de cartes
-        function animeCard($elem, $num) {
+        var $timeoutAnimCard = 300;
+
+        //function d'animation de chargement de cartes
+        var $compteur = -1;
+        function animCard($elem, $num) {
             setTimeout(function () {
                 $elem.removeClass("hidden-sm-up");
                 $elem.addClass("animated flipInY");
-            },300*$num);
+                $compteur ++;
+            },$timeoutAnimCard*$num);
         }
 
-        $('.card').each(function ($num) {
+        //chargement initial des cartes
+        $container = $('body');
+        $container.addClass("disable-scroll");
+        $cards = $('.card');
+        $cards.each(function ($num) {
             var $card = $(this);
-            animeCard($card, $num)
+            animCard($card, $num);
         });
 
-        //voir plus
+        var interval1 = setInterval(findEndAnim, ($timeoutAnimCard));
+
+        function findEndAnim() {
+            if($compteur == $cards.length-1){
+                setTimeout(function () {
+                    $container.removeClass("disable-scroll");
+                    clearInterval(interval1);
+                },$timeoutAnimCard*2);
+            }
+        }
+
+
+        //action ajax du bouton voir plus
         $('.more button').click(function (e) {
             var $button = $(this);
             var $img = $('.more img');

@@ -18,7 +18,7 @@ $session = $niveau[rand(0,3)].' '.rand(2015,2017).': '.substr($session,57,20);
         </div>
         <div class="card-block">
             <h5 class="card-title"><?php echo $session ?></h5>
-            <a href="#" class="btn btn-primary">Modifier</a>
+            <a href="/index.php?want=back_sessions_modif" class="btn btn-primary">Modifier</a>
         </div>
         <div class="card-footer text-muted">
             <div class="row">

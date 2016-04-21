@@ -4619,6 +4619,9 @@ a.bg-danger:focus, a.bg-danger:hover {
 html {
   font-size: 14px; }
 
+.disable-scroll {
+  overflow: hidden; }
+
 #sidebar .poemMenu a, #poemBackNavbar .poemMenu a {
   color: #9d9d9d; }
   #sidebar .poemMenu a i, #poemBackNavbar .poemMenu a i {

@@ -1,14 +1,3 @@
-<!-- Titre et fil d'arianne -->
-<div class="row">
-    <div class="col-sm-12">
-        <h1 class="page-header"><?php print $_SESSION['titre'];?></h1>
-        <ol class="breadcrumb">
-            <li><a href="#">POEM</a></li>
-            <li class="active"><?php print $_SESSION['menu'];?></li>
-        </ol>
-    </div>
-</div>
-
 <!-- champs de recherche dans une liste -->
 <div class="row find">
     <div class="col-sm-12">
@@ -25,20 +14,18 @@
         </form>
     </div>
 </div>
-
-
-<!-- dans le cas d'une liste à afficher -->
+<!-- list -->
 <div class="row" id="list">
-            <?php
-            for($i = 0; $i < $_SESSION['nb_list']; $i++) {
-                /* Pour les leçons */
-                if($_SESSION['page']=='leçons_list') include('./includes/back/vignette_leçons.php');
-                /* Pour les cours */
-                if($_SESSION['page']=='cours_list') include('./includes/back/vignette_cours.php');
-                /* Pour les sessions */
-                if($_SESSION['page']=='sessions_list') include('./includes/back/vignette_sessions.php');
-            }
-            ?>
+    <?php
+    for($i = 0; $i < $_SESSION['nb_list']; $i++) {
+        /* Pour les leçons */
+        if($_SESSION['page']=='lecons_list') include('./includes/back/layout/main/template_lists/vignette_lecons.php');
+        /* Pour les cours */
+        if($_SESSION['page']=='cours_list') include('./includes/back/layout/main/template_lists/vignette_cours.php');
+        /* Pour les sessions */
+        if($_SESSION['page']=='sessions_list') include('./includes/back/layout/main/template_lists/vignette_sessions.php');
+    }
+    ?>
 </div>
 <div class="row more">
     <div class="col-sm-12">
@@ -46,4 +33,3 @@
         <img class="center-block hidden-xs-up" src="/css/assets/loader1.gif" alt="loader fourmis" />
     </div>
 </div>
-

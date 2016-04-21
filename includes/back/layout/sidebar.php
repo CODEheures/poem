@@ -8,7 +8,7 @@
 
 <!-- Menu de navigation -->
 <div class="row poemMenu">
-    <?php include('./includes/back/menu.php'); ?>
+    <?php include('./includes/back/layout/navbar_sidebar/menu.php'); ?>
 </div>
 
 <!-- Pied de sidebar -->
