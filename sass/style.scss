@@ -55,13 +55,6 @@ html {
         }
       }
 
-      & a:nth-child(2) {
-        position: absolute;
-        top: 0.2rem;
-        right: 1rem;
-        color: $color-sidebar-menu-plus;
-        font-size: 1.1rem;
-      }
     }
   }
 }
@@ -101,6 +94,18 @@ html {
   margin-bottom: 30px;
 
   & #dashboard {
+
+    & .links a {
+      font-size: 1.1rem;
+      line-height: 2.5rem;
+      padding-left: 10px;
+
+      &:nth-child(3){
+        position: relative;
+        top: -0.3rem;
+        color: $color-sidebar-menu-plus;
+      }
+    }
 
     & > .row:nth-of-type(1) {
       padding-top: 20px;

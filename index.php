@@ -47,7 +47,7 @@ $type = array(
     'back_sessions' => array(
         'type' => 'back',
         'page' => 'sessions_list',
-        'menu' => 'sessions',
+        'menu' => 'sessions privées',
         'titre' => 'liste des sessions'
     ),
 

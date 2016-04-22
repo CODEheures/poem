@@ -1,4 +1,5 @@
 <section id="dashboard">
+    <!-- Indicateurs -->
     <div class="row">
         <div class="col-sm-12 col-lg-4 col-xl-2">
             <div class="card card-block not-animed indicator1">
@@ -50,6 +51,17 @@
         </div>
     </div>
 
+    <!-- Cours et sessions privees -->
+    <div class="row links">
+        <div class="col-sm-12">
+            <p class="text-xs-right">
+                <a href="/index.php?want=back_cours" class="text-primary" title="Voir les cours"><i class="ion-network"></i><?php print $type['back_cours']['menu'] ?></a>
+                <a href="/index.php?want=back_sessions" class="text-primary" title="Voir les sessions privées"><i class="ion-university"></i><?php print $type['back_sessions']['menu'] ?></a><a href="/index.php?want=back_sessions_ajout" title="Ajouter une sessions"><span class="ion-plus-circled"></span></a>
+            </p>
+        </div>
+    </div>
+    
+    <!-- Sortie de résultats -->
     <div class="row">
         <div class="col-sm-12 results">
             <h2>Sortie des résultats</h2>
@@ -116,6 +128,7 @@
         <div class="col-sm-12"><hr /></div>
     </div>
 
+    <!-- Liste de leçons -->
     <?php
     $h2 = 'Mes dernières leçons';
     $vignettes = "lecons";
@@ -123,6 +136,7 @@
     $moreLink = 'leçons';
     $dataWhat = 'lecons';
     $moreQuantity = 4;
+    $modifier = true;
 
     include('./includes/back/layout/main/list_vignettes/list_vignettes.php');
 
@@ -132,6 +146,7 @@
     $moreLink = 'collections';
     $dataWhat = 'lecons';
     $moreQuantity = 4;
+    $modifier = false;
 
     include('./includes/back/layout/main/list_vignettes/list_vignettes.php');
     ?>

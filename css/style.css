@@ -4643,12 +4643,6 @@ html {
     #sidebar .poemMenu ul li a:first-child:hover, #sidebar .poemMenu ul li a:first-child.active, #poemBackNavbar .poemMenu ul li a:first-child:hover, #poemBackNavbar .poemMenu ul li a:first-child.active {
       background-color: #080808;
       color: #fff; }
-  #sidebar .poemMenu ul li a:nth-child(2), #poemBackNavbar .poemMenu ul li a:nth-child(2) {
-    position: absolute;
-    top: 0.2rem;
-    right: 1rem;
-    color: #D9534F;
-    font-size: 1.1rem; }
 
 #sidebar {
   background-color: #222;
@@ -4673,6 +4667,14 @@ html {
 
 #main {
   margin-bottom: 30px; }
+  #main #dashboard .links a {
+    font-size: 1.1rem;
+    line-height: 2.5rem;
+    padding-left: 10px; }
+    #main #dashboard .links a:nth-child(3) {
+      position: relative;
+      top: -0.3rem;
+      color: #D9534F; }
   #main #dashboard > .row:nth-of-type(1) {
     padding-top: 20px;
     padding-bottom: 20px;
