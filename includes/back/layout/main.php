@@ -14,11 +14,14 @@
 if($_SESSION['page']=='dashboard') {
     //template des pages de lists
     include('./includes/back/layout/main/template_dashboard.php');
-} elseif ($_SESSION['page']=='cours_list' || $_SESSION['page']=='sessions_list') {
+} elseif ($_SESSION['page']=='sessions_list') {
     //template des pages de lists
-    include('./includes/back/layout/main/template_lists_cours_sessions.php');
+    include('./includes/back/layout/main/template_lists_sessions.php');
 } elseif ($_SESSION['page']=='lecons_ajout' || $_SESSION['page']=='lecons_ajout') {
     //template ajout-modif d'une leçon
     include('./includes/back/layout/main/template_ajout_modif_lecon.php');
+} elseif ($_SESSION['page']=='resultats') {
+    //template résultats
+    include('./includes/back/layout/main/template_voir_resultats.php');
 }
 

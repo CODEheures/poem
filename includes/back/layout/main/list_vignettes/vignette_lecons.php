@@ -20,7 +20,10 @@ $resume = $resume.'...';
             <h5 class="card-title"><?php echo $lecon ?></h5>
             <p class="card-text"><?php echo $resume ?></p>
             <a href="/index.php?want=front_lecons_appercu" class="btn btn-info-outline">Voir</a>
-            <?php if($modifier)  {?><a href="/index.php?want=back_lecons_modif" class="btn btn-primary">Modifier</a><?php } ?>
+            <?php if($modifier)  {?>
+                <a href="/index.php?want=back_lecons_modif" class="btn btn-primary">Modifier</a>
+                <a href="/index.php?want=back_resultats" class="btn btn-primary">Résultats</a>
+            <?php } ?>
         </div>
         <div class="card-footer text-muted">
             <div class="row">

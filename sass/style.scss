@@ -16,6 +16,9 @@ html {
   overflow-y: scroll;
 }
 
+.hidden {
+  display: none;
+}
 
 #sidebar, #poemBackNavbar {
 
@@ -100,7 +103,7 @@ html {
       line-height: 2.5rem;
       padding-left: 10px;
 
-      &:nth-child(3){
+      &:nth-child(2){
         position: relative;
         top: -0.3rem;
         color: $color-sidebar-menu-plus;
@@ -124,16 +127,21 @@ html {
       & .card-footer {
         min-height: 4.5em;
       }
+
     }
 
+
+  }
+
+  & #results {
     & input#critere {
       min-width: 20vw;
     }
-  }
 
-  & .results {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    & .results-filter {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
   }
 
   & .page-header {

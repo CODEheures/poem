@@ -23,27 +23,6 @@ $type = array(
         'titre' => 'modifier une leçon'
     ),
 
-    'back_cours' => array(
-        'type' => 'back',
-        'page' => 'cours_list',
-        'menu' => 'cours',
-        'titre' => 'liste des cours'
-    ),
-
-    'back_cours_ajout' => array(
-        'type' => 'back',
-        'page' => 'cours_ajout',
-        'menu' => 'créer un cours',
-        'titre' => 'créer un cours'
-    ),
-
-    'back_cours_modif' => array(
-        'type' => 'back',
-        'page' => 'cours_modif',
-        'menu' => 'modifier un cours',
-        'titre' => 'modifier un cours'
-    ),
-
     'back_sessions' => array(
         'type' => 'back',
         'page' => 'sessions_list',
@@ -70,6 +49,13 @@ $type = array(
         'page' => 'explorer',
         'menu' => 'explorer les lecons',
         'titre' => 'explorateur'
+    ),
+
+    'back_resultats' => array(
+        'type' => 'back',
+        'page' => 'resultats',
+        'menu' => 'voir les résultats',
+        'titre' => 'résultats'
     ),
 );
 

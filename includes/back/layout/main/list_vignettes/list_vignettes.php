@@ -26,7 +26,7 @@
 </div>
 <div class="row more">
     <div class="col-sm-12">
-        <button type="button" class="btn btn-info-outline center-block" data-what="<?php print $dataWhat ?>" data-quantity="<?php print $moreQuantity ?>">Charger plus de <?php echo $moreLink ?></button>
+        <button type="button" class="btn btn-info-outline center-block" <?php if($modifier==true) {print 'data-modifier="true"';} ?>data-what="<?php print $dataWhat ?>" data-quantity="<?php print $moreQuantity ?>">Charger plus de <?php echo $moreLink ?></button>
         <img class="center-block hidden-xs-up" src="/css/assets/loader1.gif" alt="loader fourmis" />
     </div>
 </div>

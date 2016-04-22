@@ -4623,6 +4623,9 @@ html {
   overflow-x: hidden;
   overflow-y: scroll; }
 
+.hidden {
+  display: none; }
+
 #sidebar .poemMenu a, #poemBackNavbar .poemMenu a {
   color: #9d9d9d; }
   #sidebar .poemMenu a i, #poemBackNavbar .poemMenu a i {
@@ -4671,7 +4674,7 @@ html {
     font-size: 1.1rem;
     line-height: 2.5rem;
     padding-left: 10px; }
-    #main #dashboard .links a:nth-child(3) {
+    #main #dashboard .links a:nth-child(2) {
       position: relative;
       top: -0.3rem;
       color: #D9534F; }
@@ -4685,9 +4688,9 @@ html {
       font-weight: 900; }
     #main #dashboard .indicator1 .card-footer, #main #dashboard .indicator2 .card-footer, #main #dashboard .indicator3 .card-footer, #main #dashboard .indicator4 .card-footer, #main #dashboard .indicator5 .card-footer, #main #dashboard .indicator6 .card-footer {
       min-height: 4.5em; }
-  #main #dashboard input#critere {
+  #main #results input#critere {
     min-width: 20vw; }
-  #main .results {
+  #main #results .results-filter {
     padding-top: 25px;
     padding-bottom: 25px; }
   #main .page-header {
