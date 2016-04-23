@@ -22,6 +22,6 @@ if($_SESSION['page']=='dashboard') {
     include('./includes/back/layout/main/template_ajout_modif_lecon.php');
 } elseif ($_SESSION['page']=='resultats') {
     //template résultats
-    include('./includes/back/layout/main/template_voir_resultats.php');
+    include('./includes/back/layout/main/template_resultats.php');
 }
 
