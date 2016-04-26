@@ -48,7 +48,7 @@ $type = array(
         'type' => 'back',
         'page' => 'explorer',
         'menu' => 'explorer les lecons',
-        'titre' => 'explorateur'
+        'titre' => 'explorateur des leçons'
     ),
 
     'back_resultats' => array(

@@ -2,7 +2,7 @@
 <html lang="en">
 <?php include('./includes/back/layout/head.php'); ?>
 <body>
-
+<div id="notification"></div>
 <div class="container-fluid">
     <div class="row">
         <!-- navbar -->

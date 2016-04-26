@@ -28,10 +28,10 @@ $resume = $resume.'...';
         <div class="card-footer text-muted">
             <div class="row">
                 <p class="card-text col-md-6" title="Nombre d'élèves ayant fini cette leçon avec succès">
-                    <small class="text-muted"><i class="ion-stats-bars"></i><?php echo rand(1000,10000) ?></small>
+                    <small class="text-muted"><i class="fa fa-users" aria-hidden="true"></i><?php echo rand(1000,10000) ?></small>
                 </p>
                 <p class="card-text col-md-6 text-md-right" title="Moyenne globale de cette leçon">
-                    <small class="text-muted"><i class="ion-ios-pulse-strong"></i><?php echo (rand(90, 199)/10).'/20' ?></small>
+                    <small class="text-muted"><i class="fa fa-line-chart" aria-hidden="true"></i><?php echo (rand(90, 199)/10).'/20' ?></small>
                 </p>
             </div>
         </div>

@@ -23,5 +23,8 @@ if($_SESSION['page']=='dashboard') {
 } elseif ($_SESSION['page']=='resultats') {
     //template résultats
     include('./includes/back/layout/main/template_resultats.php');
+} elseif ($_SESSION['page']=='explorer') {
+    //template résultats
+    include('./includes/back/layout/main/template_explorer.php');
 }
 

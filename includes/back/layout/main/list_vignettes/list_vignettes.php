@@ -7,7 +7,7 @@
                 <label for="find">Ajoutez un filtre</label>
                 <div class="input-group">
                     <span class="input-group-btn">
-                        <button class="btn btn-secondary" type="button"><i class="ion-search"></i></button>
+                        <button class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </span>
                     <input type="text" class="form-control" id="find" placeholder="N°, Titre, Contenu">
                 </div>

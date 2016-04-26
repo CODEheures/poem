@@ -23,10 +23,10 @@ $session = $niveau[rand(0,3)].' '.rand(2015,2017).': '.substr($session,57,20);
         <div class="card-footer text-muted">
             <div class="row">
                 <p class="card-text col-md-6" title="Nombre d'élèves inscrits à cette session">
-                    <small class="text-muted"><i class="ion-stats-bars"></i><?php echo rand(5,900) ?></small>
+                    <small class="text-muted"><i class="fa fa-users" aria-hidden="true"></i><?php echo rand(5,900) ?></small>
                 </p>
                 <p class="card-text col-md-6 text-md-right" title="Moyenne globale de cette session">
-                    <small class="text-muted"><i class="ion-ios-pulse-strong"></i><?php echo (rand(90, 199)/10).'/20' ?></small>
+                    <small class="text-muted"><i class="fa fa-line-chart" aria-hidden="true"></i><?php echo (rand(90, 199)/10).'/20' ?></small>
                 </p>
             </div>
         </div>
