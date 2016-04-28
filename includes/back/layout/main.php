@@ -26,5 +26,8 @@ if($_SESSION['page']=='dashboard') {
 } elseif ($_SESSION['page']=='explorer') {
     //template résultats
     include('./includes/back/layout/main/template_explorer.php');
+} elseif ($_SESSION['page']=='explorer2') {
+    //template résultats
+    include('./includes/back/layout/main/template_explorer2.php');
 }
 

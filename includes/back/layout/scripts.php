@@ -16,4 +16,10 @@ if($_SESSION['page']=='dashboard') {
     print '<script src="js/jquery-mousewheel.min.js"></script>';
     print '<script src="js/tagcloud-jquery.js"></script>';
     print '<script src="js/poem-explorer.js"></script>';
+} elseif($_SESSION['page']=='explorer2') {
+    //scripts de la page explorer
+    print '<script src="js/jquery-ui.min.js"></script>';
+    print '<script src="js/primeui.min.js"></script>';
+    print '<script src="js/d3.v3.min.js"></script>';
+    print '<script src="js/poem-explorer2.js"></script>';
 }

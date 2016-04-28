@@ -1,0 +1,287 @@
+{
+  "name": "lecons",
+  "children": [
+    {
+      "name": "agriculture, agriculture operations, and related sciences",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "natural resources and conservation",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "architecture and related services",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "area, ethnic, cultural, gender, and group studies",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "communication, journalism, and related programs",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "communications technologies/technicians and support services",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "computer and information sciences and support services",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "personal and culinary services",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "education",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "engineering",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "engineering technologies and engineering-related fields",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "foreign languages, literatures, and linguistics",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "family and consumer sciences/human sciences",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "legal professions and studies",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "english language and literature/letters",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "liberal arts and sciences, general studies and humanities",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "library science",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "biological and biomedical sciences",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "mathematics and statistics",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "military science, leadership and operational art",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "military technologies and applied sciences",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "multi/interdisciplinary studies",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "parks, recreation, leisure, and fitness studies",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "basic skills and developmental/remedial education",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "citizenship activities",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "health-related knowledge and skills",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "interpersonal and social skills",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "leisure and recreational activities",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "personal awareness and self-improvement",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "philosophy and religious studies",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "theology and religious vocations",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "physical sciences",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "science technologies/technicians",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "psychology",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "homeland security, law enforcement, firefighting and related protective services",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "public administration and social service professions",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "social sciences",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "construction trades",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "mechanic and repair technologies/technicians",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "precision production",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "transportation and materials moving",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "visual and performing arts",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "health professions and related programs",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "business, management, marketing, and related support services",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "high school/secondary diplomas and certificates",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "history",
+      "children": [
+
+      ]
+    },
+    {
+      "name": "residency program",
+      "children": [
+
+      ]
+    }
+  ]
+}

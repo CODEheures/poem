@@ -154,7 +154,6 @@ $(document).ready(function () {
         let item = {"data": function () { return $this.innerHTML;} };
         notification(e,item);
         $dropDown1.val($this.innerHTML);
-        $this.animate({fontSize: 162});
         $tagcloudDomain.fadeOut(500);
         $tagcloudChamps.tagoSphere(settings);
         $tagcloudChamps.fadeIn(300);
@@ -166,7 +165,6 @@ $(document).ready(function () {
         let item = {"data": function () { return $this.innerHTML;} };
         notification(e,item);
         $dropDown2.val($this.innerHTML);
-        $this.animate({fontSize: 162});
         $tagcloudChamps.fadeOut(500);
         $tagcloudLecon.tagoSphere(settings);
         $tagcloudLecon.fadeIn(300);
@@ -178,7 +176,6 @@ $(document).ready(function () {
         let item = {"data": function () { return $this.innerHTML;} };
         notification(e,item);
         $dropDown3.val($this.innerHTML);
-        $this.animate({fontSize: 162});
         $tagcloudChamps.fadeOut(500);
         $tagcloudLecon.tagoSphere(settings);
         $tagcloudLecon.fadeIn(300);
@@ -197,7 +194,6 @@ $(document).ready(function () {
             };
             notification(e, item);
             $dropDown1.val($this.innerHTML);
-            $this.animate({fontSize: 162});
             $tagcloudDomain.fadeOut(500);
             $tagcloudChamps.tagoSphere(settings);
             $tagcloudChamps.fadeIn(300);
@@ -215,7 +211,6 @@ $(document).ready(function () {
             };
             notification(e, item);
             $dropDown2.val($this.innerHTML);
-            $this.animate({fontSize: 162});
             $tagcloudChamps.fadeOut(500);
             $tagcloudLecon.tagoSphere(settings);
             $tagcloudLecon.fadeIn(300);
@@ -233,7 +228,6 @@ $(document).ready(function () {
             };
             notification(e, item);
             $dropDown3.val($this.innerHTML);
-            $this.animate({fontSize: 162});
             $tagcloudChamps.fadeOut(500);
             $tagcloudLecon.tagoSphere(settings);
             $tagcloudLecon.fadeIn(300);
