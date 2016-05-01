@@ -30,6 +30,8 @@
         width : 400,
         //radius of sphere
         radius : 150,
+        //maximum tag
+        maxtags: 80,
         //rotation speed
         speed : 3,
         //sphere rotations slower
@@ -68,7 +70,7 @@
         initTags(this);
         initMaths();
         deployTags();
-        setInterval(updateTags, options.timer);
+        opt.interval = setInterval(updateTags, options.timer);
         return this;
     };
 
@@ -82,13 +84,12 @@
         mathAssets.hwratio = options.height / options.width;
         mathAssets.whratio = options.width / options.height;
         mathAssets.tLength = tags.length - 1;
-        curState.mouseOver = false;
+        //curState.mouseOver = false;
         curState.lastFx = options.speed;
         curState.lastFy = options.speed;
     }
 
-    function getOffsetLeft( elem )
-    {
+    function getOffsetLeft( elem ) {
         var offsetLeft = 0;
         do {
             if ( !isNaN( elem.offsetLeft ) )
@@ -99,8 +100,7 @@
         return offsetLeft;
     }
 
-    function getOffsetTop( elem )
-    {
+    function getOffsetTop( elem )  {
         var offsetTop = 0;
         do {
             if ( !isNaN( elem.offsetTop ) )
@@ -115,7 +115,6 @@
         tagContainer.height(options.height);
         tagContainer.width(options.width);
         tagContainer.css( {
-            'overflow' : 'hidden',
             'position' : 'relative'
         });
         tagContainer.mousemove( function(e) {
@@ -134,13 +133,18 @@
 
     function initTags(tagContainer) {
         tags = tagContainer.children('ul').children();
+        while (tags.length > options.maxtags) {
+            tagContainer.children('ul').children(':nth-of-type('+ Math.round(Math.random()*tags.length) +')').remove();
+            tags = tagContainer.children('ul').children();
+        }
         tags.css( {
             'position' : 'absolute',
             'list-style-type' : 'none',
             'list-style-position' : 'outside',
             'list-style-image' : 'none',
             'max-width' : '20%',
-            'word-wrap': 'break-word'
+            'word-wrap': 'break-word',
+            'border-radius': '0.5em'
         });
         for ( var i = 0; i < tags.length; i++) {
             var jTag = jQuery(tags[i]);
@@ -180,6 +184,7 @@
     function updateTags() {
         var fy;
         var fx;
+
         if (curState.mouseOver) {
             fy = options.speed - mathAssets.speedY * curState.mouseY;
             fx = mathAssets.speedX * curState.mouseX - options.speed;
@@ -192,7 +197,7 @@
             curState.lastFy = fy;
             curState.lastFx = fx;
         }
-        if (Math.abs(fy) > 0.01 || Math.abs(fx) > 0.01) {
+        if (Math.abs(fy) > 0.1 || Math.abs(fx) > 0.1) {
             j = -1;
             while (j++ < mathAssets.tLength) {
                 rx1 = tags[j].cx;

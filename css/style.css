@@ -4714,6 +4714,37 @@ html {
     #main #explorer .ui-autocomplete input {
       width: 80%;
       margin-left: calc((20% - 2.4em)/2); }
+  #main #explorer .selectors {
+    margin-bottom: 20px; }
+    #main #explorer .selectors .elo-slider, #main #explorer .selectors .language, #main #explorer .selectors .filter {
+      margin-left: calc((20% - 2.4em)/2);
+      margin-right: calc((20% - 2.4em)/2); }
+    #main #explorer .selectors .filter {
+      margin-bottom: 0.3rem; }
+  #main #explorer .row div.tag-cloud {
+    margin-left: auto;
+    margin-right: auto;
+    background: transparent url("./assets/ball4.png") no-repeat center;
+    background-size: 70% 70%; }
+    #main #explorer .row div.tag-cloud h3 {
+      position: relative;
+      top: calc(50% - 0.5em);
+      font-size: 5em;
+      text-shadow: 0 0 5px #838383; }
+    #main #explorer .row div.tag-cloud ul li {
+      font-family: "PT Sans", sans-serif;
+      padding: 4px;
+      background-color: white;
+      background: -webkit-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+      background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%); }
+    #main #explorer .row div.tag-cloud button.backward {
+      position: absolute;
+      left: -100px;
+      top: calc(50% - 0.5em); }
+    #main #explorer .row div.tag-cloud button.forward {
+      position: absolute;
+      right: -100px;
+      top: calc(50% - 0.5em); }
   #main .page-header {
     margin-top: 2rem;
     border-bottom: 1px solid #eee;

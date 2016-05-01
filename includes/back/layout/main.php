@@ -6,6 +6,7 @@
             <li><a href="/index.php">POEM</a></li>
             <li class="active"><?php print $_SESSION['menu'];?></li>
         </ol>
+        <div id="messages"></div>
     </div>
 </div>
 

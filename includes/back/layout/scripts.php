@@ -12,6 +12,7 @@ if($_SESSION['page']=='dashboard') {
 } elseif($_SESSION['page']=='explorer') {
     //scripts de la page explorer
     print '<script src="js/jquery-ui.min.js"></script>';
+    //print '<script src="js/plugins-all.js"></script>';
     print '<script src="js/primeui.min.js"></script>';
     print '<script src="js/jquery-mousewheel.min.js"></script>';
     print '<script src="js/tagcloud-jquery.js"></script>';

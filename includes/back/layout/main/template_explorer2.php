@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 d3-explorer center-block">
+        <div class="col-sm-12 d3-explorer">
            
         </div>
     </div>

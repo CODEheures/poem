@@ -48,6 +48,8 @@ $(document).ready(function () {
         node = svg.selectAll("circle,text");
         zoom(root, true);
 
+        $notification.puigrowl('show', [{severity: 'info', summary: 'Votre choix', detail: svg.selectAll("circle")[0].length + " leçons visibles"}]);
+        //console.log(svg.selectAll("circle")[0].length);
 
         //CREATION DES DROPDOWNS
         for (let $i = 1; $i<=3 ; $i++) {
