@@ -31,7 +31,7 @@ $(document).ready(function () {
         .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
     //Lecture du JSON et creation du svg et des dropdowns associés
-    d3.json("./fake_remote_data/explorer-n1.php", function(error, root) {
+    d3.json("./fake_remote_data/explorer-n2.php", function(error, root) {
         if (error) throw error;
 
         var focus = root,
@@ -52,7 +52,7 @@ $(document).ready(function () {
         //console.log(svg.selectAll("circle")[0].length);
 
         //CREATION DES DROPDOWNS
-        for (let $i = 1; $i<=3 ; $i++) {
+        for (var $i = 1; $i<=3 ; $i++) {
             //DATA
             $dataN[$i] = [];
             d3.selectAll("circle")
@@ -72,7 +72,7 @@ $(document).ready(function () {
                         .filter(function(d) { return (d.name ==item.data('label')) })
                         .each(function (d) {
                             if($i>=2) {
-                                for (let $j = 1; $j <= $i; $j++){
+                                for (var $j = 1; $j <= $i; $j++){
                                     var $d = d;
                                     for ($k = $j; $k < $i; $k++) {
                                         $d = $d.parent;
@@ -122,16 +122,16 @@ $(document).ready(function () {
         function pathText(k, d) {
             for (var $i in nodes) {
                 if(!d || nodes[$i]===d){
-                    let $fzinit = 10;
-                    let $ratiomax = 0.85; //le texte fera un rond de 0.9 tour maxi
+                    var $fzinit = 10;
+                    var $ratiomax = 0.85; //le texte fera un rond de 0.9 tour maxi
 
-                    let $testPathTextExist = $('#path-text'+$i).get(0);
+                    var $testPathTextExist = $('#path-text'+$i).get(0);
 
                     if(!d || !$testPathTextExist){
                         //longueur de la chaine en px:
                         $('body').append('<span id="tempo" style="font-size: '+ $fzinit + 'px">'+ (nodes[$i].name) + '</span>');
-                        let $tempo = $("#tempo");
-                        let $strlen = $tempo.width();
+                        var $tempo = $("#tempo");
+                        var $strlen = $tempo.width();
                         $tempo.remove();
                         nodes[$i].strlen = $strlen;
                     }
@@ -141,13 +141,13 @@ $(document).ready(function () {
                     //formule pour txt à l'interieur du cercle = equation a 2 inconnue
                     //1°) $perimetre = (nodes[$i].r-$fzm)*2*Math.PI;
                     //2°) $fzm =  $ratiomax* $fzinit*$perimetre/$strLen
-                    let $fontSizeMaxi = (nodes[$i].r*k/nodes[$i].strlen)*((nodes[$i].strlen*$ratiomax*2*Math.PI*$fzinit)/(nodes[$i].strlen+$ratiomax*2*Math.PI*$fzinit));
+                    var $fontSizeMaxi = (nodes[$i].r*k/nodes[$i].strlen)*((nodes[$i].strlen*$ratiomax*2*Math.PI*$fzinit)/(nodes[$i].strlen+$ratiomax*2*Math.PI*$fzinit));
                     nodes[$i].fontSizeMaxi = $fontSizeMaxi;
                     nodes[$i].limitFonSize = $limitFontSize;
 
                     //creation d'un arc
 
-                    let $arc = d3.svg.arc()
+                    var $arc = d3.svg.arc()
                         .innerRadius(nodes[$i].r*k-Math.min($fontSizeMaxi,$limitFontSize))
                         .outerRadius(nodes[$i].r*k-Math.min($fontSizeMaxi,$limitFontSize))
                         .startAngle(-Math.PI/2)
@@ -169,25 +169,27 @@ $(document).ready(function () {
         }
 
         //action lors d'un zoom (click dans un cercle)
-        function zoom(d, firstTime=false) {
+        function zoom(d, firstTime) {
+            firstTime = typeof firstTime !== 'undefined' ? firstTime : false;
+
             var focus0 = focus; focus = d;
 
-            let factors = [focus.x, focus.y, focus.r * 2 + margin];
-            let $k = diameter / factors[2];
+            var factors = [focus.x, focus.y, focus.r * 2 + margin];
+            var $k = diameter / factors[2];
 
             //erase des evenements click et tooltip de tous les cercles
             svg.selectAll("circle")
                 .on("click", null)
                 .style("cursor", "auto")
                 .each(function () {
-                    $(this).tooltip('dispose');
+                    //$(this).tooltip('dispose');
                 });
 
             //ajout evenements click et tooltip au cercles
             svg.selectAll("circle")
                 .filter(function(d) { return (d.parent === focus || d.depth <= focus.depth) })
                 .on("click", function(d) {
-                    let $detail;
+                    var $detail;
 
                     if(d.depth == 1) {
                         $detail = 'domaine: ';

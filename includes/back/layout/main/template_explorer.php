@@ -20,8 +20,8 @@
         <div class="col-md-4">
             <p class="elo-slider">
                 <label for="elo-range">ELO:</label>
-                <input type="text" id="elo-min" readonly style="border:0; color:#f6931f; font-weight:bold;" />
-                <input type="text" id="elo-max" readonly style="border:0; color:#f6931f; font-weight:bold;" />
+                <input type="text" id="elo-min" readonly size="9"/>
+                <input type="text" id="elo-max" readonly size="9"/>
             </p>
             <div id="elo-slider" class="elo-slider"></div>
         </div>
@@ -41,6 +41,11 @@
             </div>
         </div>
     </div>
+    <div class="row load">
+        <div class="col-sm-12">
+            <img class="center-block hidden-xs-up" src="/css/assets/loader1.gif" alt="loader fourmis" />
+        </div>
+    </div>
     <div class="row tag-cloud">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
@@ -54,42 +59,4 @@
         </div>
         <div class="col-sm-1"></div>
     </div>
-    
-<!--    <div class="row tag-cloud">-->
-<!--        <div class="col-sm-1"></div>-->
-<!--        <div class="col-sm-10">-->
-<!--            <div id="tagcloudDomain" class="tag-cloud">-->
-<!--                <h3 class="text-xs-center">Domaines</h3>-->
-<!--                <ul>-->
-<!--                </ul>-->
-<!--                <button class="btn btn-info-outline forward"><i class="fa fa-step-forward"> Champs</i></button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col-sm-1"></div>-->
-<!--    </div>-->
-<!--    <div class="row tag-cloud">-->
-<!--        <div class="col-sm-1"></div>-->
-<!--        <div class="col-sm-10">-->
-<!--            <div id="tagcloudChamp" class="tag-cloud">-->
-<!--                <h3 class="text-xs-center">Champs</h3>-->
-<!--                <ul>-->
-<!--                </ul>-->
-<!--                <button class="btn btn-info-outline backward"><i class="fa fa-step-backward"> Domaines</i></button>-->
-<!--                <button class="btn btn-info-outline forward"><i class="fa fa-step-forward"> Leçons</i></button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col-sm-1"></div>-->
-<!--    </div>-->
-<!--    <div class="row tag-cloud">-->
-<!--        <div class="col-sm-1"></div>-->
-<!--        <div class="col-sm-10">-->
-<!--            <div id="tagcloudLecon" class="tag-cloud">-->
-<!--                <h3 class="text-xs-center">Leçon</h3>-->
-<!--                <ul>-->
-<!--                </ul>-->
-<!--                <button class="btn btn-info-outline backward"><i class="fa fa-step-backward"> Champs</i></button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col-sm-1"></div>-->
-<!--    </div>-->
 </section>

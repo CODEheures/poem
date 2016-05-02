@@ -4714,13 +4714,20 @@ html {
     #main #explorer .ui-autocomplete input {
       width: 80%;
       margin-left: calc((20% - 2.4em)/2); }
-  #main #explorer .selectors {
+  #main #explorer .selectors .col-md-4 {
     margin-bottom: 20px; }
-    #main #explorer .selectors .elo-slider, #main #explorer .selectors .language, #main #explorer .selectors .filter {
-      margin-left: calc((20% - 2.4em)/2);
-      margin-right: calc((20% - 2.4em)/2); }
-    #main #explorer .selectors .filter {
-      margin-bottom: 0.3rem; }
+  #main #explorer .selectors .elo-slider, #main #explorer .selectors .language, #main #explorer .selectors .filter {
+    margin-left: calc((20% - 2.4em)/2);
+    margin-right: calc((20% - 2.4em)/2); }
+  #main #explorer .selectors .elo-slider {
+    max-width: 100%;
+    display: block; }
+    #main #explorer .selectors .elo-slider input {
+      border: 0;
+      color: #f6931f;
+      font-weight: bold; }
+  #main #explorer .selectors .filter {
+    margin-bottom: 0.3rem; }
   #main #explorer .row div.tag-cloud {
     margin-left: auto;
     margin-right: auto;
@@ -4780,6 +4787,8 @@ html {
     #main .card .card-block .card-text {
       height: 3em;
       overflow-y: hidden; }
+    #main .card .card-block a {
+      margin-bottom: 10px; }
   #main .card .card-footer p {
     margin-bottom: 0; }
   #main .more {

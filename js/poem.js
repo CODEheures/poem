@@ -1,14 +1,14 @@
 /*********************************************************************************
 /*** Librairie des fonctions JS de POEM
-/*** 
+/***
 /*** Cette librairie definit un objet nommé poem dans lequel sont repertoriés
 /*** toutes les fonctions et attributs principaux employés dans une page poem
 /***
 /*** Exemple utilisation:
-/***      Voir les fichiers poem-dashbord.js, poem-explorer.js poem-resultats 
+/***      Voir les fichiers poem-dashbord.js, poem-explorer.js poem-resultats
 /***
-/**********************************************************************************/ 
- 
+/**********************************************************************************/
+
 
 
 var poem = {
@@ -31,10 +31,10 @@ var poem = {
 //$elem: élément à animer
 //$num: numéro délément à animer pour delay timer
 function poem_animCard($elem, $num) {
-    let $poem = this;
+    var $poem = this;
     setTimeout(function () {
         $elem.removeClass("hidden-sm-up");
-        let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         $elem.addClass("animated flipInY").one(animationEnd, function() {
             $(this).removeClass("animated flipInY").addClass("not-animed");
             $poem.compteurAnimCard ++;
@@ -45,12 +45,12 @@ function poem_animCard($elem, $num) {
 //function d'animation de plusieurs cartes
 //par defaut les cartes à animer sont toutes saus les celles qui ont la classe '.not-animated'
 function poem_animCards() {
-    let $poem = this;
+    var $poem = this;
     $poem.compteurAnimCard = 0;
-    let $cards = $('.card:not(.not-animed)');
+    var $cards = $('.card:not(.not-animed)');
     $poem.container.addClass("disable-scroll"); //sinon l'animation fait sauter l'ecran
     $cards.each(function ($num) {
-        let $card = $(this);
+        var $card = $(this);
         $poem.animCard($card, $num);
     });
     $poem.findEndAnimCards($cards.length);
@@ -59,8 +59,8 @@ function poem_animCards() {
 //function de recherche de la fin de la séquence d'animation pour retablir le scroll sur body
 //$nbCards: le nombre de cartes animées
 function poem_findEndAnimCards($nbCards) {
-    let $poem = this;
-    let $interval1= setInterval(findEndAnim, $poem.delayAnimCards);
+    var $poem = this;
+    var $interval1= setInterval(findEndAnim, $poem.delayAnimCards);
     function findEndAnim() {
         //console.log($poem.compteurAnimCard);
         if($poem.compteurAnimCard == $nbCards){
@@ -75,17 +75,17 @@ function poem_findEndAnimCards($nbCards) {
 //Function de rajout de carte avec une requete Ajax
 //$button: le bouton cliqué sui déclenche la fonction
 function poem_moreCards($button) {
-    let $poem = this;
-    let $img = $button.next('img');
-    let $list = $button.parent().parent().prev('.list-vignettes');
-    let $cards_init = $list.children('div').children('.card');
+    var $poem = this;
+    var $img = $button.next('img');
+    var $list = $button.parent().parent().prev('.list-vignettes');
+    var $cards_init = $list.children('div').children('.card');
     $button.blur();
     $button.toggleClass('hidden-xs-up');
     $img.toggleClass('hidden-xs-up');
-    let $nbCardInit = $cards_init.length;
-    let $url = poem.host + "/back_list_more.php?more="+ $button.data('quantity') +"&startcount="+($nbCardInit)+"&what="+$button.data('what');
+    var $nbCardInit = $cards_init.length;
+    var $url = poem.host + "/back_list_more.php?more="+ $button.data('quantity') +"&startcount="+($nbCardInit)+"&what="+$button.data('what');
     $button.data('modifier') ? $url=$url+"&modifier=true": false;
-    let jqxhr = $.ajax($url)
+    var jqxhr = $.ajax($url)
         .done(function(data, textStatus, jqXHR) {
             $list.append(data);
             $poem.animCards();
@@ -105,11 +105,11 @@ function poem_moreCards($button) {
 //Function de chargement des résultats prof
 //$button: le bouton cliqué sui déclenche la fonction
 function poem_loadResults($button) {
-    let $poem = this;
+    var $poem = this;
     $button.blur();
     $('.results table').children().remove();
-    let $url = $poem.host + "/url_requete_sql_sortie_resultat.php";
-    let jqxhr = $.ajax($url)
+    var $url = $poem.host + "/url_requete_sql_sortie_resultat.php";
+    var jqxhr = $.ajax($url)
         .done(function(data, textStatus, jqXHR) {
             //rien pour l'instant ici
         })
@@ -118,7 +118,7 @@ function poem_loadResults($button) {
         })
         .always(function () {
             alert( "ce chargement est bidon, il faudra dev le back pour recuperer l'objet JSON!" );
-            
+
             $('.results table').append('<thead><tr><th>Nom Prénom</th><th>Session</th><th>Cours</th><th>Leçon</th>'+
                 '<th>Début</th><th>Fin</th><th>Note</th><th>Action</th></tr></thead><tbody><tr><td>Etudiant 1</td>'+
                 '<td>Lpatc 2015</td><td>xyz</td><td>abc</td><td>21-02-2013</td><td>28-02-2013</td><td>13.2</td>'+
@@ -129,7 +129,7 @@ function poem_loadResults($button) {
                 '</td></tr></tbody>').children().children('tr').hide();
 
             $('.results table tr').each(function ($num) {
-                let $tr = $(this);
+                var $tr = $(this);
                 setTimeout(function () {
                     $tr.fadeIn(800);
                 },$poem.delayAnimCards*$num);
@@ -151,23 +151,23 @@ function poem_init_notification_and_messages() {
 //$tagCloudSettings: les settings du cloud de tag
 function poem_update_explorer(data, $tagCloudsettings) {
 
-    let $root = data; //Node root
-    let $nodeId = 0;
-    let $nodeFound;
-    let $dataR = []; //Tous les nodes classés par niveau de profondeur
-    let $dataN = []; //Nodes filtrés (seulement parents et enfant du node selectionné) classés par niveau de profondeur
-    let $dropDown = [];
-    let $tagCloudContainer = $('#tagcloud');
-    let $ulTagCloud = $tagCloudContainer.find('ul');
-    let $message;
-    let $tagCloudViewDepth; //Profondeur du cloud en cours de visualisation
+    var $root = data; //Node root
+    var $nodeId = 0;
+    var $nodeFound;
+    var $dataR = []; //Tous les nodes classés par niveau de profondeur
+    var $dataN = []; //Nodes filtrés (seulement parents et enfant du node selectionné) classés par niveau de profondeur
+    var $dropDown = [];
+    var $tagCloudContainer = $('#tagcloud');
+    var $ulTagCloud = $tagCloudContainer.find('ul');
+    var $message;
+    var $tagCloudViewDepth; //Profondeur du cloud en cours de visualisation
 
     //****************************************
     // Gestion des filtre slider ELO, langue, et filtre
     //****************************************
-    let $eloSlider = $('#elo-slider');
-    let $language = $('#language');
-    let $filter = $('#filter');
+    var $eloSlider = $('#elo-slider');
+    var $language = $('#language');
+    var $filter = $('#filter');
 
     $eloSlider.slider({
         range: true,
@@ -211,7 +211,9 @@ function poem_update_explorer(data, $tagCloudsettings) {
     //************************************
 
     //Attribution initiale récursive des parents - profondeur de noeud - et attribut visible=true à chaque node
-    function setParentAndDepth($node, $depth=0) {
+    function setParentAndDepth($node, $depth) {
+        $depth = typeof $depth !== 'undefined' ? $depth : 0;
+
         $nodeId++;
         $node.id = $nodeId;
         $node.depth = $depth;
@@ -226,7 +228,9 @@ function poem_update_explorer(data, $tagCloudsettings) {
     }
 
     //Setting de l'attribut récursif visible à un node et ses enfants recursifs
-    function setVisibleChild($node, $visible=true) {
+    function setVisibleChild($node, $visible) {
+        $visible = typeof $visible !== 'undefined' ? $visible : true;
+
         $node.visible = $visible;
         if($node.children != undefined){
             for($num in $node.children){
@@ -239,12 +243,12 @@ function poem_update_explorer(data, $tagCloudsettings) {
     //Ajuste l'attribut visible à true des parents et enfant du noeud choisi
     //Met l'attribut visible à false pour tous les autres
     function dataFilter($node) {
-        let $parentsOfNode = [];
+        var $parentsOfNode = [];
         $parentsOfNode[$node.depth] = $node;
         setVisibleChild($root, true);
-        for(let $depth = $node.depth-1; $depth >= 0 ; --$depth) {
+        for(var $depth = $node.depth-1; $depth >= 0 ; --$depth) {
             $parentsOfNode[$depth] = $parentsOfNode[$depth+1].parent;
-            for(let $num in $parentsOfNode[$depth].children){
+            for(var $num in $parentsOfNode[$depth].children){
                 if($parentsOfNode[$depth].children[$num] != $parentsOfNode[$depth+1]){
                     setVisibleChild($parentsOfNode[$depth].children[$num], false);
                 }
@@ -270,7 +274,9 @@ function poem_update_explorer(data, $tagCloudsettings) {
     }
 
     //Mise à jour dataR
-    function setDataR($node=$root) {
+    function setDataR($node) {
+        $node = typeof $node !== 'undefined' ? $node : $root;
+
         if($node.visible==true){
             if($dataR[$node.depth] == undefined) { $dataR[$node.depth] = []}
             $dataR[$node.depth].push({"name": $node.name, "id": $node.id});
@@ -283,7 +289,9 @@ function poem_update_explorer(data, $tagCloudsettings) {
     }
 
     //recherche d'un node par Id
-    function getNodeById($nodeId, $node=$root) {
+    function getNodeById($nodeId, $node) {
+        $node = typeof $node !== 'undefined' ? $node : $root;
+
         if($node==$root){ $nodeFound = null }
         if($node.children != undefined){
             for($num in $node.children){
@@ -298,8 +306,8 @@ function poem_update_explorer(data, $tagCloudsettings) {
 
     //Ajout des tags au cloud
     function addTagsCloud($depth) {
-        let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-        for(let $i in $dataN[$depth]) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        for(var $i in $dataN[$depth]) {
             $ulTagCloud.append('<li data-node-id="'+ $dataN[$depth][$i].id +'">'+$dataN[$depth][$i].name +'</li>')
         }
         $ulTagCloud.find('li').addClass("animated zoomIn").one(animationEnd, function() {
@@ -311,7 +319,7 @@ function poem_update_explorer(data, $tagCloudsettings) {
 
         $ulTagCloud.find('li').click(function (e) {
             e.preventDefault();
-            let $this = this;
+            var $this = this;
             getNodeById($this.dataset.nodeId);
             update($nodeFound);
 
@@ -320,7 +328,7 @@ function poem_update_explorer(data, $tagCloudsettings) {
         $ulTagCloud.find('li').mousewheel(function (e) {
             e.preventDefault();
             if(e.deltaY == 1) {
-                let $this = this;
+                var $this = this;
                 getNodeById($this.dataset.nodeId);
                 update($nodeFound);
             } else {
@@ -333,7 +341,7 @@ function poem_update_explorer(data, $tagCloudsettings) {
     function updateTagsCloudLi($depth) {
 
         $messages.puimessages('clear');
-        let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
         if($ulTagCloud.find('li').length > 0){
             $ulTagCloud.find('li').addClass("animated zoomOut").one(animationEnd, function() {
@@ -374,7 +382,7 @@ function poem_update_explorer(data, $tagCloudsettings) {
     //Mise à jour des dropdown
     function updateDropDown($nodeSelected) {
         //Pour chaque niveau de profondeur
-        for(let $depth = 0 ; $depth <= $dataR.length-1 ; $depth++) {
+        for(var $depth = 0 ; $depth <= $dataR.length-1 ; $depth++) {
             $source = [];
             //Si le niveau est inferieur tous les nodes sont acceptés dans la liste (pour pouvoir changer d'avis!)
             if ($depth <= $nodeSelected.depth) {
@@ -396,11 +404,11 @@ function poem_update_explorer(data, $tagCloudsettings) {
                 dropdown: true,
                 select: function (event, item) {
 
-                    let re = /\[(\d)+\]/;
+                    var re = /\[(\d)+\]/;
 
-                    let $itemLabelSplitStart = item.data('label').search(re)+1;
-                    let $itemLabelSplitEnd = item.data('label').length-1;
-                    let $nodeId = item.data('label').substring($itemLabelSplitStart, $itemLabelSplitEnd);
+                    var $itemLabelSplitStart = item.data('label').search(re)+1;
+                    var $itemLabelSplitEnd = item.data('label').length-1;
+                    var $nodeId = item.data('label').substring($itemLabelSplitStart, $itemLabelSplitEnd);
                     getNodeById($nodeId);
                     update($nodeFound);
                     $notification.puigrowl('show', [{
@@ -476,7 +484,7 @@ function poem_update_explorer(data, $tagCloudsettings) {
 //Function de chargement de l'explorer: AJAX + lancement de poem_update_explorer
 //$relativeHostURL: adresse (sans le HOST) de la page qui fournit le resultat AJAX
 function poem_load_explorer() {
-    let $tagCloudsettings = {
+    var $tagCloudsettings = {
         height: 700, //height of sphere container
         width: 700, //width of sphere container
         radius: 250, //radius of sphere
@@ -494,11 +502,14 @@ function poem_load_explorer() {
         }
     };
 
+    var $img = $('.load img');
+    $img.toggleClass('hidden-xs-up');
 
-
-    let $url = poem.host + poem.dataOfExplorer;
-    let jqxhr = $.ajax($url)
+    var $url = poem.host + poem.dataOfExplorer;
+    var jqxhr = $.ajax($url)
         .done(function(data, textStatus, jqXHR) {
+            var $img = $('.load img');
+            $img.toggleClass('hidden-xs-up');
             poem_update_explorer(data, $tagCloudsettings)
         })
         .fail(function() {

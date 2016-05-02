@@ -173,11 +173,27 @@ html {
     }
 
     & .selectors {
-      margin-bottom: 20px;
+
+      & .col-md-4 {
+        margin-bottom: 20px;
+      }
 
       & .elo-slider, & .language, & .filter {
         margin-left: calc((20% - 2.4em)/2);
         margin-right: calc((20% - 2.4em)/2);
+      }
+
+      & .elo-slider {
+        max-width: 100%;
+        display: block;
+        & label, & input {
+
+        }
+        & input {
+          border:0;
+          color:#f6931f;
+          font-weight:bold;
+        }
       }
 
       & .filter {
@@ -287,6 +303,10 @@ html {
       & .card-text {
         height: 3em;
         overflow-y: hidden;
+      }
+
+      & a {
+        margin-bottom: 10px;
       }
     }
 
