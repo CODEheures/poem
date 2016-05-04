@@ -403,7 +403,6 @@ function poem_update_explorer(data, $tagCloudsettings) {
                 forceSelection: true,
                 dropdown: true,
                 select: function (event, item) {
-
                     var re = /\[(\d)+\]/;
 
                     var $itemLabelSplitStart = item.data('label').search(re)+1;
@@ -418,6 +417,27 @@ function poem_update_explorer(data, $tagCloudsettings) {
                     }]);
                 }
             });
+
+            $dropDown[$depth].on('input', (function($depth) {
+                return function () {
+                    if($dropDown[$depth].val() == '') {
+                        if($depth > 1) {
+                            //recuperation du noeud du dropdown parent et update
+                            var re = /\[(\d)+\]/;
+                            var $itemLabelSplitStart = $dropDown[$depth-1].val().search(re)+1;
+                            var $itemLabelSplitEnd = $dropDown[$depth-1].val().length-1;
+                            var $nodeId = $dropDown[$depth-1].val().substring($itemLabelSplitStart, $itemLabelSplitEnd);
+                            getNodeById($nodeId);
+                            update($nodeFound);
+                        } else {
+                            //si c'est le dropdown niveau 1 qui est effacé on revient au node root
+                            update($root);
+                        }
+                    }
+                }
+            })($depth));
+
+
 
             //Si le niveau est inferieur on affiche le choix fait dans le dropdown
             if ($depth <= $nodeSelected.depth) {
