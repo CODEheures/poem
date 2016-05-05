@@ -7,7 +7,8 @@
             <form class="form-inline">
                 <div class="form-group">
                     <label for="critere">Critère d'export</label>
-                    <input type="text" class="form-control" id="critere" placeholder="Ex: nom d'étudiant, email, session, leçon">
+                    <input id="dropdown1" name="dropdown" type="text" placeholder="Ex: nom d'étudiant, email, session, leçon"/>
+                    <!--input type="text" class="form-control" id="critere" placeholder="Ex: nom d'étudiant, email, session, leçon"-->
                     <button type="submit" class="btn btn-primary load">Voir</button>
                     <button type="submit" class="btn btn-primary download">Télécharger CSV</button>
                 </div>

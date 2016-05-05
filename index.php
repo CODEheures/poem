@@ -1,6 +1,18 @@
 <?php
 session_start();
 
+/* attention primeUI bibliotheque corrigée
+    ligne 727 à 729
+        change
+        if(emptyQuery||itemLabel.indexOf(this.query) === 0) {
+            data.push({label:array[i], value: item});
+        }
+        par
+        if(emptyQuery||itemLabel.indexOf(this.query) >= 0) {
+            data.push({label:itemLabel, value: item.value});
+        }
+*/
+
 $type = array(
     'back_dashboard' => array(
         'type' => 'back',

@@ -5,7 +5,13 @@
 $color-sidebar-background: #222;
 $color-sidebar-menu-plus: #D9534F;
 $color-sidebar-menu-a: #9d9d9d;
+$color-sidebar-menu-a-active-hover: #fff;
+$color-sidebar-link-background-active-hover: #080808;
 $color-main-card-background: #f5f5f5;
+$color-orange-poem: #D86A1C;
+$color-blue-poem: #264D87;
+$color-explorer-input-color: #f6931f;
+$color-tag-cloud-text-shadow: #838383;
 
 /* latin-ext */
 @font-face {
@@ -52,7 +58,7 @@ html {
       }
 
       &:hover {
-        color: #fff;
+        color: $color-sidebar-menu-a-active-hover;
       }
     }
 
@@ -72,8 +78,8 @@ html {
         text-transform: capitalize;
 
         &:hover, &.active {
-          background-color: #080808;
-          color: #fff;
+          background-color: $color-sidebar-link-background-active-hover;
+          color: $color-sidebar-menu-a-active-hover;
         }
       }
 
@@ -83,7 +89,7 @@ html {
 
 #sidebar {
   background-color: $color-sidebar-background;
-  color: #fff;
+  color: $color-sidebar-menu-a-active-hover;
   position: fixed;
   padding-left: 0;
   padding-right: 0;
@@ -153,6 +159,14 @@ html {
   }
 
   & #results {
+    & .ui-autocomplete {
+      width: 25rem;
+      margin-bottom: 10px;
+      & input {
+        width: calc(100% - 2.4rem);
+      }
+    }
+
     & input#critere {
       min-width: 20vw;
     }
@@ -191,7 +205,7 @@ html {
         }
         & input {
           border:0;
-          color:#f6931f;
+          color:$color-explorer-input-color;
           font-weight:bold;
         }
       }
@@ -212,7 +226,7 @@ html {
         position: relative;
         top: calc(50% - 0.5em);
         font-size: 5em;
-        text-shadow: 0 0 5px #838383;
+        text-shadow: 0 0 5px $color-tag-cloud-text-shadow;
       }
 
       & ul li {
@@ -250,7 +264,7 @@ html {
 
   & .page-header {
     margin-top: 2rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $color-sidebar-background;
     text-transform: uppercase;
   }
 
@@ -318,6 +332,56 @@ html {
 
   & .more {
     margin-top: 30px;
+  }
+
+  & #selection {
+
+    & hr {
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    & .arianne {
+
+      padding-bottom: 0;
+      padding-top: 2rem;
+
+      & p {
+        margin-bottom: 0;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        padding-left: 0.2rem;
+        background-color: $color-main-card-background;
+      }
+
+      & span {
+        color: $color-orange-poem;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      & i {
+        color: $color-blue-poem;
+        font-size: 1.2rem;
+      }
+    }
+
+    & .avatar, & .description {
+      padding-top: 1rem;
+    }
+
+    & .avatar {
+      & img {
+        max-height: 125px;
+        height: auto;
+
+        & > p {
+          width: auto;
+        }
+      }
+    }
   }
 
 }

@@ -15,6 +15,7 @@ var poem = {
     compteurAnimCard: 0,
     host : window.location.protocol + '//' + window.location.host,
     dataOfExplorer: '/fake_remote_data/explorer-n2.php',
+    listOfInputResults: '/fake_remote_data/list-input-results.php',
     delayAnimCards : 300,
     container: $('body'),
     notifsLife: 6000,
@@ -22,6 +23,7 @@ var poem = {
     animCards: poem_animCards,
     findEndAnimCards: poem_findEndAnimCards,
     moreCards: poem_moreCards,
+    initResults: poem_init_results,
     loadResults: poem_loadResults,
     initNotifAndMessages: poem_init_notification_and_messages,
     loadExplorer: poem_load_explorer
@@ -102,6 +104,29 @@ function poem_moreCards($button) {
         });
 }
 
+//Function d'initialisation des données de l'input de la sortie des resultats
+function poem_init_results() {
+
+    var $url = poem.host + poem.listOfInputResults;
+    var jqxhr = $.ajax($url)
+        .done(function(data, textStatus, jqXHR) {
+            $('#dropdown1').puiautocomplete({
+                completeSource: data,
+                //forceSelection: true,
+                dropdown: true,
+                select: function (event, item) {
+                    //rien à faire on laisse le button voir s'en charger
+                }
+            });
+        })
+        .fail(function() {
+            alert( "erreur de chargement" );
+        })
+        .always(function () {
+
+        });
+}
+
 //Function de chargement des résultats prof
 //$button: le bouton cliqué sui déclenche la fonction
 function poem_loadResults($button) {
@@ -153,7 +178,8 @@ function poem_update_explorer(data, $tagCloudsettings) {
 
     var $root = data; //Node root
     var $nodeId = 0;
-    var $nodeFound;
+    var $nodeFound; //node trouvé par une recherche par ID
+    var $finalChoice; //node de la leçon choisie
     var $dataR = []; //Tous les nodes classés par niveau de profondeur
     var $dataN = []; //Nodes filtrés (seulement parents et enfant du node selectionné) classés par niveau de profondeur
     var $dropDown = [];
@@ -228,14 +254,15 @@ function poem_update_explorer(data, $tagCloudsettings) {
     }
 
     //Setting de l'attribut récursif visible à un node et ses enfants recursifs
-    function setVisibleChild($node, $visible) {
+    function setVisibleChild($node, $visible, $recursive) {
         $visible = typeof $visible !== 'undefined' ? $visible : true;
+        $recursive = typeof $recursive !== 'undefined' ? $recursive : false;
 
         $node.visible = $visible;
         if($node.children != undefined){
             for($num in $node.children){
                 $node.children[$num].visible = $visible;
-                setVisibleChild($node.children[$num], $visible);
+                $recursive ? setVisibleChild($node.children[$num], $visible, $recursive) : null;
             }
         }
     }
@@ -243,28 +270,35 @@ function poem_update_explorer(data, $tagCloudsettings) {
     //Ajuste l'attribut visible à true des parents et enfant du noeud choisi
     //Met l'attribut visible à false pour tous les autres
     function dataFilter($node) {
-        var $parentsOfNode = [];
-        $parentsOfNode[$node.depth] = $node;
-        setVisibleChild($root, true);
-        for(var $depth = $node.depth-1; $depth >= 0 ; --$depth) {
-            $parentsOfNode[$depth] = $parentsOfNode[$depth+1].parent;
-            for(var $num in $parentsOfNode[$depth].children){
-                if($parentsOfNode[$depth].children[$num] != $parentsOfNode[$depth+1]){
-                    setVisibleChild($parentsOfNode[$depth].children[$num], false);
-                }
-            }
+        setVisibleChild($root, false, true);
+        setVisibleChild($node, true, true);
+        //tant que le node selectionné a un parent tous les freres seront visibles dans le dropdown apres selection
+        var $tempNode = $node.parent;
+        while ($tempNode !== undefined) {
+            setVisibleChild($tempNode, true, false);
+            $tempNode = $tempNode.parent;
         }
-        setVisibleChild($node, true);
         $dataN = [];
         setDataN($root);
-        $message = $dataN[3].length + ' leçons dans ' + $dataN[2].length + ' champs dans ' + $dataN[1].length  + ' domaines';
+
+        $message = $dataN[3].length + ' leçons dans ';
+        if($dropDown[2] === undefined || $dropDown[2].val()== ''){
+            $message  = $message + $dataN[2].length + ' champs dans ';
+        } else if ($dropDown[2] !== undefined && $dropDown[2].val() !== ''){
+            $message  = $message + 1 + ' champs dans ';
+        }
+        if($dropDown[1] === undefined || $dropDown[1].val() == '') {
+            $message = $message + $dataN[1].length  + ' domaines';
+        } else if ($dropDown[1] !== undefined && $dropDown[1].val() !== ''){
+            $message = $message + 1  + ' domaines';
+        }
     }
 
     //Mise à jour dataN
     function setDataN($node) {
         if($node.visible==true){
             if($dataN[$node.depth] == undefined) { $dataN[$node.depth] = []}
-            $dataN[$node.depth].push({"name": $node.name, "id": $node.id});
+            $dataN[$node.depth].push({"label": $node.name, "value": $node.id});
         }
         if($node.children != undefined){
             for($num in $node.children){
@@ -279,7 +313,7 @@ function poem_update_explorer(data, $tagCloudsettings) {
 
         if($node.visible==true){
             if($dataR[$node.depth] == undefined) { $dataR[$node.depth] = []}
-            $dataR[$node.depth].push({"name": $node.name, "id": $node.id});
+            $dataR[$node.depth].push({"label": $node.name, "value": $node.id});
         }
         if($node.children != undefined){
             for($num in $node.children){
@@ -308,7 +342,7 @@ function poem_update_explorer(data, $tagCloudsettings) {
     function addTagsCloud($depth) {
         var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         for(var $i in $dataN[$depth]) {
-            $ulTagCloud.append('<li data-node-id="'+ $dataN[$depth][$i].id +'">'+$dataN[$depth][$i].name +'</li>')
+            $ulTagCloud.append('<li data-node-id="'+ $dataN[$depth][$i].id +'">'+$dataN[$depth][$i].label +'</li>')
         }
         $ulTagCloud.find('li').addClass("animated zoomIn").one(animationEnd, function() {
             $(this).removeClass('animated zoomIn');
@@ -382,17 +416,18 @@ function poem_update_explorer(data, $tagCloudsettings) {
     //Mise à jour des dropdown
     function updateDropDown($nodeSelected) {
         //Pour chaque niveau de profondeur
-        for(var $depth = 0 ; $depth <= $dataR.length-1 ; $depth++) {
+        var $tempNodeParent = $nodeSelected.parent;
+        for(var $depth = $dataR.length-1 ; $depth > 0 ; $depth--) {
             $source = [];
             //Si le niveau est inferieur tous les nodes sont acceptés dans la liste (pour pouvoir changer d'avis!)
-            if ($depth <= $nodeSelected.depth) {
+            if ($depth <= 1 /*$nodeSelected.depth*/ && $depth < $dataN.length-1) {
                 for($num in $dataR[$depth]){
-                    $source.push($dataR[$depth][$num].name + ' [' + $dataR[$depth][$num].id + ']')
+                    $source.push({label:$dataR[$depth][$num].label , value: $dataR[$depth][$num].value})
                 }
                 //si le niveau est superieur alors la liste ne contient que les nodes enfants filtrés
             } else {
                 for($num in $dataN[$depth]){
-                    $source.push($dataN[$depth][$num].name + ' [' + $dataN[$depth][$num].id + ']')
+                    $source.push({label:$dataN[$depth][$num].label , value: $dataN[$depth][$num].value})
                 }
             }
 
@@ -403,11 +438,7 @@ function poem_update_explorer(data, $tagCloudsettings) {
                 forceSelection: true,
                 dropdown: true,
                 select: function (event, item) {
-                    var re = /\[(\d)+\]/;
-
-                    var $itemLabelSplitStart = item.data('label').search(re)+1;
-                    var $itemLabelSplitEnd = item.data('label').length-1;
-                    var $nodeId = item.data('label').substring($itemLabelSplitStart, $itemLabelSplitEnd);
+                    var $nodeId = item.data('value');
                     getNodeById($nodeId);
                     update($nodeFound);
                     $notification.puigrowl('show', [{
@@ -422,11 +453,7 @@ function poem_update_explorer(data, $tagCloudsettings) {
                 return function () {
                     if($dropDown[$depth].val() == '') {
                         if($depth > 1) {
-                            //recuperation du noeud du dropdown parent et update
-                            var re = /\[(\d)+\]/;
-                            var $itemLabelSplitStart = $dropDown[$depth-1].val().search(re)+1;
-                            var $itemLabelSplitEnd = $dropDown[$depth-1].val().length-1;
-                            var $nodeId = $dropDown[$depth-1].val().substring($itemLabelSplitStart, $itemLabelSplitEnd);
+                            var $nodeId = $dataN[$depth-1][0].value;
                             getNodeById($nodeId);
                             update($nodeFound);
                         } else {
@@ -437,13 +464,13 @@ function poem_update_explorer(data, $tagCloudsettings) {
                 }
             })($depth));
 
-
-
             //Si le niveau est inferieur on affiche le choix fait dans le dropdown
-            if ($depth <= $nodeSelected.depth) {
-                $dropDown[$depth].val($dataN[$depth][0].name+ ' [' + $dataN[$depth][0].id + ']');
+            if ($depth < $nodeSelected.depth) {
+                console.log($tempNodeParent);
+                $dropDown[$depth].val($tempNodeParent.name);
+                $tempNodeParent = $tempNodeParent.parent;
                 //Si le niveau est superieur alors le dropdown est vide et l'utilisateur pourra selectionner un enfant du node
-            } else {
+            } else if ($depth > $nodeSelected.depth) {
                 $dropDown[$depth].val('');
             }
         }

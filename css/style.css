@@ -4704,6 +4704,11 @@ html {
       font-weight: 900; }
     #main #dashboard .indicator1 .card-footer, #main #dashboard .indicator2 .card-footer, #main #dashboard .indicator3 .card-footer, #main #dashboard .indicator4 .card-footer, #main #dashboard .indicator5 .card-footer, #main #dashboard .indicator6 .card-footer {
       min-height: 4.5em; }
+  #main #results .ui-autocomplete {
+    width: 25rem;
+    margin-bottom: 10px; }
+    #main #results .ui-autocomplete input {
+      width: calc(100% - 2.4rem); }
   #main #results input#critere {
     min-width: 20vw; }
   #main #results .results-filter {
@@ -4754,7 +4759,7 @@ html {
       top: calc(50% - 0.5em); }
   #main .page-header {
     margin-top: 2rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #222;
     text-transform: uppercase; }
   #main .vignettes-list {
     margin-top: 30px; }
@@ -4793,3 +4798,31 @@ html {
     margin-bottom: 0; }
   #main .more {
     margin-top: 30px; }
+  #main #selection hr {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0; }
+  #main #selection .arianne {
+    padding-bottom: 0;
+    padding-top: 2rem; }
+    #main #selection .arianne p {
+      margin-bottom: 0;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+      padding-left: 0.2rem;
+      background-color: #f5f5f5; }
+    #main #selection .arianne span {
+      color: #D86A1C;
+      padding-left: 10px;
+      padding-right: 10px; }
+    #main #selection .arianne i {
+      color: #264D87;
+      font-size: 1.2rem; }
+  #main #selection .avatar, #main #selection .description {
+    padding-top: 1rem; }
+  #main #selection .avatar img {
+    max-height: 125px;
+    height: auto; }
+    #main #selection .avatar img > p {
+      width: auto; }
