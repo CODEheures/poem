@@ -40,6 +40,12 @@
         timer : 5,
         //dependence of a font size on axis Z
         fontMultiplier : 15,
+        //zoom font on mouseover
+        fontZoomHover : 1.5,
+        //tag max-width %
+        tagMaxWidth : 20,
+        //imgBackUrl
+        imgBackUrl: '',
         //tag css stylies on mouse over
         hoverStyle : {
             border : '1px solid #935C26',
@@ -115,7 +121,8 @@
         tagContainer.height(options.height);
         tagContainer.width(options.width);
         tagContainer.css( {
-            'position' : 'relative'
+            'position' : 'relative',
+            'border-radius' : options.height / 2
         });
         tagContainer.mousemove( function(e) {
             //correction bug coordonnées Sylvain GAGNOT
@@ -128,6 +135,16 @@
             curState.mouseOver = true;
         }, function() {
             curState.mouseOver = false;
+        });
+
+        if(!$('#imgcloud').length){
+            tagContainer.append('<img src="'+ options.imgBackUrl + '" id="imgcloud"/>');
+        }
+        $('#imgcloud').css({
+            'display' : 'block',
+            'margin' : '0 auto',
+            'width' : (70*options.height/100) + 'px',
+            'height' : (70*options.height/100) + 'px'
         });
     }
 
@@ -142,7 +159,7 @@
             'list-style-type' : 'none',
             'list-style-position' : 'outside',
             'list-style-image' : 'none',
-            'max-width' : '20%',
+            'max-width' : options.tagMaxWidth + '%',
             'word-wrap': 'break-word',
             'border-radius': '0.5em'
         });
@@ -150,10 +167,13 @@
             var jTag = jQuery(tags[i]);
             var link = jQuery(jTag.children()[0]);
             tags[i] = jTag;
+            jTag.data('hover', '0');
             jTag.hover( function() {
                 jQuery(this).css(options.hoverStyle);
+                jQuery(this).data('hover' , '1');
             }, function() {
                 jQuery(this).css(options.mouseOutStyle);
+                jQuery(this).data('hover' , '0');
             })
         }
     }
@@ -171,6 +191,7 @@
             tags[i - 1].cz = options.radius * Math.cos(phi);
             tags[i - 1].h = jQuery(tags[i - 1]).height() / 4;
             tags[i - 1].w = jQuery(tags[i - 1]).width() / 4;
+            tags[i - 1].zoomFont = 1;
         }
     }
 
@@ -212,6 +233,8 @@
                 tags[j].x = tags[j].cx * per;
                 tags[j].y = tags[j].cy * per;
                 tags[j].alpha = per / 2;
+                tags[j].data('hover') == 1 ? tags[j].zoomFont = options.fontZoomHover : tags[j].zoomFont = 1;
+                tags[j].tagMaxWidth = options.tagMaxWidth*options.fontZoomHover;
                 tags[j]
                     .css( {
                         'left' : mathAssets.whratio
@@ -221,8 +244,11 @@
                         * (tags[j].y - tags[j].h * per)
                         + mathAssets.halfHeight,
                         'opacity' : tags[j].alpha,
-                        'font-size' : options.fontMultiplier
+                        // 'font-size' : options.fontMultiplier
+                        // * tags[j].alpha + 'px',
+                        'font-size' : options.fontMultiplier * tags[j].zoomFont
                         * tags[j].alpha + 'px',
+                        'max-width' : tags[j].tagMaxWidth * tags[j].alpha + '%',
                         'z-index' : Math.round(-tags[j].cz)
                     });
             }

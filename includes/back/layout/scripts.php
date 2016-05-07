@@ -5,15 +5,22 @@
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/primeui.js"></script>
 <!-- attention primeUI bibliotheque corrigée
-    ligne 727 à 729
-        change
+    /* attention primeUI bibliotheque corrigée 
+
+    **** https://github.com/primefaces/primeui/issues/242 ****
+    modifie ligne 727 à 729
+    change
         if(emptyQuery||itemLabel.indexOf(this.query) === 0) {
             data.push({label:array[i], value: item});
         }
-        par
+    par
         if(emptyQuery||itemLabel.indexOf(this.query) >= 0) {
             data.push({label:itemLabel, value: item.value});
         }
+    
+    *****https://github.com/primefaces/primeui/issues/216 *****
+    ajoute ligne 13130 à 13151
+    
 -->
 <?php
 if($_SESSION['page']=='dashboard') {
@@ -31,4 +38,8 @@ if($_SESSION['page']=='dashboard') {
     //scripts de la page explorer
     print '<script src="js/d3.v3.min.js"></script>';
     print '<script src="js/poem-explorer2.js"></script>';
+} elseif ($_SESSION['page']=='lecons_ajout') {
+    //scripts de la page resultats
+    print '<script src="ckeditor/ckeditor.js"></script>';
+    print '<script src="js/poem-lecon-ajout.js"></script>';
 }

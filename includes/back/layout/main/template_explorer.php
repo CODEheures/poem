@@ -46,7 +46,7 @@
             <img class="center-block hidden-xs-up" src="/css/assets/loader1.gif" alt="loader fourmis" />
         </div>
     </div>
-    <div class="row tag-cloud">
+    <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
             <div id="tagcloud" class="tag-cloud">

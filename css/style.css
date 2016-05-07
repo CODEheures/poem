@@ -4642,6 +4642,10 @@ html {
 .hidden {
   display: none; }
 
+.ui-inputswitch {
+  vertical-align: middle;
+  line-height: 1rem; }
+
 #sidebar .poemMenu a, #poemBackNavbar .poemMenu a {
   color: #9d9d9d; }
   #sidebar .poemMenu a i, #poemBackNavbar .poemMenu a i {
@@ -4736,13 +4740,14 @@ html {
   #main #explorer .row div.tag-cloud {
     margin-left: auto;
     margin-right: auto;
-    background: transparent url("./assets/ball4.png") no-repeat center;
-    background-size: 70% 70%; }
+    background: -webkit-radial-gradient(center ellipse, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(55, 171, 191, 0.2) 100%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(55, 171, 191, 0.2) 100%);
+    box-shadow: 0 0 70px 0 rgba(55, 171, 191, 0.2); }
     #main #explorer .row div.tag-cloud h3 {
       position: relative;
       top: calc(50% - 0.5em);
       font-size: 5em;
-      text-shadow: 0 0 5px #838383; }
+      color: rgba(150, 150, 150, 0.5); }
     #main #explorer .row div.tag-cloud ul li {
       font-family: "PT Sans", sans-serif;
       padding: 4px;
@@ -4751,11 +4756,11 @@ html {
       background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%); }
     #main #explorer .row div.tag-cloud button.backward {
       position: absolute;
-      left: -100px;
+      left: -150px;
       top: calc(50% - 0.5em); }
     #main #explorer .row div.tag-cloud button.forward {
       position: absolute;
-      right: -100px;
+      right: -150px;
       top: calc(50% - 0.5em); }
   #main .page-header {
     margin-top: 2rem;
@@ -4785,7 +4790,7 @@ html {
     -webkit-transition-duration: 2s;
             transition-duration: 2s; }
     #main .card .card-block .card-title, #main .card .card-block .card-text {
-      font-family: "PT Sans"; }
+      font-family: "PT Sans", sans-serif; }
     #main .card .card-block .card-title {
       height: 2.3em;
       overflow-y: hidden; }
@@ -4826,3 +4831,75 @@ html {
     height: auto; }
     #main #selection .avatar img > p {
       width: auto; }
+  #main #lecon .col-sm-12, #main #lecon .col-md-6 {
+    margin-bottom: 10px; }
+  #main #lecon .form-control-file {
+    display: inline-block; }
+  #main #lecon fieldset {
+    width: 100%; }
+    #main #lecon fieldset div.ou {
+      position: absolute;
+      top: 0;
+      right: 0; }
+      #main #lecon fieldset div.ou ~ p {
+        margin-bottom: 0; }
+    #main #lecon fieldset input[type="date"], #main #lecon fieldset input[type="time"] {
+      line-height: 1rem; }
+    #main #lecon fieldset.public {
+      width: 50%; }
+      #main #lecon fieldset.public label, #main #lecon fieldset.public div {
+        float: left; }
+    #main #lecon fieldset div.prive-date label, #main #lecon fieldset div.prive-date input {
+      width: auto;
+      padding-left: 10px;
+      padding-right: 10px; }
+    #main #lecon fieldset div.prive-date input {
+      position: relative;
+      top: -5px; }
+    #main #lecon fieldset span {
+      width: 60%; }
+      #main #lecon fieldset span input {
+        width: calc(100% - 2.4rem); }
+  #main #lecon label {
+    width: 20%;
+    min-width: 150px; }
+    #main #lecon label i {
+      font-size: 0.5rem;
+      color: red; }
+  #main #lecon input {
+    width: 60%; }
+  #main .row.options {
+    margin-bottom: 30px; }
+    #main .row.options div.options {
+      position: relative; }
+      #main .row.options div.options .content-options {
+        display: inline-block;
+        width: 100%;
+        border-radius: 10px;
+        position: relative;
+        padding-top: 10px;
+        background-color: #f5f5f5; }
+        #main .row.options div.options .content-options fieldset.vignette-file, #main .row.options div.options .content-options fieldset.annexes {
+          padding-left: 48px; }
+        #main .row.options div.options .content-options .label-options {
+          position: absolute;
+          height: 100%;
+          padding-top: 14px;
+          display: inline-block;
+          width: 38px;
+          text-align: center;
+          border-bottom-left-radius: 10px;
+          border-top-left-radius: 10px;
+          top: 0;
+          left: 0;
+          color: #134f5c;
+          background-color: #a2c4c9; }
+          #main .row.options div.options .content-options .label-options p {
+            margin-top: auto;
+            margin-bottom: auto; }
+          @media (max-width: 991px) {
+            #main .row.options div.options .content-options .label-options {
+              padding-top: 50px; } }
+        @media (max-width: 767px) {
+          #main .row.options div.options .content-options fieldset.message {
+            padding-left: 48px; } }

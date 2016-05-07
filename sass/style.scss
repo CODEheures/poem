@@ -45,6 +45,11 @@ html {
   display: none;
 }
 
+.ui-inputswitch {
+  vertical-align: middle;
+  line-height: 1rem;
+}
+
 #sidebar, #poemBackNavbar {
 
 
@@ -219,14 +224,18 @@ html {
     & .row div.tag-cloud {
       margin-left: auto;
       margin-right: auto;
-      background: transparent url("./assets/ball4.png") no-repeat center;
-      background-size: 70% 70%;
+      //background:  url("./assets/ball5.png") no-repeat center;
+      background:  radial-gradient(ellipse at center, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, rgba(55,171,191,0.2) 100%);
+      //background: #eceeef url("./assets/ball5.png") no-repeat center;
+      //background-size: 70% 70%;
+      box-shadow: 0 0 70px 0 rgba(55,171,191,0.2);
 
       & h3 {
         position: relative;
         top: calc(50% - 0.5em);
         font-size: 5em;
-        text-shadow: 0 0 5px $color-tag-cloud-text-shadow;
+        color: rgba(150,150,150,0.5);
+        //text-shadow: 0 0 5px $color-tag-cloud-text-shadow;
       }
 
       & ul li {
@@ -234,18 +243,19 @@ html {
         padding: 4px;
         background-color: rgba(255,255,255,1);
         background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
-
+        //border: 1px solid rgba(0,0,0,0.2);
+        //background: linear-gradient(to left, #E0EAFC , #CFDEF3);
       }
 
       & button.backward {
         position: absolute;
-        left: -100px;
+        left: -150px;
         top: calc(50% - 0.5em);
       }
 
       & button.forward {
         position: absolute;
-        right: -100px;
+        right: -150px;
         top: calc(50% - 0.5em);
       }
 
@@ -306,7 +316,7 @@ html {
       transition-duration: 2s;
 
       & .card-title, & .card-text {
-        font-family: "PT Sans";
+        font-family: "PT Sans", sans-serif;
       }
 
       & .card-title {
@@ -383,5 +393,136 @@ html {
       }
     }
   }
+
+  & #lecon {
+    & .col-sm-12, & .col-md-6 {
+      margin-bottom: 10px;
+
+    }
+
+    & .form-control-file {
+      display: inline-block;
+    }
+
+    & fieldset {
+      width: 100%;
+
+      & div.ou {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        & ~ p {
+          margin-bottom: 0;
+        }
+      }
+
+      & input[type="date"], & input[type="time"] {
+        line-height: 1rem;
+      }
+
+      &.public {
+        width: 50%;
+
+        & label, & div {
+          float: left;
+        }
+      }
+
+      & div.prive-date {
+
+        & label, & input {
+          width: auto;
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+
+        & input {
+          position: relative;
+          top: -5px;
+        }
+      }
+
+      & span {
+        width: 60%;
+
+        & input {
+          width: calc(100% - 2.4rem);
+        }
+      }
+    }
+
+    & label {
+      width: 20%;
+      min-width: 150px;
+
+      & i {
+        font-size: 0.5rem;
+        color: red;
+      }
+    }
+
+    & input {
+      width: 60%;
+    }
+  }
+
+  & .row.options {
+    margin-bottom: 30px;
+
+    & div.options {
+      position: relative;
+
+      & .content-options {
+        display: inline-block;
+        width: 100%;
+        border-radius: 10px;
+        position: relative;
+        padding-top: 10px;
+        //border: 1px solid black;
+        background-color: $color-main-card-background;
+
+        & fieldset.vignette-file, & fieldset.annexes {
+          padding-left: 48px;
+        }
+
+        & .label-options {
+          position: absolute;
+          height: 100%;
+          padding-top: 14px;
+          display: inline-block;
+          width: 38px;
+          text-align: center;
+          border-bottom-left-radius: 10px;
+          border-top-left-radius: 10px;
+          top: 0;
+          left: 0;
+          color: #134f5c;
+          background-color: #a2c4c9;
+
+          & p {
+            margin-top: auto;
+            margin-bottom: auto;
+          }
+
+          @include media-breakpoint-down(md) {
+            padding-top: 50px;
+          }
+        }
+
+
+        & fieldset.message{
+          @include media-breakpoint-down(sm) {
+            padding-left: 48px;
+          }
+        }
+      }
+
+    }
+
+
+  }
+
+
 
 }

@@ -15,10 +15,17 @@ var poem = {
     compteurAnimCard: 0,
     host : window.location.protocol + '//' + window.location.host,
     dataOfExplorer: '/fake_remote_data/explorer-n2.php',
+    imgTagCloudUrl: './css/assets/ball5.png',
+    maxTagInCloud: 80,
+    tagfontMultiplier: 13,
+    tagZoomFontHover: 1,
     listOfInputResults: '/fake_remote_data/list-input-results.php',
     delayAnimCards : 300,
     container: $('body'),
     notifsLife: 6000,
+    domainesList: '/fake_remote_data/domaines-list.php',
+    champsList: '/fake_remote_data/champs-list.php',
+    levelsList: '/fake_remote_data/levels-list.php',
     animCard: poem_animCard,
     animCards: poem_animCards,
     findEndAnimCards: poem_findEndAnimCards,
@@ -342,7 +349,7 @@ function poem_update_explorer(data, $tagCloudsettings) {
     function addTagsCloud($depth) {
         var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         for(var $i in $dataN[$depth]) {
-            $ulTagCloud.append('<li data-node-id="'+ $dataN[$depth][$i].id +'">'+$dataN[$depth][$i].label +'</li>')
+            $ulTagCloud.append('<li data-node-id="'+ $dataN[$depth][$i].value +'">'+$dataN[$depth][$i].label +'</li>')
         }
         $ulTagCloud.find('li').addClass("animated zoomIn").one(animationEnd, function() {
             $(this).removeClass('animated zoomIn');
@@ -466,12 +473,13 @@ function poem_update_explorer(data, $tagCloudsettings) {
 
             //Si le niveau est inferieur on affiche le choix fait dans le dropdown
             if ($depth < $nodeSelected.depth) {
-                console.log($tempNodeParent);
                 $dropDown[$depth].val($tempNodeParent.name);
                 $tempNodeParent = $tempNodeParent.parent;
                 //Si le niveau est superieur alors le dropdown est vide et l'utilisateur pourra selectionner un enfant du node
             } else if ($depth > $nodeSelected.depth) {
                 $dropDown[$depth].val('');
+            } else if ($depth = $nodeSelected.depth) {
+                $dropDown[$depth].val($nodeSelected.name);
             }
         }
 
@@ -532,14 +540,17 @@ function poem_update_explorer(data, $tagCloudsettings) {
 //$relativeHostURL: adresse (sans le HOST) de la page qui fournit le resultat AJAX
 function poem_load_explorer() {
     var $tagCloudsettings = {
-        height: 700, //height of sphere container
-        width: 700, //width of sphere container
-        radius: 250, //radius of sphere
-        maxtags: 80, //maximum of visible tags
+        height: 600, //height of sphere container
+        width: 600, //width of sphere container
+        radius: 220, //radius of sphere
+        maxtags: poem.maxTagInCloud, //maximum of visible tags
+        imgBackUrl: poem.imgTagCloudUrl, //image du background
         speed: 3, //rotation speed
         slower: 0.7, //sphere rotations slower
         timer: 40, //40 = 25img/seconde //delay between up<a href="http://www.jqueryscript.net/time-clock/">date</a> position
-        fontMultiplier: 14, //dependence of a font size on axis Z
+        fontMultiplier: poem.tagfontMultiplier, //dependence of a font size on axis Z
+        fontZoomHover: poem.tagZoomFontHover,
+        tagMaxWidth : 20, //max width tag in %
         hoverStyle: { //tag css stylies on mouse over
             cursor: 'pointer',
             textDecoration: 'underline'

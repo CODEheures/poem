@@ -13128,6 +13128,28 @@ PUI.resolveUserAgent();
            }
        },
 
+        add: function(panelName, panelId, panelHtml) {
+            var element = this.element;
+            this.navContainer = element.children('ul');
+            this.newTabHeaders = $('<li><a href="' + panelId + '">' + panelName + '</a></li>').appendTo(this.navContainer);
+            this.newTabHeaders.addClass('ui-state-default ui-corner-top');
+
+            this.panelContainer = element.children('div');
+
+            this.newPanel = $('<div id="' + panelId + '"></div>').appendTo(this.panelContainer);
+            this.newPanel.append(panelHtml);
+            this.newPanel.addClass('ui-tabview-panel ui-widget-content ui-corner-bottom');
+            this.newPanel.addClass('ui-helper-hidden');
+            this.tabHeaders = this.navContainer.children('li');
+            this._resolvePanelMode();
+            this.panels = this._findPanels();
+
+            this.tabHeaders.eq(this.options.activeIndex).addClass('ui-tabview-selected ui-state-active');
+
+            this._unbindEvents();
+            this._bindEvents();
+        },
+
        getLength: function() {
            return this.tabHeaders.length;
        },
