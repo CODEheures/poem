@@ -45,7 +45,7 @@ if($_SESSION['page']=='dashboard') {
 } elseif ($_SESSION['page']=='sessions_list') {
     //scripts de la page resultats
     print '<script src="js/poem-sessions-list.js"></script>';
-} elseif ($_SESSION['page']=='sessions_ajout' || $_SESSION['page']=='sessions_ajout') {
+} elseif ($_SESSION['page']=='sessions_ajout' || $_SESSION['page']=='sessions_modif') {
     //scripts de la page resultats
     print '<script src="ckeditor/ckeditor.js"></script>';
     print '<script src="js/poem-sessions-ajout-modif.js"></script>';
