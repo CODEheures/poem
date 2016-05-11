@@ -38,8 +38,15 @@ if($_SESSION['page']=='dashboard') {
     //scripts de la page explorer
     print '<script src="js/d3.v3.min.js"></script>';
     print '<script src="js/poem-explorer2.js"></script>';
-} elseif ($_SESSION['page']=='lecons_ajout') {
+} elseif ($_SESSION['page']=='lecons_ajout' || $_SESSION['page']=='lecons_modif') {
     //scripts de la page resultats
     print '<script src="ckeditor/ckeditor.js"></script>';
-    print '<script src="js/poem-lecon-ajout.js"></script>';
+    print '<script src="js/poem-lecons-ajout-modif.js"></script>';
+} elseif ($_SESSION['page']=='sessions_list') {
+    //scripts de la page resultats
+    print '<script src="js/poem-sessions-list.js"></script>';
+} elseif ($_SESSION['page']=='sessions_ajout' || $_SESSION['page']=='sessions_ajout') {
+    //scripts de la page resultats
+    print '<script src="ckeditor/ckeditor.js"></script>';
+    print '<script src="js/poem-sessions-ajout-modif.js"></script>';
 }

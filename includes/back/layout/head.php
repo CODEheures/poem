@@ -6,12 +6,6 @@
     <link href="css/jquery-ui.min.css" rel="stylesheet">
     <link href="css/primeui-theme.css" rel="stylesheet">
     <link href="css/primeui.min.css" rel="stylesheet">
-<?php
-    if($_SESSION['page']=='explorer' || $_SESSION['page']=='explorer2') {
-        //css de la page explorer
-
-    }
-?>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <title>POEM</title>

@@ -10,30 +10,48 @@
 /**********************************************************************************/
 
 
-
+//objet POEM
 var poem = {
-    compteurAnimCard: 0,
-    host : window.location.protocol + '//' + window.location.host,
-    dataOfExplorer: '/fake_remote_data/explorer-n2.php',
-    imgTagCloudUrl: './css/assets/ball5.png',
-    maxTagInCloud: 80,
-    tagfontMultiplier: 13,
-    tagZoomFontHover: 1,
-    listOfInputResults: '/fake_remote_data/list-input-results.php',
-    delayAnimCards : 300,
-    container: $('body'),
-    notifsLife: 6000,
-    domainesList: '/fake_remote_data/domaines-list.php',
-    champsList: '/fake_remote_data/champs-list.php',
-    levelsList: '/fake_remote_data/levels-list.php',
-    animCard: poem_animCard,
-    animCards: poem_animCards,
-    findEndAnimCards: poem_findEndAnimCards,
-    moreCards: poem_moreCards,
-    initResults: poem_init_results,
-    loadResults: poem_loadResults,
-    initNotifAndMessages: poem_init_notification_and_messages,
-    loadExplorer: poem_load_explorer
+    //var objet fixes
+    container: $('body'), //global pas touche
+    compteurAnimCard: 0, //global pas touche
+    host : window.location.protocol + '//' + window.location.host, //global pas touche
+    sessionListLessons : [], //global pas touche
+    sessionListCollaborateurs : [], //global pas touche
+    sessionListEleves : [], //global pas touche
+    
+    //var objet modifiables
+    imgTagCloudUrl: './css/assets/ball5.png', // image de fond de l'explorateur
+    maxTagInCloud: 80, //nombre de tags maxi de l'explorateur
+    tagfontMultiplier: 13, //taille initiale des fonts de l'explorateur
+    tagZoomFontHover: 1, //zoom lors du survol des tags de l'explorateur
+    delayAnimCards : 300, //delay animation entre chaque carte
+    notifsLife: 6000, //durée de vie des notifications
+    dataOfExplorer: '/fake_remote_data/explorer-n2.php', //Ajax url liste imbriquée domaines/champs/leçon pour l'explorer
+    listOfInputResults: '/fake_remote_data/list-input-results.php', //AJAX url liste de l'input de la page "voir les resultats
+    domainesList: '/fake_remote_data/domaines-list.php', //AJAX url liste domaines pour creer leçon
+    champsList: '/fake_remote_data/champs-list.php', //AJAX url liste champs pour creer leçon
+    levelsList: '/fake_remote_data/levels-list.php', //AJAX url liste niveaux pour creer leçon
+    lessonsList: '/fake_remote_data/lessons-list.php', //AJAX url liste leçons pour ajouter leçon à un cours
+    collaborateursList: '/fake_remote_data/collaborateurs-list.php', //AJAX url liste collaborateurs pour ajouter leçon à un cours
+    elevesList: '/fake_remote_data/eleves-list.php', //AJAX url liste leçons pour ajouter leçon à un cours
+    
+    //Fonctions objet utiles
+    animCard: poem_animCard,  //Animation d'une carte
+    animCards: poem_animCards, //Animation des cartes du tableau de bord et de la page liste des sessions
+    findEndAnimCards: poem_findEndAnimCards, //Recherche de fin de sequence animation carte
+    moreCards: poem_moreCards, //Affichage de plus de cartes dans le parent d'un bouton nommé
+    initResults: poem_init_results, //Init de l'input result de la page Voir les résultats
+    loadResults: poem_loadResults, //Chargement des résultats demandés de la page Voir les résultats
+    initNotifAndMessages: poem_init_notification_and_messages, //Init des div #messages et #notification
+    loadExplorer: poem_load_explorer, //Chargement de l'explorer
+    formLesson: poem_formLesson, //Init des UI de la page creer une leçon ou modifier une leçon
+    addCours: poem_addCours, //Ajouter un cours page creer session ou modifier session
+    addLesson: poem_addLesson, //Ajouter une leçon page creer session ou modifier session
+    addProf: poem_addProf, //Ajouter une leçon page creer session ou modifier session
+    addEleve: poem_addEleve, //Ajouter une leçon page creer session ou modifier session
+    addEventClickLesson: poem_addEventClickLesson, //Ajout de l'evenement en cas de click sur bouton ajouter leçon page creer sessions ou modifier session
+    initSessions: poem_init_sessions //Init des UI de la page creer une session ou modifier une session
 };
 
 //function d'animation de chargement d'une carte
@@ -111,7 +129,7 @@ function poem_moreCards($button) {
         });
 }
 
-//Function d'initialisation des données de l'input de la sortie des resultats
+//Function d'initialisation des données de l'input de la page sortie des resultats
 function poem_init_results() {
 
     var $url = poem.host + poem.listOfInputResults;
@@ -168,7 +186,7 @@ function poem_loadResults($button) {
             });
         });
 }
-
+ 
 //Function qui initie la mise en place des div message et notification
 //A appeler dans tous les JS des pages
 function poem_init_notification_and_messages() {
@@ -347,15 +365,10 @@ function poem_update_explorer(data, $tagCloudsettings) {
 
     //Ajout des tags au cloud
     function addTagsCloud($depth) {
-        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         for(var $i in $dataN[$depth]) {
             $ulTagCloud.append('<li data-node-id="'+ $dataN[$depth][$i].value +'">'+$dataN[$depth][$i].label +'</li>')
         }
-        $ulTagCloud.find('li').addClass("animated zoomIn").one(animationEnd, function() {
-            $(this).removeClass('animated zoomIn');
-        });
         $tagCloudViewDepth=($depth);
-        if($tagCloudsettings.interval != undefined) { clearInterval($tagCloudsettings.interval); }
         $tagCloudContainer.tagoSphere($tagCloudsettings);
 
         $ulTagCloud.find('li').click(function (e) {
@@ -363,7 +376,6 @@ function poem_update_explorer(data, $tagCloudsettings) {
             var $this = this;
             getNodeById($this.dataset.nodeId);
             update($nodeFound);
-
         });
 
         $ulTagCloud.find('li').mousewheel(function (e) {
@@ -380,35 +392,42 @@ function poem_update_explorer(data, $tagCloudsettings) {
 
     //Mise à jour des tags du cloud
     function updateTagsCloudLi($depth) {
-
         $messages.puimessages('clear');
-        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-
+        $tagCloudContainer.tagoSphere('cancelAnim');
         if($ulTagCloud.find('li').length > 0){
-            $ulTagCloud.find('li').addClass("animated zoomOut").one(animationEnd, function() {
-                $(this).remove();
-                if($ulTagCloud.find('li').length == 0){
-                    addTagsCloud($depth);
-                }
+            $ulTagCloud.find('li').each(function () {
+                var $style = window.getComputedStyle($(this)[0]);
+                var $transform = ($style.transform || $style.webkitTransform || $style.mozTransform).split(',');
+                var $left = parseFloat($transform[4]);
+                var $top = parseFloat($transform[5]);
+                $(this)[0].style.transform = 'translateX(0) translateY(0)';
+                $(this).css({'left' : $left +'px', 'top' : $top +'px'});
+                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                $(this).addClass("animated zoomOut").one(animationEnd, function() {
+                    $(this).remove();
+                    if ($ulTagCloud.find('li').length == 0) {
+                        addTagsCloud($depth);
+                    }
+                });
             });
         } else {
             addTagsCloud($depth);
         }
         if ($depth == 2) {
-            $tagCloudContainer.find('button.backward').html('<i class="fa fa-step-backward"></i> Domaine').show();
-            $tagCloudContainer.find('button.forward').html('Leçons <i class="fa fa-step-forward"></i>').show();
+            $tagCloudContainer.parent().find('button.backward').html('<i class="fa fa-step-backward"></i> Domaine').show();
+            $tagCloudContainer.parent().find('button.forward').html('Leçons <i class="fa fa-step-forward"></i>').show();
             $tagCloudContainer.find('h3').html('Champs');
         } else if ($depth == 3) {
-            $tagCloudContainer.find('button.backward').html('<i class="fa fa-step-backward"></i> Champs').show();
-            $tagCloudContainer.find('button.forward').hide();
+            $tagCloudContainer.parent().find('button.backward').html('<i class="fa fa-step-backward"></i> Champs').show();
+            $tagCloudContainer.parent().find('button.forward').hide();
             $tagCloudContainer.find('h3').html('Leçons');
         } else if ($depth == 1) {
-            $tagCloudContainer.find('button.forward').html('Champs <i class="fa fa-step-forward"></i>').show();
-            $tagCloudContainer.find('button.backward').hide();
+            $tagCloudContainer.parent().find('button.forward').html('Champs <i class="fa fa-step-forward"></i>').show();
+            $tagCloudContainer.parent().find('button.backward').hide();
             $tagCloudContainer.find('h3').html('Domaines');
         } else {
-            $tagCloudContainer.find('button.backward').hide();
-            $tagCloudContainer.find('button.forward').hide();
+            $tagCloudContainer.parent().find('button.backward').hide();
+            $tagCloudContainer.parent().find('button.forward').hide();
         }
 
         if($dataN[$depth].length > $tagCloudsettings.maxtags) {
@@ -537,7 +556,6 @@ function poem_update_explorer(data, $tagCloudsettings) {
 }
 
 //Function de chargement de l'explorer: AJAX + lancement de poem_update_explorer
-//$relativeHostURL: adresse (sans le HOST) de la page qui fournit le resultat AJAX
 function poem_load_explorer() {
     var $tagCloudsettings = {
         height: 600, //height of sphere container
@@ -547,7 +565,7 @@ function poem_load_explorer() {
         imgBackUrl: poem.imgTagCloudUrl, //image du background
         speed: 3, //rotation speed
         slower: 0.7, //sphere rotations slower
-        timer: 40, //40 = 25img/seconde //delay between up<a href="http://www.jqueryscript.net/time-clock/">date</a> position
+        //timer: 40, OBSOLETE AVEC requestAnimationFrame //40 = 25img/seconde //delay between up<a href="http://www.jqueryscript.net/time-clock/">date</a> position
         fontMultiplier: poem.tagfontMultiplier, //dependence of a font size on axis Z
         fontZoomHover: poem.tagZoomFontHover,
         tagMaxWidth : 20, //max width tag in %
@@ -576,4 +594,542 @@ function poem_load_explorer() {
         .always(function () {
 
         });
+}
+
+//Function du form de la page creer leçons
+function poem_formLesson() {
+
+    //Fonction Ajax pour mise à jour des dropdown champs domaine level
+    function ajax($url, $dropName) {
+        var jqxhr = $.ajax($url)
+            .done(function(data, textStatus, jqXHR) {
+                updateDropdown($dropName, data);
+            })
+            .fail(function() {
+                alert( "erreur de chargement" );
+            })
+            .always(function () {
+
+            });
+    }
+
+    //Fonction Mise à jour des dropdown Domaine champs et level
+    function updateDropdown($name, $data) {
+        $dropDown = $('#' + $name);
+        $dropDown.puiautocomplete({
+            completeSource: $data,
+            forceSelection: true,
+            dropdown: true,
+            select: function (event, item) {
+                //si c'est un select du dropdown domaines on met à jour le dropdown champs
+                if($name == 'domaines'){
+                    ajax(poem.host + poem.champsList, 'champs');
+                    $messages.puimessages('show', 'info', {summary: 'requete AJAX à faire', detail: 'Mise à jour de l\'input champs à faire sur AJAX'});
+                }
+            }
+        });
+    }
+
+    //Init Dropdowns domaines et champs
+    ajax(poem.host + poem.domainesList, 'domaines');
+    $('#champs').puiautocomplete({
+        completeSource: [],
+        forceSelection: true,
+        dropdown: true,
+        select: function (event, item) {
+            //
+        }
+    });
+
+    //Switch public
+    //initialisation puis check on puis event sur change pour affichage de la date de fin "privé"
+    $("#public-lesson").puiswitch();
+    $("#public-lesson").puiswitch('check');
+    $("#public-lesson").puiswitch({
+        'change': function () {
+            $('div.prive-date').toggleClass('hidden-xs-up')
+        }
+    });
+
+    //init dropdown des langes
+    $('#lang').puiautocomplete();
+
+    //init dropdown level
+    ajax(poem.host + poem.levelsList, 'level');
+
+    //init textareas en autoresize
+    $('#description').puiinputtextarea({autoResize: true});
+    $('#annexes').puiinputtextarea({autoResize: true});
+    $('#message').puiinputtextarea({autoResize: true});
+
+    //Button pour l'autorisation aux etudiants
+    $('#formules').puitogglebutton({
+        onLabel: "j'autorise l’étudiant à apporter des réponses avec images et/ou formules",
+        offLabel: "j'autorise l’étudiant à apporter des réponses avec images et/ou formules",
+        onIcon: 'fa-check-square',
+        offIcon: 'fa-square'
+    });
+
+    //init du tabView Questions
+    $('#questions').puitabview();
+
+    //Ajout d'un tab question
+    $('#add-question').click(function (e) {
+        e.preventDefault();
+        $questions = $('#questions');
+        $lis = $questions.find('li');
+        function myInnerHtml($number) {
+            return ''
+                + '<div class="row">'
+                + '<div class="col-sm-12">'
+                + '<p class="text-xs-center bg-info">*Creer votre question et fournissez la réponse. La leçon ne sera publiée que si vous posez au moins 3 questions*</p>'
+                + '</div>'
+                + '</div>'
+                + '<div class="row">'
+                + '<div class="col-sm-12">'
+                + '<button type="button" class="btn btn-primary pull-right"><i class="fa fa-hdd-o"></i> Sauver cette question</button>'
+                + '</div>'
+                + '</div>'
+                + '<div class="row">'
+                + '<div class="col-md-6">'
+                + '<h2>Question ' + $number + '</h2>'
+                + '<textarea name="questionEditor' + $number + '" id="questionEditor' + $number + '" rows="10" cols="80"></textarea>'
+                + '</div>'
+                + '<div class="col-md-6">'
+                + '<h2>Réponse attendue</h2>'
+                + '<textarea name="answerEditor' + $number + '" id="answerEditor' + $number + '" rows="10" cols="80"></textarea>'
+                + '</div>'
+                + '</div>';
+        }
+        $questions.puitabview('add', 'question'+ ($lis.length+1), 'tab' + ($lis.length+1), myInnerHtml($lis.length+1));
+        CKEDITOR.replace( 'questionEditor' + ($lis.length+1) );
+        CKEDITOR.replace( 'answerEditor' + ($lis.length+1) );
+    });
+
+    //CJeditor des textarea questions/responses
+    CKEDITOR.replace( 'questionEditor1' );
+    CKEDITOR.replace( 'answerEditor1' );
+    CKEDITOR.replace( 'questionEditor2' );
+    CKEDITOR.replace( 'answerEditor2' );
+    CKEDITOR.replace( 'questionEditor3' );
+    CKEDITOR.replace( 'answerEditor3' );
+
+}
+
+//fonction ajouter un cours page creer sessions ou modif session
+function poem_addCours($name, $date) {
+    var $id = $name.toLowerCase().replace(/\s+/, "");
+    if($name && !$('#cours'+$id).length && $date) {
+        var $templateCours = ''
+            +'<table id="cours' + $id + '" class="table table-hover cours">'
+            +'<thead class="thead-inverse">'
+            +'<tr>'
+            +'<th>' + $name + '</th>'
+            +'<th>0 leçons</th>'
+            +'<th>à finir le ' + $date + '</th>'
+            +'<th><button type="button" class="btn btn-danger btn-sm">supprimer</button></th>'
+            +'<th><a href="#" class="btn btn-secondary open-lessons" title="editer les leçons"><i class="fa fa-arrow-down"></i></a></th>'
+            +'</tr>'
+            +'</thead>'
+            +'<tbody>'
+            +'<fielset>'
+            +'<td></td>'
+            +'<td>'
+            +'<fieldset class="form-group">'
+            +'<label for="input-add-lesson-name-'+ $id +'">ajouter une leçon</label>'
+            +'<input id="input-add-lesson-name-'+ $id +'" name="input-add-lesson-name-'+ $id +'" class="input-add-lesson-name" type="text">'
+            +'</fielset>'
+            +'</td>'
+            +'<td>'
+            +'<fieldset class="form-group">'
+            +'<label for="input-add-lesson-date-'+ $id +'">date de fin leçon</label>'
+            +'<input id="input-add-lesson-date-'+ $id +'" name="input-add-lesson-date-'+ $id +'" class="form-control input-add-lesson-date" type="date">'
+            +'</fielset>'
+            +'</td>'
+            +'<td><button id="addleçon-' + $id + '" type="button" class="btn btn-primary add-lesson">Ajouter</button></td>'
+            +'</tr>'
+            +'</tbody>'
+            +'</table>';
+        //insertion du template lessons
+        $('.list-cours').append($templateCours);
+
+        //hide des lessons
+        var $cours = $('#cours'+$id);
+        $cours.find('tbody').toggle();
+
+        //toogle lessons si clic du btn .open-lessons
+        $cours.find('.open-lessons').click(function (e) {
+            e.preventDefault();
+            $(this).parent().parent().parent().siblings('tbody').toggle();
+        });
+
+        //init puiautocomplete de 'input lesson
+        var $lesson = {};
+        $cours.find('.input-add-lesson-name').each(function () {
+            $(this).puiautocomplete({
+                completeSource: poem.sessionListLessons,
+                forceSelection: true,
+                dropdown: true,
+                select: function (event, item) {
+                    $lesson.name = item.data('label');
+                    $lesson.id = item.data('value');
+                }
+            });
+        });
+
+        $cours.find('.add-lesson').each(function () {
+            poem.addEventClickLesson(this, $lesson);
+        });
+
+        $cours.find('thead th .btn-danger').click(function (e) {
+            e.preventDefault();
+            var $alert = $('<div id="alert"></div>').prependTo('body');
+            $alert.attr('title', 'confirmez la suppression');
+            $alert.html('<p>Confirmez-vous la suppression de ce cours?</p>');
+            $alert.puidialog({
+                showEffect: 'fade',
+                hideEffect: 'fade',
+                minimizable: false,
+                maximizable: false,
+                responsive: true,
+                minWidth: 200,
+                modal: true,
+                buttons: [{
+                    text: 'Oui',
+                    icon: 'fa-check',
+                    click: function() {
+                        $alert.puidialog('hide');
+                        $cours.remove();
+                        $alert.remove();
+                    }
+                },
+                    {
+                        text: 'Non',
+                        icon: 'fa-close',
+                        click: function() {
+                            $alert.puidialog('hide');
+                            $alert.remove();
+                        }
+                    }
+                ]
+            });
+            $alert.puidialog('show');
+        });
+
+    } else {
+        $('#'+$id).length ? $notification.puigrowl('show', [{severity: 'info', summary: 'Ce cours existe déjà', detail: 'Le nom de ce cours est déjà attribué à cette session'}]) : null;
+        !$name ? $notification.puigrowl('show', [{severity: 'info', summary: 'Nom du cours', detail: 'Nommez le cours pour l\'ajouter'}]) : null;
+        !$date ? $notification.puigrowl('show', [{severity: 'info', summary: 'Date de fin du cours', detail: 'attribuez une date de fin à votre cours'}]) : null;
+    }
+}
+
+//fonction ajouter un prof page creer sessions ou modif session
+function poem_addEleve($eleve) {
+    var $id = $eleve.id;
+    var $name = $eleve.name;
+    if($name && !$('#eleve'+$id).length) {
+        var $templateProf = ''
+            +'<tr id="eleve' + $id + '">'
+            +'<td>' + $name + '</td>'
+            +'<td><button type="button" class="btn btn-danger btn-sm">retirer</button></td>'
+            +'</tr>';
+        //insertion du template lessons
+        $('#tbody-addEleve').append($templateProf);
+
+        $eleve = $('#eleve'+$id);
+        $eleve.find('.btn-danger').click(function (e) {
+            e.preventDefault();
+            var $alert = $('<div id="alert"></div>').prependTo('body');
+            $alert.attr('title', 'confirmez la suppression');
+            $alert.html('<p>Confirmez-vous la suppression de ce collaborateur?</p>');
+            $alert.puidialog({
+                showEffect: 'fade',
+                hideEffect: 'fade',
+                minimizable: false,
+                maximizable: false,
+                responsive: true,
+                minWidth: 200,
+                modal: true,
+                buttons: [{
+                    text: 'Oui',
+                    icon: 'fa-check',
+                    click: function() {
+                        $alert.puidialog('hide');
+                        $eleve.remove();
+                        $alert.remove();
+                    }
+                },
+                    {
+                        text: 'Non',
+                        icon: 'fa-close',
+                        click: function() {
+                            $alert.puidialog('hide');
+                            $alert.remove();
+                        }
+                    }
+                ]
+            });
+            $alert.puidialog('show');
+        });
+
+    } else {
+        $('#eleve'+$id).length ? $notification.puigrowl('show', [{severity: 'info', summary: 'Cet élève est déjà dans la liste', detail: 'Le nom de cet élève est déjà attribué à cette session'}]) : null;
+        !$name ? $notification.puigrowl('show', [{severity: 'info', summary: 'Nom de l\'élève', detail: 'Choisissez un élève pour l\'ajouter'}]) : null;
+    }
+}
+
+//fonction ajouter un prof page creer sessions ou modif session
+function poem_addProf($prof) {
+    var $id = $prof.id;
+    var $name = $prof.name;
+    if($name && !$('#prof'+$id).length) {
+        var $templateProf = ''
+            +'<tr id="prof' + $id + '">'
+            +'<td>' + $name + '</td>'
+            +'<td><button type="button" class="btn btn-danger btn-sm">retirer</button></td>'
+            +'</tr>';
+        //insertion du template lessons
+        $('#tbody-addProf').append($templateProf);
+
+        $prof = $('#prof'+$id);
+        $prof.find('.btn-danger').click(function (e) {
+            e.preventDefault();
+            var $alert = $('<div id="alert"></div>').prependTo('body');
+            $alert.attr('title', 'confirmez la suppression');
+            $alert.html('<p>Confirmez-vous la suppression de ce collaborateur?</p>');
+            $alert.puidialog({
+                showEffect: 'fade',
+                hideEffect: 'fade',
+                minimizable: false,
+                maximizable: false,
+                responsive: true,
+                minWidth: 200,
+                modal: true,
+                buttons: [{
+                    text: 'Oui',
+                    icon: 'fa-check',
+                    click: function() {
+                        $alert.puidialog('hide');
+                        $prof.remove();
+                        $alert.remove();
+                    }
+                },
+                    {
+                        text: 'Non',
+                        icon: 'fa-close',
+                        click: function() {
+                            $alert.puidialog('hide');
+                            $alert.remove();
+                        }
+                    }
+                ]
+            });
+            $alert.puidialog('show');
+        });
+
+    } else {
+        $('#prof'+$id).length ? $notification.puigrowl('show', [{severity: 'info', summary: 'Ce collaborateur est déjà dans la liste', detail: 'Le nom de ce collaborateur est déjà attribué à cette session'}]) : null;
+        !$name ? $notification.puigrowl('show', [{severity: 'info', summary: 'Nom du collaborateur', detail: 'Choisissez un collaborateur pour l\'ajouter'}]) : null;
+    }
+}
+
+//function ajouter une leçon à un cours page creer session ou modifier session
+function poem_addLesson($idCours, $lesson, $date) {
+    var $cours = $('#' + $idCours);
+    var $templateLesson = ''
+        +'<tr id="lesson'+ $lesson.id +'">'
+        +'<td></td>'
+        +'<td>' + $lesson.name + '</td>'
+        +'<td>à finir le ' + $date + '</td>'
+        +'<td><button type="button" class="btn btn-danger btn-sm">supprimer</button></td>'
+        +'</tr>';
+
+    var $lastTr = $cours.find('tbody').find('tr').last();
+    $($templateLesson).insertBefore($lastTr);
+
+    $('#lesson'+$lesson.id).find('td button.btn-danger').click(function (e) {
+        e.preventDefault();
+        var $alert = $('<div id="alert"></div>').prependTo('body');
+        $alert.attr('title', 'confirmez la suppression');
+        $alert.html('<p>Confirmez-vous la suppression de cette leçon?</p>');
+        $alert.puidialog({
+            showEffect: 'fade',
+            hideEffect: 'fade',
+            minimizable: false,
+            maximizable: false,
+            responsive: true,
+            minWidth: 200,
+            modal: true,
+            buttons: [{
+                text: 'Oui',
+                icon: 'fa-check',
+                click: function() {
+                    $alert.puidialog('hide');
+                    var $cours = $('#lesson'+$lesson.id).parent().parent();
+                    $('#lesson'+$lesson.id).remove();
+                    var $nbcours=$cours.find('tbody').find('tr').length-1;
+                    $cours.find('thead th:nth-of-type(2)').html($nbcours+' leçons');
+                    $alert.remove();
+                }
+            },
+                {
+                    text: 'Non',
+                    icon: 'fa-close',
+                    click: function() {
+                        $alert.puidialog('hide');
+                        $alert.remove();
+                    }
+                }
+            ]
+        });
+        $alert.puidialog('show');
+    });
+
+    var $nbcours=$cours.find('tbody').find('tr').length-1;
+    $cours.find('thead th:nth-of-type(2)').html($nbcours+' leçons');
+}
+
+//Function init de la page creer session ou ajout session
+function poem_init_sessions() {
+    //init de la liste des leçons disponibles à l'ajout
+    var jqxhr = $.ajax(poem.host + poem.lessonsList)
+        .done(function(data, textStatus, jqXHR) {
+            poem.sessionListLessons = data;
+            $('.input-add-lesson-name').each(function () {
+                $(this).puiautocomplete({completeSource: poem.sessionListLessons});
+            });
+        })
+        .fail(function() {
+            alert( "erreur de chargement de la liste des leçons" );
+        })
+        .always(function () {
+
+        });
+
+    //init de la liste des collaborateurs disponibles à l'ajout
+    var $prof={};
+    var jqxhr2 = $.ajax(poem.host + poem.collaborateursList)
+        .done(function(data, textStatus, jqXHR) {
+            poem.sessionListCollaborateurs = data;
+            $('#input-add-prof').puiautocomplete({
+                completeSource: poem.sessionListCollaborateurs,
+                forceSelection: true,
+                dropdown: true,
+                select: function (event,item) {
+                    $prof.name = item.data('label');
+                    $prof.id = item.data('value');
+                }
+            });
+        })
+        .fail(function() {
+            alert( "erreur de chargement de la liste des collaborateurs" );
+        })
+        .always(function () {
+
+        });
+
+    //init de la liste des eleves disponibles à l'ajout
+    var $eleve={};
+    var jqxhr3 = $.ajax(poem.host + poem.elevesList)
+        .done(function(data, textStatus, jqXHR) {
+            poem.sessionListEleves = data;
+            $('#input-add-eleve').puiautocomplete({
+                completeSource: poem.sessionListEleves,
+                forceSelection: true,
+                dropdown: true,
+                select: function (event,item) {
+                    $eleve.name = item.data('label');
+                    $eleve.id = item.data('value');
+                }
+            });
+        })
+        .fail(function() {
+            alert( "erreur de chargement de la liste des eleves" );
+        })
+        .always(function () {
+
+        });
+    
+    //switch cours<->users
+    $('.edit-users').hide();
+    $('.to-cours').hide();
+    $('button.to-cours').click(function () {
+        $('.edit-cours').show("slow");
+        $('.edit-cours').find('table').css({'min-width': ''});
+        $('.edit-users').hide("slow");
+        $('.to-cours').hide("slow");
+        $('.to-users').show("slow");
+    });
+    $('button.to-users').click(function () {
+        $('.edit-users').show("slow");
+        $('.edit-cours').find('table').css({'min-width': '0'});
+        $('.edit-cours').hide("slow");
+        $('.to-users').hide("slow");
+        $('.to-cours').show("slow");
+    });
+
+    //**********************************************************
+    //Si la page est chargée avec des éléments HTML Cours-Leçon 
+    //**********************************************************
+    //Fermer le tableau leçon pour chaque cours déjà present en HTML
+    $('.cours').each(function () { $(this).find('tbody').toggle(); });
+
+    //ouverture-fermeture du panneau des leçons déjà presentes en HTML
+    $('.open-lessons').each(function () {
+        $(this).click(function (e) {
+            e.preventDefault();
+            $(this).parent().parent().parent().siblings('tbody').toggle();
+        });
+    });
+
+    //init des input de la liste des leçon
+    $('.input-add-lesson-name').each(function () {
+        $(this).puiautocomplete({
+            completeSource: poem.sessionListLessons,
+            forceSelection: true,
+            dropdown: true,
+            select: function (event, item) {
+                $lesson.name = item.data('label');
+                $lesson.id = item.data('value');
+            }
+        });
+    });
+
+    //Evenement click ajouter un cours
+    $('#addcours').click(function (e) {
+        e.preventDefault();
+        var $name = $('#add-cours-name').val().toLowerCase();
+        var $date = $('#add-cours-date').val();
+        poem.addCours($name, $date);
+    });
+
+    //ajouter evenement click sur bouton ajouter leçon
+    $('.add-lesson').each(function () {
+        poem.addEventClickLesson(this,$lesson);
+    });
+
+    //Evenement click ajouter un prof
+    $('#addprof').click(function (e) {
+        e.preventDefault();
+        poem.addProf($prof);
+    });
+
+    //Evenement click ajouter un prof
+    $('#addeleve').click(function (e) {
+        e.preventDefault();
+        poem.addEleve($eleve);
+    });
+
+
+}
+
+//function partagée pour l'ajout de l'evenement click sur le bouton ajouter leçon page creer session ou ajout session
+function poem_addEventClickLesson(elem, $lesson) {
+    $(elem).click(function (e) {
+        e.preventDefault();
+        var $idCours = $(this).parent().parent().parent().parent().attr("id");
+        var $cours = $('#' + $idCours);
+        var $date = $cours.find('.input-add-lesson-date').val();
+        poem.addLesson($idCours, $lesson, $date)
+    });
 }

@@ -4646,6 +4646,11 @@ html {
   vertical-align: middle;
   line-height: 1rem; }
 
+button.ui-autocomplete-dropdown {
+  position: absolute;
+  top: 0;
+  right: -2.5rem; }
+
 #sidebar .poemMenu a, #poemBackNavbar .poemMenu a {
   color: #9d9d9d; }
   #sidebar .poemMenu a i, #poemBackNavbar .poemMenu a i {
@@ -4690,82 +4695,8 @@ html {
 
 #main {
   margin-bottom: 30px; }
-  #main #dashboard .links a {
-    font-size: 1.1rem;
-    line-height: 2.5rem;
-    padding-left: 10px; }
-    #main #dashboard .links a:nth-child(2) {
-      position: relative;
-      top: -0.3rem;
-      color: #D9534F; }
-  #main #dashboard > .row:nth-of-type(1) {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #222; }
-  #main #dashboard .indicator1, #main #dashboard .indicator2, #main #dashboard .indicator3, #main #dashboard .indicator4, #main #dashboard .indicator5, #main #dashboard .indicator6 {
-    text-align: center; }
-    #main #dashboard .indicator1 h3, #main #dashboard .indicator2 h3, #main #dashboard .indicator3 h3, #main #dashboard .indicator4 h3, #main #dashboard .indicator5 h3, #main #dashboard .indicator6 h3 {
-      font-weight: 900; }
-    #main #dashboard .indicator1 .card-footer, #main #dashboard .indicator2 .card-footer, #main #dashboard .indicator3 .card-footer, #main #dashboard .indicator4 .card-footer, #main #dashboard .indicator5 .card-footer, #main #dashboard .indicator6 .card-footer {
-      min-height: 4.5em; }
-  #main #results .ui-autocomplete {
-    width: 25rem;
-    margin-bottom: 10px; }
-    #main #results .ui-autocomplete input {
-      width: calc(100% - 2.4rem); }
-  #main #results input#critere {
-    min-width: 20vw; }
-  #main #results .results-filter {
-    padding-top: 25px;
-    padding-bottom: 25px; }
-  #main #explorer .ui-autocomplete {
-    width: 100%; }
-    #main #explorer .ui-autocomplete input {
-      width: 80%;
-      margin-left: calc((20% - 2.4em)/2); }
-  #main #explorer .selectors .col-md-4 {
-    margin-bottom: 20px; }
-  #main #explorer .selectors .elo-slider, #main #explorer .selectors .language, #main #explorer .selectors .filter {
-    margin-left: calc((20% - 2.4em)/2);
-    margin-right: calc((20% - 2.4em)/2); }
-  #main #explorer .selectors .elo-slider {
-    max-width: 100%;
-    display: block; }
-    #main #explorer .selectors .elo-slider input {
-      border: 0;
-      color: #f6931f;
-      font-weight: bold; }
-  #main #explorer .selectors .filter {
-    margin-bottom: 0.3rem; }
-  #main #explorer .row div.tag-cloud {
-    margin-left: auto;
-    margin-right: auto;
-    background: -webkit-radial-gradient(center ellipse, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(55, 171, 191, 0.2) 100%);
-    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(55, 171, 191, 0.2) 100%);
-    box-shadow: 0 0 70px 0 rgba(55, 171, 191, 0.2); }
-    #main #explorer .row div.tag-cloud h3 {
-      position: relative;
-      top: calc(50% - 0.5em);
-      font-size: 5em;
-      color: rgba(150, 150, 150, 0.5); }
-    #main #explorer .row div.tag-cloud ul li {
-      font-family: "PT Sans", sans-serif;
-      padding: 4px;
-      background-color: white;
-      background: -webkit-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
-      background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%); }
-    #main #explorer .row div.tag-cloud button.backward {
-      position: absolute;
-      left: -150px;
-      top: calc(50% - 0.5em); }
-    #main #explorer .row div.tag-cloud button.forward {
-      position: absolute;
-      right: -150px;
-      top: calc(50% - 0.5em); }
-  #main .page-header {
-    margin-top: 2rem;
-    border-bottom: 1px solid #222;
-    text-transform: uppercase; }
+  #main input[type="date"], #main input[type="time"] {
+    line-height: 1rem; }
   #main .vignettes-list {
     margin-top: 30px; }
     #main .vignettes-list h2 {
@@ -4803,6 +4734,84 @@ html {
     margin-bottom: 0; }
   #main .more {
     margin-top: 30px; }
+  #main .page-header {
+    margin-top: 2rem;
+    border-bottom: 1px solid #222;
+    text-transform: uppercase; }
+  #main #dashboard .links a {
+    font-size: 1.1rem;
+    line-height: 2.5rem;
+    padding-left: 10px; }
+    #main #dashboard .links a:nth-child(2) {
+      position: relative;
+      top: -0.3rem;
+      color: #D9534F; }
+  #main #dashboard > .row:nth-of-type(1) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #222; }
+  #main #dashboard .indicator1, #main #dashboard .indicator2, #main #dashboard .indicator3, #main #dashboard .indicator4, #main #dashboard .indicator5, #main #dashboard .indicator6 {
+    text-align: center; }
+    #main #dashboard .indicator1 h3, #main #dashboard .indicator2 h3, #main #dashboard .indicator3 h3, #main #dashboard .indicator4 h3, #main #dashboard .indicator5 h3, #main #dashboard .indicator6 h3 {
+      font-weight: 900; }
+    #main #dashboard .indicator1 .card-footer, #main #dashboard .indicator2 .card-footer, #main #dashboard .indicator3 .card-footer, #main #dashboard .indicator4 .card-footer, #main #dashboard .indicator5 .card-footer, #main #dashboard .indicator6 .card-footer {
+      min-height: 4.5em; }
+  #main #results .ui-autocomplete {
+    width: 25rem;
+    margin-bottom: 10px;
+    margin-right: 3rem; }
+    #main #results .ui-autocomplete input {
+      width: 100%; }
+  #main #results input#critere {
+    min-width: 20vw; }
+  #main #results .results-filter {
+    padding-top: 25px;
+    padding-bottom: 25px; }
+  #main #explorer .ui-autocomplete {
+    width: 80%;
+    position: relative;
+    margin-left: calc((20% - 2.4em)/2); }
+    #main #explorer .ui-autocomplete input {
+      width: 100%; }
+  #main #explorer .selectors .col-md-4 {
+    margin-bottom: 20px; }
+  #main #explorer .selectors .elo-slider, #main #explorer .selectors .language, #main #explorer .selectors .filter {
+    margin-left: calc((20% - 2.4em)/2);
+    margin-right: calc((20% - 2.4em)/2); }
+  #main #explorer .selectors .elo-slider {
+    max-width: 100%;
+    display: block; }
+    #main #explorer .selectors .elo-slider input {
+      border: 0;
+      color: #f6931f;
+      font-weight: bold; }
+  #main #explorer .selectors .filter {
+    margin-bottom: 0.3rem; }
+  #main #explorer .row div.tag-cloud {
+    margin-left: auto;
+    margin-right: auto;
+    background: -webkit-radial-gradient(center ellipse, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(55, 171, 191, 0.2) 100%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(55, 171, 191, 0.2) 100%);
+    box-shadow: 0 0 70px 0 rgba(55, 171, 191, 0.2); }
+    #main #explorer .row div.tag-cloud h3 {
+      position: relative;
+      top: calc(50% - 0.5em);
+      font-size: 5em;
+      color: rgba(150, 150, 150, 0.5); }
+    #main #explorer .row div.tag-cloud ul li {
+      font-family: "PT Sans", sans-serif;
+      padding: 4px;
+      background-color: white;
+      background: -webkit-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+      background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%); }
+  #main #explorer .row .col-sm-10 button.backward {
+    position: absolute;
+    left: calc(50% - 450px);
+    top: calc(50% - 0.5em); }
+  #main #explorer .row .col-sm-10 button.forward {
+    position: absolute;
+    right: calc(50% - 450px);
+    top: calc(50% - 0.5em); }
   #main #selection hr {
     padding-top: 0;
     padding-bottom: 0;
@@ -4833,18 +4842,23 @@ html {
       width: auto; }
   #main #lecon .col-sm-12, #main #lecon .col-md-6 {
     margin-bottom: 10px; }
+  #main #lecon .content-file {
+    width: 100%;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding-top: 10px;
+    background-color: #f5f5f5; }
   #main #lecon .form-control-file {
     display: inline-block; }
   #main #lecon fieldset {
-    width: 100%; }
+    width: 100%;
+    padding-left: 5px; }
     #main #lecon fieldset div.ou {
       position: absolute;
       top: 0;
       right: 0; }
       #main #lecon fieldset div.ou ~ p {
         margin-bottom: 0; }
-    #main #lecon fieldset input[type="date"], #main #lecon fieldset input[type="time"] {
-      line-height: 1rem; }
     #main #lecon fieldset.public {
       width: 50%; }
       #main #lecon fieldset.public label, #main #lecon fieldset.public div {
@@ -4859,7 +4873,7 @@ html {
     #main #lecon fieldset span {
       width: 60%; }
       #main #lecon fieldset span input {
-        width: calc(100% - 2.4rem); }
+        width: 100%; }
   #main #lecon label {
     width: 20%;
     min-width: 150px; }
@@ -4868,20 +4882,20 @@ html {
       color: red; }
   #main #lecon input {
     width: 60%; }
-  #main .row.options {
+  #main #lecon .row.options {
     margin-bottom: 30px; }
-    #main .row.options div.options {
+    #main #lecon .row.options div.options {
       position: relative; }
-      #main .row.options div.options .content-options {
+      #main #lecon .row.options div.options .content-options {
         display: inline-block;
         width: 100%;
         border-radius: 10px;
         position: relative;
         padding-top: 10px;
         background-color: #f5f5f5; }
-        #main .row.options div.options .content-options fieldset.vignette-file, #main .row.options div.options .content-options fieldset.annexes {
+        #main #lecon .row.options div.options .content-options fieldset.vignette-file, #main #lecon .row.options div.options .content-options fieldset.annexes {
           padding-left: 48px; }
-        #main .row.options div.options .content-options .label-options {
+        #main #lecon .row.options div.options .content-options .label-options {
           position: absolute;
           height: 100%;
           padding-top: 14px;
@@ -4894,12 +4908,92 @@ html {
           left: 0;
           color: #134f5c;
           background-color: #a2c4c9; }
-          #main .row.options div.options .content-options .label-options p {
+          #main #lecon .row.options div.options .content-options .label-options p {
             margin-top: auto;
             margin-bottom: auto; }
           @media (max-width: 991px) {
-            #main .row.options div.options .content-options .label-options {
+            #main #lecon .row.options div.options .content-options .label-options {
               padding-top: 50px; } }
         @media (max-width: 767px) {
-          #main .row.options div.options .content-options fieldset.message {
+          #main #lecon .row.options div.options .content-options fieldset.message {
             padding-left: 48px; } }
+  #main #session .col-sm-12, #main #session .col-md-6 {
+    margin-bottom: 10px; }
+  #main #session fieldset {
+    width: 100%;
+    padding-left: 5px; }
+  #main #session label {
+    width: 20%;
+    min-width: 150px; }
+    #main #session label i {
+      font-size: 0.5rem;
+      color: red; }
+  #main #session input {
+    width: 60%; }
+  #main #session .row:nth-child(3) .col-sm-12.edit-cours {
+    background-image: url("./assets/2t.png");
+    background-repeat: repeat-y;
+    background-position-x: calc(100% - 39px); }
+  #main #session .row:nth-child(3) .col-sm-12.edit-users {
+    background-image: url("./assets/2t.png");
+    background-repeat: repeat-y;
+    background-position-x: 40px; }
+  #main #session div.add-cours {
+    margin-top: 20px; }
+  #main #session .edit-cours {
+    position: relative; }
+    #main #session .edit-cours button.to-users {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      z-index: 1000; }
+  #main #session .edit-users {
+    position: relative; }
+    #main #session .edit-users .row:nth-of-type(2) {
+      margin-top: 50px; }
+    #main #session .edit-users button.to-cours {
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      z-index: 1000; }
+    #main #session .edit-users table, #main #session .edit-users fieldset.eleve-file {
+      position: relative;
+      left: 62px; }
+      #main #session .edit-users table button#addeleve, #main #session .edit-users table button#addprof, #main #session .edit-users fieldset.eleve-file button#addeleve, #main #session .edit-users fieldset.eleve-file button#addprof {
+        position: relative;
+        top: -1em; }
+    #main #session .edit-users fieldset.eleve-file label, #main #session .edit-users fieldset.eleve-file input, #main #session .edit-users fieldset.eleve-file p {
+      display: inline-block;
+      width: auto; }
+  #main #session table {
+    margin-bottom: 0;
+    table-layout: fixed;
+    min-width: 800px;
+    max-width: calc(100% - 62px); }
+    #main #session table label {
+      width: 100%; }
+    #main #session table input {
+      width: 100%; }
+    #main #session table thead tr td:first-child, #main #session table tbody tr td:first-child {
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    #main #session table .ui-autocomplete {
+      width: calc(100% - 2.4rem); }
+    #main #session table #addcours {
+      position: relative;
+      top: -1em; }
+    #main #session table tbody:not(#tbody-addProf) tr td:first-child {
+      border-top: none; }
+    #main #session table tbody:not(#tbody-addProf) button.add-lesson {
+      position: relative;
+      bottom: -2em; }
+  #main #session div.list-cours th:first-child, #main #session div.add-cours th:first-child {
+    width: 20%; }
+  #main #session div.list-cours th:nth-child(2), #main #session div.add-cours th:nth-child(2) {
+    width: 30%; }
+  #main #session div.list-cours th:nth-child(3), #main #session div.add-cours th:nth-child(3) {
+    width: 20%; }
+  #main #session div.list-cours th:nth-child(4), #main #session div.add-cours th:nth-child(4) {
+    width: 18%; }
+  #main #session div.list-cours th:last-child, #main #session div.add-cours th:last-child {
+    width: 12%; }

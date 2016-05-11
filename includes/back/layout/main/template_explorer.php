@@ -53,9 +53,9 @@
                 <h3 class="text-xs-center"></h3>
                 <ul>
                 </ul>
-                <button class="btn btn-info-outline backward"></button>
-                <button class="btn btn-info-outline forward"></button>
             </div>
+            <button class="btn btn-info-outline backward"></button>
+            <button class="btn btn-info-outline forward"></button>
         </div>
         <div class="col-sm-1"></div>
     </div>

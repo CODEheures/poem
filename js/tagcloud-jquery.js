@@ -36,8 +36,8 @@
         speed : 3,
         //sphere rotations slower
         slower : 0.9,
-        //delay between update position
-        timer : 5,
+        //delay between update position 
+        //timer : 5, ==> obsolete avec requestAnimationFrame
         //dependence of a font size on axis Z
         fontMultiplier : 15,
         //zoom font on mouseover
@@ -70,14 +70,22 @@
         mouseY : null
     };
     var options = {};
+    var $first = true;
+    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
     jQuery.fn.tagoSphere = function(opt) {
-        options = jQuery.extend(settings, opt);
-        initContainer(this);
-        initTags(this);
-        initMaths();
-        deployTags();
-        opt.interval = setInterval(updateTags, options.timer);
-        return this;
+        if (opt == 'cancelAnim') {
+            options.requestAnimationFrameId ? window.cancelAnimationFrame(options.requestAnimationFrameId) : null;
+        } else {
+            options = jQuery.extend(settings, opt);
+            initContainer(this);
+            initTags(this);
+            initMaths();
+            deployTags();
+            //opt.interval = setInterval(updateTags, options.timer);
+            options.requestAnimationFrameId ? window.cancelAnimationFrame(options.requestAnimationFrameId) : null;
+            requestAnimationFrame(updateTags);
+            return this;
+        }
     };
 
     function initMaths() {
@@ -118,6 +126,7 @@
     }
 
     function initContainer(tagContainer) {
+        $first=true;
         tagContainer.height(options.height);
         tagContainer.width(options.width);
         tagContainer.css( {
@@ -156,6 +165,8 @@
         }
         tags.css( {
             'position' : 'absolute',
+            'top' : '0',
+            'left' : '0',
             'list-style-type' : 'none',
             'list-style-position' : 'outside',
             'list-style-image' : 'none',
@@ -235,23 +246,16 @@
                 tags[j].alpha = per / 2;
                 tags[j].data('hover') == 1 ? tags[j].zoomFont = options.fontZoomHover : tags[j].zoomFont = 1;
                 tags[j].tagMaxWidth = options.tagMaxWidth*options.fontZoomHover;
-                tags[j]
-                    .css( {
-                        'left' : mathAssets.whratio
-                        * (tags[j].x - tags[j].w * per)
-                        + mathAssets.halfWidth,
-                        'top' : mathAssets.hwratio
-                        * (tags[j].y - tags[j].h * per)
-                        + mathAssets.halfHeight,
-                        'opacity' : tags[j].alpha,
-                        // 'font-size' : options.fontMultiplier
-                        // * tags[j].alpha + 'px',
-                        'font-size' : options.fontMultiplier * tags[j].zoomFont
-                        * tags[j].alpha + 'px',
-                        'max-width' : tags[j].tagMaxWidth * tags[j].alpha + '%',
-                        'z-index' : Math.round(-tags[j].cz)
-                    });
+                var left = mathAssets.whratio * (tags[j].x - tags[j].w * per) + mathAssets.halfWidth;
+                var top = mathAssets.hwratio * (tags[j].y - tags[j].h * per) + mathAssets.halfHeight;
+                tags[j][0].style.transform = 'translateX(' + left + 'px) translateY(' + top + 'px)';
+                tags[j][0].style.fontSize = options.fontMultiplier * tags[j].zoomFont  * tags[j].alpha + 'px';
+                tags[j][0].style.maxWidth = tags[j].tagMaxWidth * tags[j].alpha + '%';
+                tags[j][0].style.zIndex = Math.round(-tags[j].cz);
+                tags[j][0].style.opacity = tags[j].alpha;
             }
         }
+        
+        options.requestAnimationFrameId = requestAnimationFrame(updateTags);
     }
 })(jQuery);

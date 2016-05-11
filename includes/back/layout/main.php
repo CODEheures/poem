@@ -13,22 +13,17 @@
 <!-- cas des pages lists -->
 <?php
 if($_SESSION['page']=='dashboard') {
-    //template des pages de lists
     include('./includes/back/layout/main/template_dashboard.php');
 } elseif ($_SESSION['page']=='sessions_list') {
-    //template des pages de lists
     include('./includes/back/layout/main/template_lists_sessions.php');
-} elseif ($_SESSION['page']=='lecons_ajout' || $_SESSION['page']=='lecons_ajout') {
-    //template ajout-modif d'une leçon
+} elseif ($_SESSION['page']=='sessions_ajout' || $_SESSION['page']=='sessions_modif') {
+    include('./includes/back/layout/main/template_ajout_modif_session.php');
+} elseif ($_SESSION['page']=='lecons_ajout' || $_SESSION['page']=='lecons_modif') {
     include('./includes/back/layout/main/template_ajout_modif_lecon.php');
 } elseif ($_SESSION['page']=='resultats') {
-    //template résultats
     include('./includes/back/layout/main/template_resultats.php');
 } elseif ($_SESSION['page']=='explorer') {
-    //template résultats
     include('./includes/back/layout/main/template_explorer.php');
 } elseif ($_SESSION['page']=='explorer2') {
-    //template résultats
     include('./includes/back/layout/main/template_explorer2.php');
 }
-

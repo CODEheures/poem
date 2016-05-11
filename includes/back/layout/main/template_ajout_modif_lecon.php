@@ -21,21 +21,27 @@
                 </fieldset>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 form-inline">
-                <fieldset class="form-group lesson-file">
-                    <label for="lesson-file"><sup><i class="fa fa-asterisk"></i></sup>Fichier de la leçon</label>
-                    <input type="file" id="lesson-file" class="form-control-file" name="lesson-file"/>
-                    <div class="ou hidden-lg-down"><i class="fa fa-arrow-left"></i> OU <i class="fa fa-arrow-right"></i></div>
-                    <p><small class="text-muted">choisir un fichier (pdf,mp4,ppt, 100Mo Maxi)</small></p>
-                </fieldset>
-            </div>
-            <div class="col-md-6 form-inline">
-                <div class="text-xs-center hidden-md-up"><i class="fa fa-arrow-up"></i> OU <i class="fa fa-arrow-down"></i></div>
-                <fieldset class="form-group lesson-file">
-                    <label for="lesson-url"><span class="hidden-xl-up">ou </span>lien HTML</label>
-                    <input type="url" id="lesson-url" class="form-control" name="lesson-url" placeholder="Ex: https://docs.google.com/presentation..."/>
-                </fieldset>
+        <div class="row lesson-or-url">
+            <div class="col-sm-12">
+                <div class="content-file">
+                    <div class="row">
+                        <div class="col-md-6 form-inline">
+                            <fieldset class="form-group lesson-file">
+                                <label for="lesson-file"><sup><i class="fa fa-asterisk"></i></sup>Fichier de la leçon</label>
+                                <input type="file" id="lesson-file" class="form-control-file" name="lesson-file"/>
+                                <div class="ou hidden-lg-down"><i class="fa fa-arrow-left"></i> OU <i class="fa fa-arrow-right"></i></div>
+                                <p><small class="text-muted">choisir un fichier (pdf,mp4,ppt, 100Mo Maxi)</small></p>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6 form-inline">
+                            <div class="text-xs-center hidden-md-up"><i class="fa fa-arrow-up"></i> OU <i class="fa fa-arrow-down"></i></div>
+                            <fieldset class="form-group lesson-file">
+                                <label for="lesson-url"><span class="hidden-xl-up">ou </span>lien HTML</label>
+                                <input type="url" id="lesson-url" class="form-control" name="lesson-url" placeholder="Ex: https://docs.google.com/presentation..."/>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
