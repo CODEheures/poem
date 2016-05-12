@@ -115,6 +115,11 @@
         curState.vectorY = 0;
         curState.speed = 0;
         curState.timer = null;
+        curState.pan = false;
+        curState.panDeltaX = 0;
+        curState.panDeltaY = 0;
+        curState.panSpeedX = 0;
+        curState.panSpeedY = 0;
     }
 
     function getOffsetLeft( elem ) {
@@ -148,9 +153,13 @@
         });
 
 
-        //pour ne pas recreer les events
-        if (!options.init) {
-            tagContainer.mousemove( function(e) {
+
+        if (!options.init) { // if pour ne pas recreer les events
+
+            //***********************
+            //Mouse move ou touch move
+            //************************
+            tagContainer.mousemove(function(e) {
                 //correction bug coordonnées Sylvain GAGNOT
                 curState.mouseX = e.pageX - getOffsetLeft(this);
                 curState.mouseY = e.pageY - getOffsetTop(this);
@@ -158,24 +167,35 @@
                 // curState.mouseY = e.pageY - this.offsetTop();
             });
 
-            tagContainer.hover( function() {
-                //propagation du mouseOver
-                curState.mouseOver = true;
-            }, function() {
-                //propagation et setting du mouseOver et mouseDown
-                curState.mouseOver = false;
-                curState.mouseDown = false;
-                //arret du calcul de la vitesse instantanée
-                curState.timer ? clearInterval(curState.timer) : null;
-                curState.timer = null;
+            document.getElementById('tagcloud').addEventListener('touchmove', function(e) {
+                e.preventDefault();
+                var touch = e.touches[0];
+                curState.mouseX = touch.pageX - getOffsetLeft(this);
+                curState.mouseY = touch.pageY - getOffsetTop(this);
+            }, false);
+
+            //************************
+            //mousedown ou touch start
+            //************************
+            tagContainer.mousedown(function(e) {
+                e.preventDefault();
+                curState.mouseX = e.pageX - getOffsetLeft(this);
+                curState.mouseY = e.pageY - getOffsetTop(this);
+                mouseDownOrTouchStart();
             });
 
-            tagContainer.mousedown( function(e) {
+            document.getElementById('tagcloud').addEventListener('touchstart', function(e) {
                 e.preventDefault();
+                curState.mouseX = e.touches[0].pageX - getOffsetLeft(this);
+                curState.mouseY = e.touches[0].pageY - getOffsetTop(this);
+                mouseDownOrTouchStart();
+            }, false);
 
+            function mouseDownOrTouchStart($touch, e) {
                 //init calcul de la vitesse instantanée
                 curState.startX = curState.mouseX;
                 curState.startY = curState.mouseY;
+                console.log(getOffsetLeft(this));
                 setTimeout(function () {
                     curState.timer = setInterval(calcSpeed, $intervalCalcSpeed);
                 }, $intervalCalcSpeed);
@@ -189,12 +209,23 @@
 
                 //lancement du calcul de position
                 options.requestAnimationFrameId = requestAnimationFrame(updateTags)
+            }
+
+            //*******************
+            //mouseup ou touchend
+            //*******************
+            tagContainer.mouseup(function(e) {
+                e.preventDefault();
+                mouseUpOrTouchEnd();
             });
 
-
-
-            tagContainer.mouseup( function(e) {
+            document.getElementById('tagcloud').addEventListener('touchend', function(e) {
                 e.preventDefault();
+                mouseUpOrTouchEnd();
+            }, false);
+
+
+            function mouseUpOrTouchEnd() {
                 //propagation du mouseDowm
                 curState.mouseDown = false;
 
@@ -203,7 +234,30 @@
                     clearInterval(curState.timer);
                     curState.timer = null;
                 }
+            }
+
+            //*************************
+            //mouseleave ou touchleave
+            //*************************
+            tagContainer.mouseleave(function (e) {
+                e.preventDefault();
+                mouseLeaveOrTouchLeave();
             });
+
+            document.getElementById('tagcloud').addEventListener('touchleave', function(e) {
+                e.preventDefault();
+                mouseLeaveOrTouchLeave();
+            }, false);
+
+            function mouseLeaveOrTouchLeave() {
+                curState.mouseDown = false;
+                //arret du calcul de la vitesse instantanée
+                if(curState.timer) {
+                    clearInterval(curState.timer);
+                    curState.timer = null;
+                }
+            }
+
         }
 
         if(!$('#imgcloud').length){
@@ -297,31 +351,35 @@
         var dX;
         var dY;
 
+        // si je track
         if (curState.mouseDown) {
             dX = (curState.lastX - curState.mouseX)/(2*Math.PI);
             dY = (curState.mouseY - curState.lastY)/(2*Math.PI);
         }
 
+        //si je relache le track avec une certaine vitesse => elasticite
         if (!curState.mouseDown && curState.speed) {
             curState.speed < 0.001 ? curState.speed = 0 : curState.speed -= (curState.speed/10);
             dX = curState.speed*curState.vectorX*5;
             dY = curState.speed*curState.vectorY*5;
         }
 
-        if (options.deploy) {
-            dX = 1;
-            dY = 1;
-            curState.speed = Math.random();
-            curState.vectorX = Math.random();
-            curState.vectorY = Math.random();
-        }
-
+        //calcul des positions dans les 2 derniers cas (track et relache elastique)
         if (dX || dY) {
             calcRotation(dY, dX);
             curState.lastY = curState.mouseY;
             curState.lastX = curState.mouseX;
         }
 
+        //uniquement au deploiement des tags
+        if (options.deploy) {
+            dX = 1;
+            dY = 1;
+            curState.speed = Math.random();
+            curState.vectorX = Math.random();
+            curState.vectorY = Math.random();
+            calcRotation(dY, dX);
+        }
 
         //Mise à jour de la position des tags
         if (Math.abs(dY) > 0.1 || Math.abs(dX) > 0.1) {
