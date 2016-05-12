@@ -35,18 +35,22 @@ if($_SESSION['page']=='dashboard') {
     print '<script src="js/tagcloud-jquery.js"></script>';
     print '<script src="js/poem-explorer.js"></script>';
 } elseif($_SESSION['page']=='explorer2') {
-    //scripts de la page explorer
+    //scripts de la page explorer2
     print '<script src="js/d3.v3.min.js"></script>';
     print '<script src="js/poem-explorer2.js"></script>';
 } elseif ($_SESSION['page']=='lecons_ajout' || $_SESSION['page']=='lecons_modif') {
-    //scripts de la page resultats
+    //scripts de la page leçons
     print '<script src="ckeditor/ckeditor.js"></script>';
     print '<script src="js/poem-lecons-ajout-modif.js"></script>';
 } elseif ($_SESSION['page']=='sessions_list') {
-    //scripts de la page resultats
+    //scripts de la page sessions
     print '<script src="js/poem-sessions-list.js"></script>';
-} elseif ($_SESSION['page']=='sessions_ajout' || $_SESSION['page']=='sessions_modif') {
-    //scripts de la page resultats
+} elseif ($_SESSION['page']=='sessions_ajout') {
+    //scripts de la page session ajout
     print '<script src="ckeditor/ckeditor.js"></script>';
-    print '<script src="js/poem-sessions-ajout-modif.js"></script>';
+    print '<script src="js/poem-sessions-ajout.js"></script>';
+} elseif ($_SESSION['page']=='sessions_modif') {
+    //scripts de la page sessions modif
+    print '<script src="ckeditor/ckeditor.js"></script>';
+    print '<script src="js/poem-sessions-modif.js"></script>';
 }

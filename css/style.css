@@ -4933,11 +4933,11 @@ button.ui-autocomplete-dropdown {
   #main #session .row:nth-child(3) .col-sm-12.edit-cours {
     background-image: url("./assets/2t.png");
     background-repeat: repeat-y;
-    background-position-x: calc(100% - 39px); }
+    background-position: calc(100% - 39px) 0; }
   #main #session .row:nth-child(3) .col-sm-12.edit-users {
     background-image: url("./assets/2t.png");
     background-repeat: repeat-y;
-    background-position-x: 40px; }
+    background-position: 40px 0; }
   #main #session div.add-cours {
     margin-top: 20px; }
   #main #session .edit-cours {
