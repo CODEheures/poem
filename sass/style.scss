@@ -345,6 +345,11 @@ button.ui-autocomplete-dropdown {
         right: calc(50% - 450px);
         top: calc(50% - 0.5em);
       }
+
+      & p.info-track {
+        margin-top: 40px;
+        font-size: 0.8rem;
+      }
     }
 
     //& .d3-explorer{

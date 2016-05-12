@@ -32,7 +32,11 @@ if($_SESSION['page']=='dashboard') {
 } elseif($_SESSION['page']=='explorer') {
     //scripts de la page explorer
     print '<script src="js/jquery-mousewheel.min.js"></script>';
-    print '<script src="js/tagcloud-jquery.js"></script>';
+    if($_SESSION['explorermode'] == 'attractive') {
+        print '<script src="js/tagcloud-attractive.js"></script>';
+    } else {
+        print '<script src="js/tagcloud-trackball.js"></script>';
+    }
     print '<script src="js/poem-explorer.js"></script>';
 } elseif($_SESSION['page']=='explorer2') {
     //scripts de la page explorer2

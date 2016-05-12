@@ -4812,6 +4812,9 @@ button.ui-autocomplete-dropdown {
     position: absolute;
     right: calc(50% - 450px);
     top: calc(50% - 0.5em); }
+  #main #explorer .row .col-sm-10 p.info-track {
+    margin-top: 40px;
+    font-size: 0.8rem; }
   #main #selection hr {
     padding-top: 0;
     padding-bottom: 0;

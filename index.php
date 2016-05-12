@@ -88,6 +88,12 @@ if(isset($_GET['want']) && key_exists($_GET['want'],$type)){
     $_SESSION['page']=$type[$_GET['want']]['page'];
     $_SESSION['menu']=$type[$_GET['want']]['menu'];
     $_SESSION['titre']=$type[$_GET['want']]['titre'];
+    //pour les 2 modes possibles de l'explorateur 'trackball' ou 'attractive'
+    if(isset($_GET['explorermode']) && $_GET['explorermode'] == 'attractive') {
+        $_SESSION['explorermode'] = 'attractive';
+    } else {
+        $_SESSION['explorermode'] = 'trackball';
+    }
     
 } else {
     $_SESSION['type']=$type['back_dashboard']['type'];

@@ -56,6 +56,11 @@
             </div>
             <button class="btn btn-info-outline backward"></button>
             <button class="btn btn-info-outline forward"></button>
+            <?php if($_SESSION['explorermode'] == 'attractive'){ ?>
+                <p class="text-xs-center> text-muted info-track">Mode souris attractive<br />(<a href="/index.php?want=back_explorer&explorermode=trackball" title="glisser votre doigt sur la sphere ou maintenez le clic de la souris pour tourner">recharger l'exploreur en mode digital trackball</a>)</p>
+            <?php } else { ?>
+                <p class="text-xs-center text-muted info-track">Mode digital trackball<br />(<a href="/index.php?want=back_explorer&explorermode=attractive" title="la position du curseur de la souris attire les tags vers lui">recharger l'explorer en mode souris attractive</a>)</p>
+            <?php } ?>
         </div>
         <div class="col-sm-1"></div>
     </div>
@@ -79,7 +84,7 @@
             <hr />
         </div>
         <div class="col-md-2 thumb-lesson">
-            <a href="#" title="vers la leçon"><img src="http://lorempixel.com/300/200/technics/<?php echo (($i+1) % 10) ?>" class="img-fluid" alt="image de la leçon n°<?php print $i ?>"></a>
+            <a href="#" title="vers la leçon"><!--img src="http://lorempixel.com/300/200/technics/<?php echo (($i+1) % 10) ?>" class="img-fluid" alt="image de la leçon n°<?php print $i ?>"--></a>
         </div>
         <div class="col-md-7 description">
             <h3><a href="#" title="vers la leçon">Titre de la leçon trouvée n°<?php print $i ?></a></h3>
