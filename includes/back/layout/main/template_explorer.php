@@ -46,7 +46,7 @@
             <img class="center-block hidden-xs-up" src="/css/assets/loader1.gif" alt="loader fourmis" />
         </div>
     </div>
-    <div class="row">
+    <div class="row hidden-lg-down">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
             <div id="tagcloud" class="tag-cloud">
@@ -63,6 +63,11 @@
             <?php } ?>
         </div>
         <div class="col-sm-1"></div>
+    </div>
+    <div class="row hidden-xl-up">
+        <div class="col-sm-12">
+            <p class="text-warning no-explorer">l'affichage de l'explorateur graphique est restreint aux écrans de plus de 1140px de largeur.</p>
+        </div>
     </div>
 </section>
 <section id="selection">
