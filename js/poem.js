@@ -760,7 +760,12 @@ function poem_addCours($name, $date) {
         //toogle lessons si clic du btn .open-lessons
         $cours.find('.open-lessons').click(function (e) {
             e.preventDefault();
-            $(this).parent().parent().parent().siblings('tbody').toggle();
+            is_expended = $(this).parent().parent().parent().siblings('tbody').toggle().is(':visible');
+            if (is_expended)
+                $(this).children().removeClass("fa-arrow-down").addClass("fa-arrow-up")
+            else
+                $(this).children().removeClass("fa-arrow-up").addClass("fa-arrow-down")
+                
         });
 
         //init puiautocomplete de 'input lesson
