@@ -19,68 +19,24 @@ session_start();
 */
 
 $type = array(
-    'back_dashboard' => array(
-        'type' => 'back',
+    'front_dashboard' => array(
+        'type' => 'front',
         'page' => 'dashboard',
-        'menu' => 'tableau de bord',
+        'menu' => 'Mon tableau de bord',
         'titre' => 'tableau de bord'
     ),
-
-    'back_lecons_ajout' => array(
-        'type' => 'back',
-        'page' => 'lecons_ajout',
-        'menu' => 'créer une leçon',
-        'titre' => 'créer une leçon'
-    ),
-
-    'back_lecons_modif' => array(
-        'type' => 'back',
-        'page' => 'lecons_modif',
-        'menu' => 'modifier une leçon',
-        'titre' => 'modifier une leçon'
-    ),
-
-    'back_sessions' => array(
-        'type' => 'back',
-        'page' => 'sessions_list',
-        'menu' => 'sessions privées',
-        'titre' => 'liste des sessions'
-    ),
-
-    'back_sessions_ajout' => array(
-        'type' => 'back',
-        'page' => 'sessions_ajout',
-        'menu' => 'créer une session',
-        'titre' => 'créer une session'
-    ),
-
-    'back_sessions_modif' => array(
-        'type' => 'back',
-        'page' => 'sessions_modif',
-        'menu' => 'modifier une session',
-        'titre' => 'modifier une session'
-    ),
-
-    'back_explorer' => array(
-        'type' => 'back',
+    'front_explorer' => array(
+        'type' => 'front',
         'page' => 'explorer',
-        'menu' => 'explorer les lecons',
-        'titre' => 'explorateur des leçons'
+        'menu' => 'Explorateur des leçons',
+        'titre' => 'Explorateur des leçons'
     ),
-
-    'back_explorer2' => array(
-        'type' => 'back',
-        'page' => 'explorer2',
-        'menu' => 'explorer les lecons 2',
-        'titre' => 'explorateur des leçons 2'
-    ),
-
-    'back_resultats' => array(
-        'type' => 'back',
-        'page' => 'resultats',
-        'menu' => 'voir les résultats',
-        'titre' => 'résultats'
-    ),
+    'front_profil' => array(
+        'type' => 'front',
+        'page' => 'profil',
+        'menu' => 'Mon profil',
+        'titre' => 'mon profil'
+    )
 );
 
 if(isset($_GET['want']) && key_exists($_GET['want'],$type)){
@@ -96,10 +52,10 @@ if(isset($_GET['want']) && key_exists($_GET['want'],$type)){
     }
     
 } else {
-    $_SESSION['type']=$type['back_dashboard']['type'];
-    $_SESSION['page']=$type['back_dashboard']['page'];
-    $_SESSION['menu']=$type['back_dashboard']['menu'];
-    $_SESSION['titre']=$type['back_dashboard']['titre'];
+    $_SESSION['type']=$type['front_dashboard']['type'];
+    $_SESSION['page']=$type['front_dashboard']['page'];
+    $_SESSION['menu']=$type['front_dashboard']['menu'];
+    $_SESSION['titre']=$type['front_dashboard']['titre'];
 }
 
 

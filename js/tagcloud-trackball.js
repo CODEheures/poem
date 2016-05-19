@@ -161,8 +161,8 @@
             //************************
             tagContainer.mousemove(function(e) {
                 //correction bug coordonnées Sylvain GAGNOT
-                curState.mouseX = e.pageX - getOffsetLeft(this);
-                curState.mouseY = e.pageY - getOffsetTop(this);
+                curState.mouseDown ? curState.mouseX = e.pageX - getOffsetLeft(this) : null;
+                curState.mouseDown ? curState.mouseY = e.pageY - getOffsetTop(this) : null;
                 // curState.mouseX = e.pageX - this.offsetLeft();
                 // curState.mouseY = e.pageY - this.offsetTop();
             });
@@ -195,7 +195,6 @@
                 //init calcul de la vitesse instantanée
                 curState.startX = curState.mouseX;
                 curState.startY = curState.mouseY;
-                console.log(getOffsetLeft(this));
                 setTimeout(function () {
                     curState.timer = setInterval(calcSpeed, $intervalCalcSpeed);
                 }, $intervalCalcSpeed);
@@ -258,6 +257,23 @@
                 }
             }
 
+            function calcSpeed() {
+                curState.stopX = curState.mouseX;
+                curState.stopY = curState.mouseY;
+
+                var dx = curState.stopX - curState.startX;
+                var dy = curState.stopY - curState.startY;
+                var vectorLength = Math.sqrt(Math.abs(dx)*Math.abs(dx) + Math.abs(dy)*Math.abs(dy));
+
+                curState.speed = vectorLength/$intervalCalcSpeed;
+
+                curState.vectorX = -dx/vectorLength;
+                curState.vectorY = dy/vectorLength;
+
+                curState.startX = curState.mouseX;
+                curState.startY = curState.mouseY;
+            }
+
         }
 
         if(!$('#imgcloud').length){
@@ -271,23 +287,6 @@
         });
 
         options.init = true;
-    }
-
-    function calcSpeed() {
-        curState.stopX = curState.mouseX;
-        curState.stopY = curState.mouseY;
-
-        var dx = curState.stopX - curState.startX;
-        var dy = curState.stopY - curState.startY;
-        var vectorLength = Math.sqrt(Math.abs(dx)*Math.abs(dx) + Math.abs(dy)*Math.abs(dy));
-
-        curState.speed = vectorLength/$intervalCalcSpeed;
-
-        curState.vectorX = -dx/vectorLength;
-        curState.vectorY = dy/vectorLength;
-
-        curState.startX = curState.mouseX;
-        curState.startY = curState.mouseY;
     }
 
     function initTags(tagContainer) {
@@ -348,41 +347,47 @@
     }
 
     function updateTags() {
-        var dX;
-        var dY;
+        var distX;
+        var distY;
 
         // si je track
         if (curState.mouseDown) {
-            dX = (curState.lastX - curState.mouseX)/(2*Math.PI);
-            dY = (curState.mouseY - curState.lastY)/(2*Math.PI);
+            distX = (curState.lastX - curState.mouseX)/(2*Math.PI);
+            distY = (curState.mouseY - curState.lastY)/(2*Math.PI);
         }
 
         //si je relache le track avec une certaine vitesse => elasticite
+
         if (!curState.mouseDown && curState.speed) {
-            curState.speed < 0.001 ? curState.speed = 0 : curState.speed -= (curState.speed/10);
-            dX = curState.speed*curState.vectorX*5;
-            dY = curState.speed*curState.vectorY*5;
+            if(curState.speed < 0.001) {
+                curState.speed = 0;
+            }  else {
+                curState.speed -= (curState.speed/10);
+            }
+
+            distX = curState.speed*curState.vectorX*5;
+            distY = curState.speed*curState.vectorY*5;
         }
 
         //calcul des positions dans les 2 derniers cas (track et relache elastique)
-        if (dX || dY) {
-            calcRotation(dY, dX);
+        if (distX || distY) {
+            calcRotation(distY, distX);
             curState.lastY = curState.mouseY;
             curState.lastX = curState.mouseX;
         }
 
         //uniquement au deploiement des tags
         if (options.deploy) {
-            dX = 1;
-            dY = 1;
+            distX = 1;
+            distY = 1;
             curState.speed = Math.random();
             curState.vectorX = Math.random();
             curState.vectorY = Math.random();
-            calcRotation(dY, dX);
+            calcRotation(distY, distX);
         }
 
         //Mise à jour de la position des tags
-        if (Math.abs(dY) > 0.1 || Math.abs(dX) > 0.1) {
+        if (Math.abs(distY) > 0.1 || Math.abs(distX) > 0.1) {
             j = -1;
             while (j++ < mathAssets.tLength) {
                 rx1 = tags[j].cx;

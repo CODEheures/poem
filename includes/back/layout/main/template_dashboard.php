@@ -55,7 +55,7 @@
     <div class="row links">
         <div class="col-sm-12">
             <p class="text-xs-right">
-                <a href="/index.php?want=back_sessions" class="text-primary" title="Voir les sessions privées"><i class="fa fa-graduation-cap" aria-hidden="true"></i><?php print $type['back_sessions']['menu'] ?></a><a href="/index.php?want=back_sessions_ajout" title="Ajouter une sessions"><span class="fa fa-plus-circle" aria-hidden="true"></span></a>
+                <a href="/back.php?want=back_sessions" class="text-primary" title="Voir les sessions privées"><i class="fa fa-graduation-cap" aria-hidden="true"></i><?php print $type['back_sessions']['menu'] ?></a><a href="/back.php?want=back_sessions_ajout" title="Ajouter une sessions"><span class="fa fa-plus-circle" aria-hidden="true"></span></a>
             </p>
         </div>
     </div>

@@ -3,7 +3,7 @@
     <div class="col-sm-12">
         <h1 class="page-header"><?php print $_SESSION['titre'];?></h1>
         <ol class="breadcrumb">
-            <li><a href="/index.php">POEM</a></li>
+            <li><a href="/back.php">POEM</a></li>
             <li class="active"><?php print $_SESSION['menu'];?></li>
         </ol>
         <div id="messages"></div>

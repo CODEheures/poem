@@ -19,10 +19,10 @@ $resume = $resume.'...';
         <div class="card-block">
             <h5 class="card-title"><?php echo $lecon ?></h5>
             <p class="card-text"><?php echo $resume ?></p>
-            <a href="/index.php?want=front_lecons_appercu" class="btn btn-info-outline">Voir</a>
+            <a href="/back.php?want=front_lecons_appercu" class="btn btn-info-outline">Voir</a>
             <?php if($modifier)  {?>
-                <a href="/index.php?want=back_lecons_modif" class="btn btn-primary">Modifier</a>
-                <a href="/index.php?want=back_resultats" class="btn btn-primary">Résultats</a>
+                <a href="/back.php?want=back_lecons_modif" class="btn btn-primary">Modifier</a>
+                <a href="/back.php?want=back_resultats" class="btn btn-primary">Résultats</a>
             <?php } ?>
         </div>
         <div class="card-footer text-muted">
