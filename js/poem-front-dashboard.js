@@ -63,7 +63,7 @@ $(document).ready(function () {
         type: 'line',
         data: data,
         options: {
-            chartArea: {backgroundColor: "rgba(255,255,255,0.1)"},
+            chartArea: {backgroundColor: "#a4c5e4"},
             scales: {
                 xAxes: [{
                     display: true,
@@ -101,6 +101,12 @@ $(document).ready(function () {
         $(this).parent().parent().find('.list .badge').each(function() {
             $(this).slideToggle();
         });
+    });
+    
+    $('.recommandations .content .img').each(function () {
+       $(this).css({
+         "backgroundImage" : 'url("./public/img/' + $(this).data('img')+'")'
+       });
     });
 
 });
