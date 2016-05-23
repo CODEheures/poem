@@ -1,6 +1,6 @@
 <nav class="navbar inner-container">
     <div class="brand">
-        <a href="/" title="Acceuil POEM"><img src="./css/assets/logo.png" width="188px" height="52px" alt="logo POEM"></a>
+        <a href="/" title="Acceuil POEM"><img src="./css/assets/logo.png" alt="logo POEM"></a>
     </div>
     <div class="menu">
         <?php include('./includes/front/layout/navbar/menu.php'); ?>

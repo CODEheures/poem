@@ -317,7 +317,9 @@ select {
     display: inline-block;
     float: left; }
     #poem-navbar .navbar .brand a img {
-      vertical-align: middle; }
+      vertical-align: middle;
+      height: 3.809rem;
+      width: 13.772rem; }
   #poem-navbar .navbar .menu {
     float: left;
     margin-left: 10.256rem; }
@@ -345,7 +347,8 @@ select {
     color: #2b4e86;
     line-height: initial; }
     #poem-navbar .navbar .user img {
-      padding-top: 3.296rem; }
+      padding-top: 3.296rem;
+      width: 70%; }
     #poem-navbar .navbar .user p {
       font-size: 1.025rem;
       line-height: 1.318rem;
@@ -657,7 +660,7 @@ select {
   #main section#dashboard .sessions .session4 {
     margin-top: 0.952rem;
     display: inline-block;
-    width: 15.582rem;
+    width: 17.582rem;
     height: 7.546rem;
     position: relative;
     float: right; }
@@ -778,7 +781,8 @@ select {
         background-size: 18.1685rem 2.271rem;
         background-position: -15.897rem 0; }
       #main section#dashboard .badges .list .badge.empty {
-        background: url("/css/assets/badges-empty.png") no-repeat; }
+        background: url("/css/assets/badges-empty.png") no-repeat;
+        background-size: 2.271rem 2.271rem; }
   #main section#dashboard .badges .plus {
     height: 2.784rem;
     width: 100%;
@@ -971,7 +975,8 @@ select {
 #poem-footer #partenaires img {
   display: block;
   margin: 0 auto;
-  margin-bottom: 3.663rem; }
+  margin-bottom: 3.663rem;
+  max-width: 70%; }
 
 #poem-footer section#infos {
   background-color: #3f4248;
