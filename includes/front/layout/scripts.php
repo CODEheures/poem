@@ -1,6 +1,6 @@
 <script src="js/jquery-2.2.3.min.js"></script>
-<script src="js/tether.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<!--<script src="js/tether.min.js"></script>-->
+<!--<script src="js/bootstrap.min.js"></script>-->
 <script src="js/poem.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/primeui.js"></script>
@@ -35,5 +35,8 @@ if($_SESSION['page']=='dashboard') {
     } else {
         print '<script src="js/tagcloud-trackball.js"></script>';
     }
-    print '<script src="js/poem-explorer.js"></script>';
+    print '<script src="js/poem-front-explorer.js"></script>';
+} elseif ($_SESSION['page']=='lesson') {
+    //scripts de la page dashboard
+    print '<script src="js/poem-front-lesson.js"></script>';
 }

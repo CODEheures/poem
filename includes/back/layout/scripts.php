@@ -37,11 +37,11 @@ if($_SESSION['page']=='dashboard') {
     } else {
         print '<script src="js/tagcloud-trackball.js"></script>';
     }
-    print '<script src="js/poem-explorer.js"></script>';
+    print '<script src="js/poem-back-explorer.js"></script>';
 } elseif($_SESSION['page']=='explorer2') {
     //scripts de la page explorer2
     print '<script src="js/d3.v3.min.js"></script>';
-    print '<script src="js/poem-explorer2.js"></script>';
+    print '<script src="js/poem-back-explorer2.js"></script>';
 } elseif ($_SESSION['page']=='lecons_ajout' || $_SESSION['page']=='lecons_modif') {
     //scripts de la page leçons
     print '<script src="ckeditor/ckeditor.js"></script>';

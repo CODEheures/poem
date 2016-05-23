@@ -14,16 +14,17 @@ $color-check-label: #3f4248;
 $color-table-stripped: #e2e6e8;
 $color-table-tr-free: #d6eaf9;
 $color-background-recommandations: #c1c4c6;
+$color-background-apropos: #aeb0b4;
 
-$width-badge : 76px;
-$debordementLesson: 76px;
+$width-badge: 5.677rem;
+$debordementLesson: 5.677rem;
 
-$font-size-search: 28px;
-$height-checkbox: 26px;
-$height-select: 30px;
+$font-size-search: 2.051rem;
+$height-checkbox: 1.904rem;
+$height-select: 2.197rem;
 
 html {
-  font-size: 15px;
+  font-size: 12px;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -47,27 +48,27 @@ a {
 
 .container {
   display: block;
-  width: 1365px;
+  width: 100rem;
   margin: 0 auto;
 }
 
 .inner-container {
-  width: 1300px;
+  width: 95.23rem;
   margin: 0 auto;
 }
 
 input {
   &[type="checkbox"] {
-    $font-size: 14px;
+    $font-size: 1.025rem;
     /* Base for label styling */
     &:not(:checked),
     &:checked {
       position: absolute;
-      left: -9999px;
+      left: -999rem;
 
       & + label {
         position: relative;
-        padding-left: $height-checkbox+13;
+        padding-left: $height-checkbox+0.952;
         cursor: pointer;
         color: $color-check-label;
         font-size: $font-size;
@@ -75,12 +76,13 @@ input {
 
         /* checkbox aspect */
         &:before {
-          $borderWidth : 3px;
+          $borderWidth: 0.219rem;
           content: '';
           position: absolute;
           left: 0;
           top: calc(50% - #{$height-checkbox/2});
-          width: $height-checkbox; height: $height-checkbox;
+          width: $height-checkbox;
+          height: $height-checkbox;
           border: $borderWidth solid $color-menu-actif;
         }
 
@@ -88,9 +90,10 @@ input {
         &:after {
           content: '✔';
           position: absolute;
-          top: -9px; left: 2px;
-          font-size: 33px;
-          line-height: 0.8;
+          top: -0.659rem;
+          left: 0.146rem;
+          font-size: 2.417rem;
+          line-height: 0.8; /*TODO A VOIR EN REM */
           color: $color-input-search;
           transition: all .2s;
         }
@@ -123,26 +126,26 @@ input {
     /* accessibility */
     &:checked:focus + label:before,
     &:not(:checked):focus + label:before {
-      //border: 1px dotted blue;
+      //border: 0.073rem dotted blue;
     }
 
     /* hover style just for information */
     & label:hover:before {
-      border: 1px solid #4778d9!important;
+      border: 0.073rem solid #4778d9 !important;
     }
   }
 
   &[type="search"] {
-    padding-left: 40px;
+    padding-left: 2.93rem;
     padding-top: $font-size-search/4;
     padding-bottom: $font-size-search/4;
-    width: 311px;
-    border: 3px solid $color-input-search;
+    width: 22.78rem;
+    border: 0.220rem solid $color-input-search;
     font-size: $font-size-search;
 
     & + button {
       position: absolute;
-      left: 6px;
+      left: 0.439rem;
       top: calc(50% - #{$font-size-search/2});
       font-size: $font-size-search;
       line-height: $font-size-search;
@@ -153,13 +156,13 @@ input {
 }
 
 select {
-  $font-size: 14px;
+  $font-size: 1.025rem;
   z-index: 2;
   position: relative;
-  padding-top: 2px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right:$height-select;
+  padding-top: 0.146rem;
+  padding-bottom: 0.586rem;
+  padding-left: 0.586rem;
+  padding-right: $height-select;
   width: 100%;
   box-shadow: none;
   background-color: transparent;
@@ -174,7 +177,7 @@ select {
 
   & + i {
     position: absolute;
-    right: 10px;
+    right: 0.732rem;
     top: calc(50% - #{$height-select/2});
     font-size: $height-select !important;
     color: $color-menu-actif;
@@ -186,848 +189,1025 @@ select {
   }
 }
 
-.navbar {
-  $height-navbar: 155px;
+#poem-navbar {
+  .navbar {
+    $height-navbar: 11.355rem;
 
-  display: block;
-  height: $height-navbar;
-  line-height: $height-navbar;
-
-  & .brand {
-    display: inline-block;
-    float: left;
-
-    & a {
-      & img {
-        vertical-align: middle;
-      }
-    }
-  }
-
-  & .menu {
-    float: left;
-    margin-left: 140px;
-    & ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-
-      & li {
-        display: inline-block;
-        line-height: initial;
-        padding-bottom: 3px;
-
-        &:not(:first-of-type) {
-          margin-left: 50px;
-        }
-
-        &.active {
-          border-bottom: 3px solid $color-menu-actif;
-        }
-
-        & a {
-          font-family: 'Questrial', sans-serif;
-          font-size: 22px;
-          color: $color-menu-font;
-
-        }
-      }
-    }
-  }
-
-  & .user {
-    float: right;
+    display: block;
     height: $height-navbar;
-    width: $width-badge;
-    text-align: center;
-    color: $color-menu-font;
-    line-height: initial;
-    & img {
-      padding-top: 45px;;
-    }
-    & p {
-      font-size: 14px;
-      line-height: 18px;
-      margin: 0;
-    }
-  }
+    line-height: $height-navbar;
 
+    & .brand {
+      display: inline-block;
+      float: left;
+
+      & a {
+        & img {
+          vertical-align: middle;
+        }
+      }
+    }
+
+    & .menu {
+      float: left;
+      margin-left: 10.256rem;
+      & ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        & li {
+          display: inline-block;
+          line-height: initial;
+          padding-bottom: 0.220rem;
+
+          &:not(:first-of-type) {
+            margin-left: 3.663rem;
+          }
+
+          &.active {
+            border-bottom: 0.220rem solid $color-menu-actif;
+          }
+
+          & a {
+            font-family: 'Questrial', sans-serif;
+            font-size: 1.611rem;
+            color: $color-menu-font;
+
+          }
+        }
+      }
+    }
+
+    & .user {
+      float: right;
+      height: $height-navbar;
+      width: $width-badge;
+      text-align: center;
+      color: $color-menu-font;
+      line-height: initial;
+      & img {
+        padding-top: 3.296rem;;
+      }
+      & p {
+        font-size: 1.025rem;
+        line-height: 1.318rem;
+        margin: 0;
+      }
+    }
+
+  }
 }
 
-section#dashboard {
-  margin-bottom: 200px;
+.header {
+  background-color: $color-background-dash;
+  position: relative;
+  padding-bottom: 1.465rem;
 
-  & h1 {
-    font-family: 'Questrial', sans-serif;
-    font-size: 30px;
+  & .arianne {
+    padding-top: 3.296rem;
+    font-size: 1.392rem;
     color: $color-menu-font;
-    text-transform: capitalize;
-    text-align: center;
-    margin-bottom: 58px;
-    padding-top: 40px;
-    margin-top: 0;
+
+    & a {
+      color: $color-menu-font;
+    }
+
+    & span.actif {
+      color: white;
+    }
+
   }
 
-  & .dashboard {
+  & .extend-header {
+    height: $debordementLesson;
+    width: 100%;
     background-color: $color-background-dash;
-    min-height: 242px;
-
-    & .elo {
-      margin-top: 45px;
-      display: inline-block;
-      float: left;
-      background-image: url("/css/assets/elo.png");
-      width: 450px;
-      height: 167px;
-      margin-right: 20px;
-
-      $width-score-elo: 180px;
-      & .score-elo {
-        display: inline-block;
-        width: $width-score-elo;
-        color: white;
-        text-align: center;
-        padding-top: 48px;
-        & p.score {
-          font-size: 54px;
-          line-height: 54px;
-          font-weight: 700;
-          color: white;
-        }
-
-        & p:not(.score) {
-          margin-top: 23px;
-        }
-      }
-
-      & .evolution {
-        display: inline-block;
-        margin-left: 20px;
-        text-align: center;
-        color: white;
-      }
-    }
-
-    & .average {
-      margin-top: 45px;
-      display: inline-block;
-      float: left;
-      height: 167px;
-      width: 167px;
-      border: 2px solid white;
-      border-bottom-right-radius: 84px;
-      border-top-right-radius: 84px;
-      border-top-left-radius: 84px;
-      text-align: center;
-      color: white;
-      padding-top: 48px;
-      margin-right: 40px;
-
-      & p.note {
-        font-size: 54px;
-        line-height: 54px;
-        font-weight: 700;
-
-        & span {
-          font-size: 31px;
-          font-weight: 700;
-          vertical-align: sub;
-        }
-
-      }
-
-      & p:not(.note) {
-        text-align: left;
-        padding-left: 5px;
-      }
-    }
-
-    & .sessions {
-      display: inline-block;
-      width: 460px;
-      color: white;
-
-      & .session1 {
-        margin-top: 45px;
-        display: inline-block;
-        width: 216px;
-        height: 70px;
-        position: relative;
-        float: left;
-
-        & .text {
-          & .points {
-            position: absolute;
-            z-index: 2;
-            top: 0;
-            left: 0;
-            height: 25px;
-            width: 170px;
-            border-top: 3px dotted white;
-            border-left: 3px dotted white;
-          }
-
-          & p {
-            display: inline-block;
-            width: 122px;
-            padding-left: 7px;
-            padding-top: 7px;
-            font-size: 13px;
-            float: left;
-            max-height: 65px;
-            overflow: hidden;
-          }
-
-          & .plus {
-            position: absolute;
-            display: inline-block;
-            top: 0;
-            right: 85px;
-            line-height: 29px;
-            font-size: 24px;
-
-            & .orange {
-              position: absolute;
-              display: inline-block;
-              width: 53px;
-              height: 29px;
-              border-radius: 6px;
-              background-color: $color-menu-actif;
-            }
-
-            & a {
-              position: absolute;
-              color: white;
-              z-index: 3;
-              padding-left: 5px;
-            }
-          }
-
-        }
-
-        & .session-average {
-          display: inline-block;
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 67px;
-          height: 67px;
-          background-color: $color-background-session-average;
-          border: 2px solid white;
-          border-top-left-radius: 34px;
-          border-bottom-left-radius: 34px;
-          border-top-right-radius: 34px;
-          text-align: center;
-
-          & p {
-            font-size: 22px;
-            line-height: 22px;
-            font-weight: 900;
-            font-style: italic;
-            padding-top: 20px;
-            position: relative;
-            & span {
-              position: absolute;
-              bottom: -19px;
-              right: 6px;
-              font-size: 12px;
-            }
-          }
-        }
-      }
-
-      & .session2 {
-        $height-session2: 84px;
-        margin-top: 28px;
-        display: inline-block;
-        width: 240px;
-        height: $height-session2;
-        position: relative;
-        float: right;
-
-        & .session-average {
-          z-index: 2;
-          display: inline-block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: $height-session2;
-          height: $height-session2;
-          background-color: $color-background-session-average;
-          border: 2px solid white;
-          border-top-left-radius: $height-session2/2;
-          border-bottom-right-radius: $height-session2/2;
-          border-top-right-radius: $height-session2/2;
-          text-align: center;
-
-          & p {
-            font-size: 25px;
-            line-height: 25px;
-            font-weight: 900;
-            font-style: italic;
-            padding-top: 20px;
-            padding-right: 5px;
-            position: relative;
-            & span {
-              position: absolute;
-              bottom: -21px;
-              right: 10px;
-              font-size: 14px;
-
-            }
-          }
-        }
-
-        & .text {
-          height: $height-session2;
-          position: relative;
-
-          & .points {
-            z-index: 2;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            height: 25px;
-            width: 191px;
-            border-bottom: 3px dotted white;
-            border-right: 3px dotted white;
-          }
-
-          & p {
-            display: inline-block;
-            width: 122px;
-            position: absolute;
-            bottom: 7px;
-            right: 7px;
-            font-size: 13px;
-            float: right;
-            max-height: 84px;
-            overflow: hidden;
-            text-align: right;
-          }
-
-          & .plus {
-            position: absolute;
-            display: inline-block;
-            bottom: 0;
-            left: 45px;
-            line-height: 29px;
-            font-size: 24px;
-
-            & .orange {
-              display: inline-block;
-              position: absolute;
-              width: 53px;
-              height: 29px;
-              border-radius: 6px;
-              background-color: $color-menu-actif;
-            }
-
-            & a {
-              color: white;
-              z-index: 3;
-              position: relative;
-              left: 35px;
-            }
-          }
-        }
-      }
-
-      & .session3 {
-        $height-session3: 88px;
-        margin-top: 13px;
-        display: inline-block;
-        width: 216px;
-        height: $height-session3;
-        position: relative;
-        float: left;
-
-        & .text {
-          padding-left: 40px;
-          & .points {
-            position: absolute;
-            z-index: 2;
-            top: 0;
-            left: 0;
-            height: 25px;
-            width: 130px;
-            margin-left: 40px;
-            border-top: 3px dotted white;
-            border-left: 3px dotted white;
-          }
-
-          & p {
-            display: inline-block;
-            width: 122px;
-            padding-left: 7px;
-            padding-top: 7px;
-            font-size: 13px;
-            float: left;
-            max-height: 65px;
-            overflow: hidden;
-          }
-
-          & .plus {
-            position: absolute;
-            display: inline-block;
-            top: 0;
-            right: 100px;
-            line-height: 29px;
-            font-size: 24px;
-
-            & .orange {
-              position: absolute;
-              display: inline-block;
-              width: 53px;
-              height: 29px;
-              border-radius: 6px;
-              background-color: $color-menu-actif;
-            }
-
-            & a {
-              position: absolute;
-              color: white;
-              z-index: 3;
-              padding-left: 5px;
-            }
-          }
-
-        }
-
-        & .session-average {
-          display: inline-block;
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: $height-session3;
-          height: $height-session3;
-          background-color: $color-background-session-average;
-          border: 2px solid white;
-          border-top-left-radius: $height-session3/2;
-          border-bottom-left-radius: $height-session3/2;
-          border-bottom-right-radius: $height-session3/2;
-          text-align: center;
-
-          & p {
-            font-size: 26px;
-            line-height: 26px;
-            font-weight: 900;
-            font-style: italic;
-            padding-top: 20px;
-            position: relative;
-            & span {
-              position: absolute;
-              bottom: -21px;
-              right: 6px;
-              font-size: 15px;
-            }
-          }
-        }
-      }
-
-      & .session4 {
-        $height-session4: 103px;
-        margin-top: 13px;
-        display: inline-block;
-        width: 240px;
-        height: $height-session4;
-        position: relative;
-        float: right;
-
-        & .session-average {
-          z-index: 2;
-          display: inline-block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: $height-session4;
-          height: $height-session4;
-          background-color: $color-background-session-average;
-          border: 2px solid white;
-          border-bottom-left-radius: $height-session4/2;
-          border-bottom-right-radius: $height-session4/2;
-          border-top-right-radius: $height-session4/2;
-          text-align: center;
-
-          & p {
-            font-size: 32px;
-            line-height: 32px;
-            font-weight: 900;
-            font-style: italic;
-            padding-top: 20px;
-            padding-right: 5px;
-            position: relative;
-            & span {
-              position: absolute;
-              bottom: -25px;
-              right: 10px;
-              font-size: 19px;
-
-            }
-          }
-        }
-
-        & .text {
-          height: $height-session4;
-          position: relative;
-
-          & .points {
-            z-index: 2;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            height: 25px;
-            width: 191px;
-            border-bottom: 3px dotted white;
-            border-right: 3px dotted white;
-          }
-
-          & p {
-            display: inline-block;
-            width: 122px;
-            position: absolute;
-            bottom: 7px;
-            right: 7px;
-            font-size: 13px;
-            float: right;
-            max-height: 84px;
-            overflow: hidden;
-            text-align: right;
-          }
-
-          & .plus {
-            position: absolute;
-            display: inline-block;
-            bottom: 0;
-            left: 58px;
-            line-height: 29px;
-            font-size: 24px;
-
-            & .orange {
-              display: inline-block;
-              position: absolute;
-              width: 53px;
-              height: 29px;
-              border-radius: 6px;
-              background-color: $color-menu-actif;
-            }
-
-            & a {
-              color: white;
-              z-index: 3;
-              position: relative;
-              left: 35px;
-            }
-          }
-        }
-      }
-    }
-
-    & .badges {
-      $width-badge : 76px;
-      float: right;
-      width: 76px;
-
-      & .list {
-        width: 100%;
-        border: 3px dotted white;
-        background-color: $color-back-badges;
-
-        & .badge {
-          width: calc(50% - 5px);
-          display: inline-block;
-          margin-left: 2px;
-          margin-top: 13px;
-          margin-bottom: 22px;
-          height: 31px;
-
-
-          &.badge1 {
-            background: url("/css/assets/badges.png") no-repeat;
-            background-position: 0, 0;
-          }
-
-          &.badge2 {
-            background: url("/css/assets/badges.png") no-repeat;
-            background-position: -37px, 0;
-          }
-
-          &.badge3 {
-            background: url("/css/assets/badges.png") no-repeat;
-            background-position: -74px, 0;
-          }
-
-          &.badge4 {
-            background: url("/css/assets/badges.png") no-repeat;
-            background-position: -111px, 0;
-          }
-
-          &.badge5 {
-            background: url("/css/assets/badges.png") no-repeat;
-            background-position: -148px, 0;
-          }
-
-          &.empty {
-            background: url("/css/assets/badges.png") no-repeat;
-            background-position: -185px, 0;
-          }
-        }
-
-      }
-
-      & .plus {
-        height: 38px;
-        width: 100%;
-        border: 3px solid white;
-        border-bottom-right-radius: $width-badge/2;
-        border-bottom-left-radius: $width-badge/2;
-        background-color: $color-menu-actif;
-        text-align: center;
-
-        & a {
-          color: white;
-          font-size: 34px;
-          position: relative;
-          top: -8px;
-        }
-      }
-    }
-
-    & .extend-badges {
-      height: $debordementLesson;
-      width: 100%;
-      background-color: $color-background-dash;
-      position: relative;
-      bottom: -$debordementLesson;
-    }
-
+    position: absolute;
   }
+}
 
-  & .lessons {
-    & .inner-container {
-      position: relative;
-      box-shadow: 0px -12px 20px rgba(0,0,0,0.5);
-      background-color: #fff;
-      padding-bottom: 90px;
-
-      & .filters {
-        line-height: $font-size-search*2;
-
-        & .search {
-          line-height: initial;
-          position: relative;
-          display: inline-block;
-          float: left;
-          margin-left: 40px;
-          margin-right: 55px;
-        }
-
-        & .type {
-          position: relative;
-          display: inline-block;
-          float: left;
-          margin-right: 40px;
-
-          & label {
-            margin-left: 40px;
-          }
-        }
-
-        & .session {
-          position: relative;
-          display: inline-block;
-          float: left;
-          height: $font-size-search*2;
-
-          & .select {
-            line-height: initial;
-            height: $height-select;
-            padding: 0;
-            margin: 0;
-            border: 3px solid $color-menu-actif;
-            border-radius: $height-select/2;
-            width: 286px;
-            overflow: hidden;
-            background: transparent;
-            margin-top: #{($font-size-search*2 - $height-select)/2};
-          }
-        }
-
-
-      }
-
-      & .list {
-        margin-top: 80px;
-        & table {
-          width: 100%;
-
-          & tr, & td {
-            padding: 5px;
-          }
-
-          & thead {
-            & tr {
-              & th {
-                color: $color-background-dash;
-                font-size: 19px;
-
-                & button {
-                  background-color: transparent;
-                  border: none;
-                  & i {
-                    padding-left: 5px;
-                    color: $color-menu-actif;
-                  }
-                }
-              }
-            }
-          }
-
-          & tbody {
-            & tr {
-              height: 82px;
-
-              &:nth-of-type(2n -1) {
-                background-color: $color-table-stripped;
-              }
-
-              &.free {
-                background-color: $color-table-tr-free;
-              }
-
-              & td {
-                text-align: center;
-
-                & .description {
-                  max-height: 72px;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                  hyphens: auto;
-                  word-wrap: break-word;
-                }
-                &:nth-of-type(1) {
-                  width: 8.8%;
-                  text-align: left;
-                }
-
-                &:nth-of-type(2) {
-                  color: $color-check-label;
-                  font-size: 13px;
-                  width: 23%;
-                  text-align: left;
-                }
-
-                &:not(:nth-of-type(2)) {
-                  color: $color-tab-results;
-                  font-size: 22px;
-                  font-weight: bold;
-
-
-                  & a {
-                    font-size: 14px;
-                    font-family: "Questrial", sans-serif;
-                    font-weight: 500;
-                    color: white;
-                    background-color: $color-menu-actif;
-                    padding-left: 42px;
-                    padding-right: 42px;
-                    height:26px;
-                    border-radius: 13px;
-                    padding-top: 5px;
-                    padding-bottom: 5px;
-                    vertical-align: middle;
-                    margin-right: 26px;
-                  }
-
-                }
-
-                &:first-of-type img {
-                  width: 78px;
-                  height: 64px;
-                  vertical-align: middle;
-                }
-              }
-            }
-          }
-
-
-        }
-      }
-    }
+.page {
+  & .inner-container {
+    position: relative;
+    box-shadow: 0 -0.879rem 1.465rem rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    padding-bottom: 6.593rem;
   }
+}
 
-  & .recommandations {
-    background-color: $color-background-recommandations;
+#main {
+  section {
 
-    & .vignettes {
-      position: relative;
-      display: block;
-      width: 1150px;
-      margin: 0 auto;
-      margin-bottom: 55px;
-
-      & a.back, & a.next {
-        color: $color-menu-actif;
-        font-size: 30px;
-        font-weight: bold;
-        position: absolute;
-        top: calc(50% - 15px);
-      }
-
-      & a.back {
-        left: 0;
-      }
-
-      & a.next {
-        right: 0;
-      }
-
-      & a.vignette {
+    &#dashboard {
+      & .elo {
+        margin-top: 3.296rem;
         display: inline-block;
-        width: 185px;
-        height: 150px;
-        position: relative;
-        margin-left: 25px;
+        float: left;
+        background-image: url("/css/assets/elo.png");
+        background-size: 100% 100%;
+        width: 32.967rem;
+        height: 12.234rem;
+        margin-right: 1.465rem;
 
-        &:nth-of-type(2) {
-          margin-left: 55px;
-        }
-
-        & .content {
-          width: 100%;
-          height: 100%;
-          position: relative;
-          background-color: $color-vignette-recommandation;
-          border-top-left-radius: 50px;
-          border-bottom-right-radius: 50px;
-          padding: 3px;
-          overflow: hidden;
-          word-wrap: break-word;
-          text-overflow: ellipsis;
-
-          & .img {
-            width: 100%;
-            height: 73px;
-            border-top-left-radius: 47px;
-            margin-bottom: 13px;
-          }
-
-          & p {
-            font-family: "Questrial", sans-serif;
-            font-size: 14px;
+        $width-score-elo: 13.186rem;
+        & .score-elo {
+          display: inline-block;
+          width: $width-score-elo;
+          color: white;
+          text-align: center;
+          padding-top: 3.516rem;
+          & p.score {
+            font-size: 3.956rem;
+            line-height: 3.956rem;
+            font-weight: 700;
             color: white;
           }
+
+          & p:not(.score) {
+            margin-top: 1.685rem;
+          }
         }
 
-        & .orange {
-          width: 50px;
-          height: 50px;
-          position: absolute;
-          bottom: 0;
-          right: 0;
+        & .evolution {
+          display: inline-block;
+          margin-left: 1.365rem;
+          text-align: center;
+          color: white;
+          position: relative;
+          width: 16.67rem;
+          height: 8.059rem;
+          top: 1rem;
+
+          & canvas#chartdiv {
+            //height: 6.154rem;
+            //width: 15.677rem;
+          }
+        }
+      }
+
+      & .average {
+        margin-top: 3.296rem;
+        display: inline-block;
+        float: left;
+        height: 12.234rem;
+        width: 12.234rem;
+        border: 0.146rem solid white;
+        border-bottom-right-radius: 6.153rem;
+        border-top-right-radius: 6.153rem;
+        border-top-left-radius: 6.153rem;
+        text-align: center;
+        color: white;
+        padding-top: 3.516rem;
+        margin-right: 2.930rem;
+
+        & p.note {
+          font-size: 3.956rem;
+          line-height: 3.956rem;
+          font-weight: 700;
+
+          & span {
+            font-size: 2.271rem;
+            font-weight: 700;
+            vertical-align: sub;
+          }
+
+        }
+
+        & p:not(.note) {
+          text-align: left;
+          padding-left: 0.366rem;
+        }
+      }
+
+      & .sessions {
+        display: inline-block;
+        width: 34.7rem;
+        color: white;
+
+        & .session1 {
+          margin-top: 3.296rem;
+          display: inline-block;
+          width: 15.824rem;
+          height: 5.128rem;
+          position: relative;
+          float: left;
+
+          & .text {
+            & .points {
+              position: absolute;
+              z-index: 2;
+              top: 0;
+              left: 0;
+              height: 1.831rem;
+              width: 12.454rem;
+              border-top: 0.220rem dotted white;
+              border-left: 0.220rem dotted white;
+            }
+
+            & p {
+              display: inline-block;
+              width: 8.937rem;
+              padding-left: 0.513rem;
+              padding-top: 0.513rem;
+              font-size: 0.952rem;
+              float: left;
+              max-height: 4.762rem;
+              overflow: hidden;
+            }
+
+            & .plus {
+              position: absolute;
+              display: inline-block;
+              top: 0;
+              right: 6.227rem;
+              line-height: 2.124rem;
+              font-size: 1.758rem;
+
+              & .orange {
+                position: absolute;
+                display: inline-block;
+                width: 3.882rem;
+                height: 2.124rem;
+                border-radius: 0.439rem;
+                background-color: $color-menu-actif;
+              }
+
+              & a {
+                position: absolute;
+                color: white;
+                z-index: 3;
+                padding-left: 0.366rem;
+              }
+            }
+
+          }
+
+          & .session-average {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4.908rem;
+            height: 4.908rem;
+            background-color: $color-background-session-average;
+            border: 0.146rem solid white;
+            border-top-left-radius: 2.49rem;
+            border-bottom-left-radius: 2.49rem;
+            border-top-right-radius: 2.49rem;
+            text-align: center;
+
+            & p {
+              font-size: 1.611rem;
+              line-height: 1.611rem;
+              font-weight: 900;
+              font-style: italic;
+              padding-top: 1.465rem;
+              position: relative;
+              & span {
+                position: absolute;
+                bottom: -1.392rem;
+                right: 0.44rem;
+                font-size: 0.88rem;
+              }
+            }
+          }
+        }
+
+        & .session2 {
+          $height-session2: 6.153rem;
+          margin-top: 2.051rem;
+          display: inline-block;
+          width: 17.582rem;
+          height: $height-session2;
+          position: relative;
+          float: right;
+
+          & .session-average {
+            z-index: 2;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: $height-session2;
+            height: $height-session2;
+            background-color: $color-background-session-average;
+            border: 0.146rem solid white;
+            border-top-left-radius: $height-session2/2;
+            border-bottom-right-radius: $height-session2/2;
+            border-top-right-radius: $height-session2/2;
+            text-align: center;
+
+            & p {
+              font-size: 1.831rem;
+              line-height: 1.831rem;
+              font-weight: 900;
+              font-style: italic;
+              padding-top: 1.465rem;
+              padding-right: 0.366rem;
+              position: relative;
+              & span {
+                position: absolute;
+                bottom: -1.538rem;
+                right: 0.732rem;
+                font-size: 1.025rem;
+
+              }
+            }
+          }
+
+          & .text {
+            height: $height-session2;
+            position: relative;
+
+            & .points {
+              z-index: 2;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              height: 1.831rem;
+              width: 13.99rem;
+              border-bottom: 0.22rem dotted white;
+              border-right: 0.22rem dotted white;
+            }
+
+            & p {
+              display: inline-block;
+              width: 8.937rem;
+              position: absolute;
+              bottom: 0.513rem;
+              right: 0.513rem;
+              font-size: 0.952rem;
+              float: right;
+              max-height: 6.154rem;
+              overflow: hidden;
+              text-align: right;
+            }
+
+            & .plus {
+              position: absolute;
+              display: inline-block;
+              bottom: 0;
+              left: 3.296rem;
+              line-height: 2.124rem;
+              font-size: 1.758rem;
+
+              & .orange {
+                display: inline-block;
+                position: absolute;
+                width: 3.882rem;
+                height: 2.124rem;
+                border-radius: 0.439rem;
+                background-color: $color-menu-actif;
+              }
+
+              & a {
+                color: white;
+                z-index: 3;
+                position: relative;
+                left: 2.564rem;
+              }
+            }
+          }
+        }
+
+        & .session3 {
+          $height-session3: 6.447rem;
+          margin-top: 0.952rem;
+          display: inline-block;
+          width: 15.824rem;
+          height: $height-session3;
+          position: relative;
+          float: left;
+
+          & .text {
+            padding-left: 2.930rem;
+            & .points {
+              position: absolute;
+              z-index: 2;
+              top: 0;
+              left: 0;
+              height: 1.831rem;
+              width: 9.523rem;
+              margin-left: 2.930rem;
+              border-top: 0.22rem dotted white;
+              border-left: 0.22rem dotted white;
+            }
+
+            & p {
+              display: inline-block;
+              width: 8.937rem;
+              padding-left: 0.513rem;
+              padding-top: 0.513rem;
+              font-size: 0.952rem;
+              float: left;
+              max-height: 4.762rem;
+              overflow: hidden;
+            }
+
+            & .plus {
+              position: absolute;
+              display: inline-block;
+              top: 0;
+              right: 7.326rem;
+              line-height: 2.125rem;
+              font-size: 1.758rem;
+
+              & .orange {
+                position: absolute;
+                display: inline-block;
+                width: 3.882rem;
+                height: 2.125rem;
+                border-radius: 0.44rem;
+                background-color: $color-menu-actif;
+              }
+
+              & a {
+                position: absolute;
+                color: white;
+                z-index: 3;
+                padding-left: 0.366rem;
+              }
+            }
+
+          }
+
+          & .session-average {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: $height-session3;
+            height: $height-session3;
+            background-color: $color-background-session-average;
+            border: 0.146rem solid white;
+            border-top-left-radius: $height-session3/2;
+            border-bottom-left-radius: $height-session3/2;
+            border-bottom-right-radius: $height-session3/2;
+            text-align: center;
+
+            & p {
+              font-size: 1.905rem;
+              line-height: 1.905rem;
+              font-weight: 900;
+              font-style: italic;
+              padding-top: 1.465rem;
+              position: relative;
+              & span {
+                position: absolute;
+                bottom: -1.538rem;
+                right: 0.439rem;
+                font-size: 1.098rem;
+              }
+            }
+          }
+        }
+
+        & .session4 {
+          $height-session4: 7.546rem;
+          margin-top: 0.952rem;
+          display: inline-block;
+          width: 15.582rem;
+          height: $height-session4;
+          position: relative;
+          float: right;
+
+          & .session-average {
+            z-index: 2;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: $height-session4;
+            height: $height-session4;
+            background-color: $color-background-session-average;
+            border: 0.146rem solid white;
+            border-bottom-left-radius: $height-session4/2;
+            border-bottom-right-radius: $height-session4/2;
+            border-top-right-radius: $height-session4/2;
+            text-align: center;
+
+            & p {
+              font-size: 2.344rem;
+              line-height: 2.344rem;
+              font-weight: 900;
+              font-style: italic;
+              padding-top: 1.465rem;
+              padding-right: 0.366rem;
+              position: relative;
+              & span {
+                position: absolute;
+                bottom: -1.831rem;
+                right: 0.732rem;
+                font-size: 1.392rem;
+
+              }
+            }
+          }
+
+          & .text {
+            height: $height-session4;
+            position: relative;
+
+            & .points {
+              z-index: 2;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              height: 1.832rem;
+              width: 13.99rem;
+              border-bottom: 0.220rem dotted white;
+              border-right: 0.22rem dotted white;
+            }
+
+            & p {
+              display: inline-block;
+              width: 8.937rem;
+              position: absolute;
+              bottom: 0.513rem;
+              right: 0.513rem;
+              font-size: 0.952rem;
+              float: right;
+              max-height: 6.154rem;
+              overflow: hidden;
+              text-align: right;
+            }
+
+            & .plus {
+              position: absolute;
+              display: inline-block;
+              bottom: 0;
+              left: 4.249rem;
+              line-height: 2.124rem;
+              font-size: 1.758rem;
+
+              & .orange {
+                display: inline-block;
+                position: absolute;
+                width: 3.882rem;
+                height: 2.124rem;
+                border-radius: 0.439rem;
+                background-color: $color-menu-actif;
+              }
+
+              & a {
+                color: white;
+                z-index: 3;
+                position: relative;
+                left: 2.564rem;
+              }
+            }
+          }
+        }
+      }
+
+      & .badges {
+        $width-badge: 5.567rem;
+        float: right;
+        width: 5.567rem;
+
+        & .list {
+          width: 100%;
+          border: 0.22rem dotted white;
+          background-color: $color-back-badges;
+
+          & .badge {
+            $badgeHeight : 2.271rem;
+            width: calc(50% - 0.366rem);
+            display: inline-block;
+            margin-left: 0.146rem;
+            margin-top: 0.952rem;
+            margin-bottom: 1.611rem;
+            height: $badgeHeight;
+
+            &.badge1 {
+              background: url("/css/assets/badges.svg") no-repeat;
+              background-size: 18.1685rem 2.271rem;
+              background-position: 0 0;
+            }
+
+            &.badge2 {
+              background: url("/css/assets/badges.svg") no-repeat;
+              background-size: 18.1685rem 2.271rem;
+              background-position: -$badgeHeight 0;
+            }
+
+            &.badge3 {
+              background: url("/css/assets/badges.svg") no-repeat;
+              background-size: 18.1685rem 2.271rem;
+              background-position: #{-$badgeHeight*2} 0;
+            }
+
+            &.badge4 {
+              background: url("/css/assets/badges.svg") no-repeat;
+              background-size: 18.1685rem 2.271rem;
+              background-position: #{-$badgeHeight*3} 0;
+            }
+
+            &.badge5 {
+              background: url("/css/assets/badges.svg") no-repeat;
+              background-size: 18.1685rem 2.271rem;
+              background-position: #{-$badgeHeight*4} 0;
+            }
+
+            &.badge6 {
+              background: url("/css/assets/badges.svg") no-repeat;
+              background-size: 18.1685rem 2.271rem;
+              background-position: #{-$badgeHeight*5} 0;
+            }
+
+            &.badge7 {
+              background: url("/css/assets/badges.svg") no-repeat;
+              background-size: 18.1685rem 2.271rem;
+              background-position: #{-$badgeHeight*6} 0;
+            }
+
+            &.badge8 {
+              background: url("/css/assets/badges.svg") no-repeat;
+              background-size: 18.1685rem 2.271rem;
+              background-position: #{-$badgeHeight*7} 0;
+            }
+
+            &.empty {
+              background: url("/css/assets/badges-empty.png") no-repeat;
+            }
+          }
+
+        }
+
+        & .plus {
+          height: 2.784rem;
+          width: 100%;
+          border: 0.22rem solid white;
+          border-bottom-right-radius: $width-badge/2;
+          border-bottom-left-radius: $width-badge/2;
           background-color: $color-menu-actif;
+          text-align: center;
+
+          & a {
+            color: white;
+            font-size: 2.49rem;
+            position: relative;
+            top: -0.586rem;
+          }
         }
       }
     }
+
+    & h1 {
+      font-family: 'Questrial', sans-serif;
+      font-size: 2.198rem;
+      color: $color-menu-font;
+      text-transform: capitalize;
+      text-align: center;
+      margin-bottom: 4.25rem;
+      padding-top: 2.93rem;
+      margin-top: 0;
+    }
+
+    & .page {
+      & .inner-container {
+
+        & .filters {
+          width: 94%;
+          line-height: $font-size-search*2;
+          margin: 0 auto;
+
+          & .col3 {
+            display: inline-block;
+            width: 33%;
+            float: left;
+            text-align: center;
+            line-height: initial;
+          }
+
+          & .search {
+            line-height: initial;
+            position: relative;
+            display: inline-block;
+            float: left;
+            margin-right: 4.029rem;
+          }
+
+          & .type {
+            position: relative;
+            display: inline-block;
+            float: left;
+            margin-right: 2.93rem;
+
+            & label {
+              margin-left: 2.93rem;
+            }
+          }
+
+          & .session {
+            position: relative;
+            display: inline-block;
+            float: left;
+            height: $font-size-search*2;
+
+            & .select {
+              line-height: initial;
+              height: $height-select;
+              padding: 0;
+              margin: 0;
+              border: 0.22rem solid $color-menu-actif;
+              border-radius: $height-select/2;
+              width: 20.952rem;
+              overflow: hidden;
+              background: transparent;
+              margin-top: #{($font-size-search*2 - $height-select)/2};
+            }
+          }
+
+        }
+
+        & .list {
+          margin-top: 5.86rem;
+          & table {
+            width: 100%;
+
+            & tr, & td {
+              padding: 0.366rem;
+            }
+
+            & thead {
+              & tr {
+                & th {
+                  color: $color-background-dash;
+                  font-size: 1.391rem;
+
+                  & button {
+                    background-color: transparent;
+                    border: none;
+                    & i {
+                      padding-left: 0.366rem;
+                      color: $color-menu-actif;
+                    }
+                  }
+                }
+              }
+            }
+
+            & tbody {
+              & tr {
+                height: 6rem;
+
+                &:nth-of-type(2n -1) {
+                  background-color: $color-table-stripped;
+                }
+
+                &.free {
+                  background-color: $color-table-tr-free;
+                }
+
+                & td {
+                  text-align: center;
+
+                  & .description {
+                    max-height: 5.274rem;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    hyphens: auto;
+                    word-wrap: break-word;
+                  }
+                  &:nth-of-type(1) {
+                    width: 8.8%;
+                    text-align: left;
+                  }
+
+                  &:nth-of-type(2) {
+                    color: $color-check-label;
+                    font-size: 0.952rem;
+                    width: 23%;
+                    text-align: left;
+                  }
+
+                  &:not(:nth-of-type(2)) {
+                    color: $color-tab-results;
+                    font-size: 1.612rem;
+                    font-weight: bold;
+
+                    & a {
+                      font-size: 1.025rem;
+                      font-family: "Questrial", sans-serif;
+                      font-weight: 500;
+                      color: white;
+                      background-color: $color-menu-actif;
+                      padding-left: 3.077rem;
+                      padding-right: 3.077rem;
+                      height: 1.905rem;
+                      border-radius: 0.952rem;
+                      padding-top: 0.366rem;
+                      padding-bottom: 0.366rem;
+                      vertical-align: middle;
+                      margin-right: 1.905rem;
+                    }
+
+                  }
+
+                  &:first-of-type img {
+                    width: 5.714rem;
+                    height: 4.688rem;
+                    vertical-align: middle;
+                  }
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+
+    & .recommandations {
+      background-color: $color-background-recommandations;
+
+      & .vignettes {
+        position: relative;
+        display: block;
+        width: 84.25rem;
+        margin: 0 auto;
+        margin-bottom: 4.03rem;
+
+        & a.back, & a.next {
+          color: $color-menu-actif;
+          font-size: 2.198rem;
+          font-weight: bold;
+          position: absolute;
+          top: calc(50% - 1.099rem);
+        }
+
+        & a.back {
+          left: 0;
+        }
+
+        & a.next {
+          right: 0;
+        }
+
+        & a.vignette {
+          display: inline-block;
+          width: 13.55rem;
+          height: 10.99rem;
+          position: relative;
+          margin-left: 1.831rem;
+
+          &:nth-of-type(2) {
+            margin-left: 4.03rem;
+          }
+
+          & .content {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-color: $color-vignette-recommandation;
+            border-top-left-radius: 3.663rem;
+            border-bottom-right-radius: 3.663rem;
+            padding: 0.22rem;
+            overflow: hidden;
+            word-wrap: break-word;
+            text-overflow: ellipsis;
+
+            & .img {
+              width: 100%;
+              height: 5.348rem;
+              border-top-left-radius: 3.443rem;
+              margin-bottom: 0.952rem;
+            }
+
+            & p {
+              font-family: "Questrial", sans-serif;
+              font-size: 1.025rem;
+              color: white;
+            }
+          }
+
+          & .orange {
+            width: 3.663rem;
+            height: 3.663rem;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: $color-menu-actif;
+          }
+        }
+      }
+    }
+  }
+}
+
+#poem-footer {
+  & #partenaires {
+    & h1 {
+      font-size: 1.392rem;
+      color: $color-check-label;
+      margin-left: 16.996rem;
+      margin-top: 2.198rem;
+      margin-bottom: 3.663rem;
+      font-weight: 300;
+    }
+
+    & img {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 3.663rem;
+    }
+
+  }
+
+  & section#infos {
+    background-color: $color-check-label;
+    padding-bottom: 3.297rem;
+    position: relative;
+
+    & .columns {
+      position: relative;
+
+      & .left {
+        width: 50%;
+        float: left;
+
+
+        & form {
+          margin-left: 16.996rem;
+          margin-top: 3.077rem;
+
+          & label {
+            display: block;
+            color: white;
+            font-size: 1.392rem;
+            font-weight: 300;
+          }
+
+          & input, & textarea {
+            width: 27.838rem;
+            margin-top: 0.952rem;
+            border-radius: 0.732rem;
+            border: none;
+            padding: 0.732rem;
+            font-size: 1.392rem;
+
+            &::placeholder {
+              color: black;
+              opacity: 1 !important;
+            }
+          }
+
+          & button {
+            width: 3.37rem;
+            height: 3.37rem;
+            border-radius: 1.685rem;
+            background-color: $color-menu-actif;
+            color: black;
+            box-shadow: 0.146rem 0.146rem 0.366rem rgba(0, 0, 0, 1);
+            margin-left: 1.465rem;
+            border: none;
+            vertical-align: bottom;
+          }
+        }
+      }
+
+      & .right {
+        float: left;
+        width: 50%;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+
+        & .apropos {
+          display: block;
+          width: 18.755rem;
+          border-radius: 0.512rem;
+          border: none;
+          background-color: $color-background-apropos;
+          Color: black;
+          font-size: 1.392rem;
+          text-align: center;
+          padding-top: 0.366rem;
+          padding-bottom: 0.366rem;
+          margin-left: 7.546rem;
+          margin-top: 9.743rem;
+          box-shadow: 0.146rem 0.146rem 0.366rem rgba(0, 0, 0, 1);
+
+          & span {
+            color: $color-menu-actif
+          }
+        }
+
+        & .mentions {
+          display: block;
+          color: $color-menu-actif;
+          text-decoration: underline;
+          font-size: 1.392rem;
+          font-weight: 300;
+          position: absolute;
+          bottom: 0;
+          left: 5.641rem;
+        }
+      }
+    }
+
   }
 }

@@ -181,7 +181,7 @@ th {
   padding: 0; }
 
 html {
-  font-size: 15px;
+  font-size: 12px;
   font-family: "Open Sans", sans-serif; }
 
 *, *:before, *:after {
@@ -202,11 +202,11 @@ a {
 
 .container {
   display: block;
-  width: 1365px;
+  width: 100rem;
   margin: 0 auto; }
 
 .inner-container {
-  width: 1300px;
+  width: 95.23rem;
   margin: 0 auto; }
 
 input[type="checkbox"] {
@@ -217,31 +217,32 @@ input[type="checkbox"] {
   /* hover style just for information */ }
   input[type="checkbox"]:not(:checked), input[type="checkbox"]:checked {
     position: absolute;
-    left: -9999px; }
+    left: -999rem; }
     input[type="checkbox"]:not(:checked) + label, input[type="checkbox"]:checked + label {
       position: relative;
-      padding-left: 39px;
+      padding-left: 2.856rem;
       cursor: pointer;
       color: #3f4248;
-      font-size: 14px;
-      line-height: 26px;
+      font-size: 1.025rem;
+      line-height: 1.904rem;
       /* checkbox aspect */
       /* checked mark aspect */ }
       input[type="checkbox"]:not(:checked) + label:before, input[type="checkbox"]:checked + label:before {
         content: '';
         position: absolute;
         left: 0;
-        top: calc(50% - 13px);
-        width: 26px;
-        height: 26px;
-        border: 3px solid #d96c1c; }
+        top: calc(50% - 0.952rem);
+        width: 1.904rem;
+        height: 1.904rem;
+        border: 0.219rem solid #d96c1c; }
       input[type="checkbox"]:not(:checked) + label:after, input[type="checkbox"]:checked + label:after {
         content: '✔';
         position: absolute;
-        top: -9px;
-        left: 2px;
-        font-size: 33px;
+        top: -0.659rem;
+        left: 0.146rem;
+        font-size: 2.417rem;
         line-height: 0.8;
+        /*TODO A VOIR EN REM */
         color: #2f528b;
         -webkit-transition: all .2s;
         transition: all .2s; }
@@ -263,655 +264,790 @@ input[type="checkbox"] {
   input[type="checkbox"]:disabled + label {
     color: #aaa; }
   input[type="checkbox"] label:hover:before {
-    border: 1px solid #4778d9 !important; }
+    border: 0.073rem solid #4778d9 !important; }
 
 input[type="search"] {
-  padding-left: 40px;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  width: 311px;
-  border: 3px solid #2f528b;
-  font-size: 28px; }
+  padding-left: 2.93rem;
+  padding-top: 0.51275rem;
+  padding-bottom: 0.51275rem;
+  width: 22.78rem;
+  border: 0.22rem solid #2f528b;
+  font-size: 2.051rem; }
   input[type="search"] + button {
     position: absolute;
-    left: 6px;
-    top: calc(50% - 14px);
-    font-size: 28px;
-    line-height: 28px;
+    left: 0.439rem;
+    top: calc(50% - 1.0255rem);
+    font-size: 2.051rem;
+    line-height: 2.051rem;
     background-color: transparent;
     border: none; }
 
 select {
   z-index: 2;
   position: relative;
-  padding-top: 2px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 30px;
+  padding-top: 0.146rem;
+  padding-bottom: 0.586rem;
+  padding-left: 0.586rem;
+  padding-right: 2.197rem;
   width: 100%;
   box-shadow: none;
   background-color: transparent;
   background-image: none;
   border: none;
-  font-size: 14px;
+  font-size: 1.025rem;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none; }
   select + i {
     position: absolute;
-    right: 10px;
-    top: calc(50% - 15px);
-    font-size: 30px !important;
+    right: 0.732rem;
+    top: calc(50% - 1.0985rem);
+    font-size: 2.197rem !important;
     color: #d96c1c;
-    line-height: 14px; }
+    line-height: 1.025rem; }
   select:focus {
     outline: none; }
 
-.navbar {
+#poem-navbar .navbar {
   display: block;
-  height: 155px;
-  line-height: 155px; }
-  .navbar .brand {
+  height: 11.355rem;
+  line-height: 11.355rem; }
+  #poem-navbar .navbar .brand {
     display: inline-block;
     float: left; }
-    .navbar .brand a img {
+    #poem-navbar .navbar .brand a img {
       vertical-align: middle; }
-  .navbar .menu {
+  #poem-navbar .navbar .menu {
     float: left;
-    margin-left: 140px; }
-    .navbar .menu ul {
+    margin-left: 10.256rem; }
+    #poem-navbar .navbar .menu ul {
       list-style-type: none;
       margin: 0;
       padding: 0; }
-      .navbar .menu ul li {
+      #poem-navbar .navbar .menu ul li {
         display: inline-block;
         line-height: initial;
-        padding-bottom: 3px; }
-        .navbar .menu ul li:not(:first-of-type) {
-          margin-left: 50px; }
-        .navbar .menu ul li.active {
-          border-bottom: 3px solid #d96c1c; }
-        .navbar .menu ul li a {
+        padding-bottom: 0.220rem; }
+        #poem-navbar .navbar .menu ul li:not(:first-of-type) {
+          margin-left: 3.663rem; }
+        #poem-navbar .navbar .menu ul li.active {
+          border-bottom: 0.22rem solid #d96c1c; }
+        #poem-navbar .navbar .menu ul li a {
           font-family: 'Questrial', sans-serif;
-          font-size: 22px;
+          font-size: 1.611rem;
           color: #2b4e86; }
-  .navbar .user {
+  #poem-navbar .navbar .user {
     float: right;
-    height: 155px;
-    width: 76px;
+    height: 11.355rem;
+    width: 5.677rem;
     text-align: center;
     color: #2b4e86;
     line-height: initial; }
-    .navbar .user img {
-      padding-top: 45px; }
-    .navbar .user p {
-      font-size: 14px;
-      line-height: 18px;
+    #poem-navbar .navbar .user img {
+      padding-top: 3.296rem; }
+    #poem-navbar .navbar .user p {
+      font-size: 1.025rem;
+      line-height: 1.318rem;
       margin: 0; }
 
-section#dashboard {
-  margin-bottom: 200px; }
-  section#dashboard h1 {
-    font-family: 'Questrial', sans-serif;
-    font-size: 30px;
-    color: #2b4e86;
-    text-transform: capitalize;
-    text-align: center;
-    margin-bottom: 58px;
-    padding-top: 40px;
-    margin-top: 0; }
-  section#dashboard .dashboard {
-    background-color: #6090bd;
-    min-height: 242px; }
-    section#dashboard .dashboard .elo {
-      margin-top: 45px;
-      display: inline-block;
-      float: left;
-      background-image: url("/css/assets/elo.png");
-      width: 450px;
-      height: 167px;
-      margin-right: 20px; }
-      section#dashboard .dashboard .elo .score-elo {
-        display: inline-block;
-        width: 180px;
-        color: white;
-        text-align: center;
-        padding-top: 48px; }
-        section#dashboard .dashboard .elo .score-elo p.score {
-          font-size: 54px;
-          line-height: 54px;
-          font-weight: 700;
-          color: white; }
-        section#dashboard .dashboard .elo .score-elo p:not(.score) {
-          margin-top: 23px; }
-      section#dashboard .dashboard .elo .evolution {
-        display: inline-block;
-        margin-left: 20px;
-        text-align: center;
-        color: white; }
-    section#dashboard .dashboard .average {
-      margin-top: 45px;
-      display: inline-block;
-      float: left;
-      height: 167px;
-      width: 167px;
-      border: 2px solid white;
-      border-bottom-right-radius: 84px;
-      border-top-right-radius: 84px;
-      border-top-left-radius: 84px;
-      text-align: center;
-      color: white;
-      padding-top: 48px;
-      margin-right: 40px; }
-      section#dashboard .dashboard .average p.note {
-        font-size: 54px;
-        line-height: 54px;
-        font-weight: 700; }
-        section#dashboard .dashboard .average p.note span {
-          font-size: 31px;
-          font-weight: 700;
-          vertical-align: sub; }
-      section#dashboard .dashboard .average p:not(.note) {
-        text-align: left;
-        padding-left: 5px; }
-    section#dashboard .dashboard .sessions {
-      display: inline-block;
-      width: 460px;
+.header {
+  background-color: #6090bd;
+  position: relative;
+  padding-bottom: 1.465rem; }
+  .header .arianne {
+    padding-top: 3.296rem;
+    font-size: 1.392rem;
+    color: #2b4e86; }
+    .header .arianne a {
+      color: #2b4e86; }
+    .header .arianne span.actif {
       color: white; }
-      section#dashboard .dashboard .sessions .session1 {
-        margin-top: 45px;
-        display: inline-block;
-        width: 216px;
-        height: 70px;
-        position: relative;
-        float: left; }
-        section#dashboard .dashboard .sessions .session1 .text .points {
-          position: absolute;
-          z-index: 2;
-          top: 0;
-          left: 0;
-          height: 25px;
-          width: 170px;
-          border-top: 3px dotted white;
-          border-left: 3px dotted white; }
-        section#dashboard .dashboard .sessions .session1 .text p {
-          display: inline-block;
-          width: 122px;
-          padding-left: 7px;
-          padding-top: 7px;
-          font-size: 13px;
-          float: left;
-          max-height: 65px;
-          overflow: hidden; }
-        section#dashboard .dashboard .sessions .session1 .text .plus {
-          position: absolute;
-          display: inline-block;
-          top: 0;
-          right: 85px;
-          line-height: 29px;
-          font-size: 24px; }
-          section#dashboard .dashboard .sessions .session1 .text .plus .orange {
-            position: absolute;
-            display: inline-block;
-            width: 53px;
-            height: 29px;
-            border-radius: 6px;
-            background-color: #d96c1c; }
-          section#dashboard .dashboard .sessions .session1 .text .plus a {
-            position: absolute;
-            color: white;
-            z-index: 3;
-            padding-left: 5px; }
-        section#dashboard .dashboard .sessions .session1 .session-average {
-          display: inline-block;
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 67px;
-          height: 67px;
-          background-color: #386895;
-          border: 2px solid white;
-          border-top-left-radius: 34px;
-          border-bottom-left-radius: 34px;
-          border-top-right-radius: 34px;
-          text-align: center; }
-          section#dashboard .dashboard .sessions .session1 .session-average p {
-            font-size: 22px;
-            line-height: 22px;
-            font-weight: 900;
-            font-style: italic;
-            padding-top: 20px;
-            position: relative; }
-            section#dashboard .dashboard .sessions .session1 .session-average p span {
-              position: absolute;
-              bottom: -19px;
-              right: 6px;
-              font-size: 12px; }
-      section#dashboard .dashboard .sessions .session2 {
-        margin-top: 28px;
-        display: inline-block;
-        width: 240px;
-        height: 84px;
-        position: relative;
-        float: right; }
-        section#dashboard .dashboard .sessions .session2 .session-average {
-          z-index: 2;
-          display: inline-block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 84px;
-          height: 84px;
-          background-color: #386895;
-          border: 2px solid white;
-          border-top-left-radius: 42px;
-          border-bottom-right-radius: 42px;
-          border-top-right-radius: 42px;
-          text-align: center; }
-          section#dashboard .dashboard .sessions .session2 .session-average p {
-            font-size: 25px;
-            line-height: 25px;
-            font-weight: 900;
-            font-style: italic;
-            padding-top: 20px;
-            padding-right: 5px;
-            position: relative; }
-            section#dashboard .dashboard .sessions .session2 .session-average p span {
-              position: absolute;
-              bottom: -21px;
-              right: 10px;
-              font-size: 14px; }
-        section#dashboard .dashboard .sessions .session2 .text {
-          height: 84px;
-          position: relative; }
-          section#dashboard .dashboard .sessions .session2 .text .points {
-            z-index: 2;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            height: 25px;
-            width: 191px;
-            border-bottom: 3px dotted white;
-            border-right: 3px dotted white; }
-          section#dashboard .dashboard .sessions .session2 .text p {
-            display: inline-block;
-            width: 122px;
-            position: absolute;
-            bottom: 7px;
-            right: 7px;
-            font-size: 13px;
-            float: right;
-            max-height: 84px;
-            overflow: hidden;
-            text-align: right; }
-          section#dashboard .dashboard .sessions .session2 .text .plus {
-            position: absolute;
-            display: inline-block;
-            bottom: 0;
-            left: 45px;
-            line-height: 29px;
-            font-size: 24px; }
-            section#dashboard .dashboard .sessions .session2 .text .plus .orange {
-              display: inline-block;
-              position: absolute;
-              width: 53px;
-              height: 29px;
-              border-radius: 6px;
-              background-color: #d96c1c; }
-            section#dashboard .dashboard .sessions .session2 .text .plus a {
-              color: white;
-              z-index: 3;
-              position: relative;
-              left: 35px; }
-      section#dashboard .dashboard .sessions .session3 {
-        margin-top: 13px;
-        display: inline-block;
-        width: 216px;
-        height: 88px;
-        position: relative;
-        float: left; }
-        section#dashboard .dashboard .sessions .session3 .text {
-          padding-left: 40px; }
-          section#dashboard .dashboard .sessions .session3 .text .points {
-            position: absolute;
-            z-index: 2;
-            top: 0;
-            left: 0;
-            height: 25px;
-            width: 130px;
-            margin-left: 40px;
-            border-top: 3px dotted white;
-            border-left: 3px dotted white; }
-          section#dashboard .dashboard .sessions .session3 .text p {
-            display: inline-block;
-            width: 122px;
-            padding-left: 7px;
-            padding-top: 7px;
-            font-size: 13px;
-            float: left;
-            max-height: 65px;
-            overflow: hidden; }
-          section#dashboard .dashboard .sessions .session3 .text .plus {
-            position: absolute;
-            display: inline-block;
-            top: 0;
-            right: 100px;
-            line-height: 29px;
-            font-size: 24px; }
-            section#dashboard .dashboard .sessions .session3 .text .plus .orange {
-              position: absolute;
-              display: inline-block;
-              width: 53px;
-              height: 29px;
-              border-radius: 6px;
-              background-color: #d96c1c; }
-            section#dashboard .dashboard .sessions .session3 .text .plus a {
-              position: absolute;
-              color: white;
-              z-index: 3;
-              padding-left: 5px; }
-        section#dashboard .dashboard .sessions .session3 .session-average {
-          display: inline-block;
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 88px;
-          height: 88px;
-          background-color: #386895;
-          border: 2px solid white;
-          border-top-left-radius: 44px;
-          border-bottom-left-radius: 44px;
-          border-bottom-right-radius: 44px;
-          text-align: center; }
-          section#dashboard .dashboard .sessions .session3 .session-average p {
-            font-size: 26px;
-            line-height: 26px;
-            font-weight: 900;
-            font-style: italic;
-            padding-top: 20px;
-            position: relative; }
-            section#dashboard .dashboard .sessions .session3 .session-average p span {
-              position: absolute;
-              bottom: -21px;
-              right: 6px;
-              font-size: 15px; }
-      section#dashboard .dashboard .sessions .session4 {
-        margin-top: 13px;
-        display: inline-block;
-        width: 240px;
-        height: 103px;
-        position: relative;
-        float: right; }
-        section#dashboard .dashboard .sessions .session4 .session-average {
-          z-index: 2;
-          display: inline-block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 103px;
-          height: 103px;
-          background-color: #386895;
-          border: 2px solid white;
-          border-bottom-left-radius: 51.5px;
-          border-bottom-right-radius: 51.5px;
-          border-top-right-radius: 51.5px;
-          text-align: center; }
-          section#dashboard .dashboard .sessions .session4 .session-average p {
-            font-size: 32px;
-            line-height: 32px;
-            font-weight: 900;
-            font-style: italic;
-            padding-top: 20px;
-            padding-right: 5px;
-            position: relative; }
-            section#dashboard .dashboard .sessions .session4 .session-average p span {
-              position: absolute;
-              bottom: -25px;
-              right: 10px;
-              font-size: 19px; }
-        section#dashboard .dashboard .sessions .session4 .text {
-          height: 103px;
-          position: relative; }
-          section#dashboard .dashboard .sessions .session4 .text .points {
-            z-index: 2;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            height: 25px;
-            width: 191px;
-            border-bottom: 3px dotted white;
-            border-right: 3px dotted white; }
-          section#dashboard .dashboard .sessions .session4 .text p {
-            display: inline-block;
-            width: 122px;
-            position: absolute;
-            bottom: 7px;
-            right: 7px;
-            font-size: 13px;
-            float: right;
-            max-height: 84px;
-            overflow: hidden;
-            text-align: right; }
-          section#dashboard .dashboard .sessions .session4 .text .plus {
-            position: absolute;
-            display: inline-block;
-            bottom: 0;
-            left: 58px;
-            line-height: 29px;
-            font-size: 24px; }
-            section#dashboard .dashboard .sessions .session4 .text .plus .orange {
-              display: inline-block;
-              position: absolute;
-              width: 53px;
-              height: 29px;
-              border-radius: 6px;
-              background-color: #d96c1c; }
-            section#dashboard .dashboard .sessions .session4 .text .plus a {
-              color: white;
-              z-index: 3;
-              position: relative;
-              left: 35px; }
-    section#dashboard .dashboard .badges {
-      float: right;
-      width: 76px; }
-      section#dashboard .dashboard .badges .list {
-        width: 100%;
-        border: 3px dotted white;
-        background-color: #a4c5e4; }
-        section#dashboard .dashboard .badges .list .badge {
-          width: calc(50% - 5px);
-          display: inline-block;
-          margin-left: 2px;
-          margin-top: 13px;
-          margin-bottom: 22px;
-          height: 31px; }
-          section#dashboard .dashboard .badges .list .badge.badge1 {
-            background: url("/css/assets/badges.png") no-repeat;
-            background-position: 0, 0; }
-          section#dashboard .dashboard .badges .list .badge.badge2 {
-            background: url("/css/assets/badges.png") no-repeat;
-            background-position: -37px, 0; }
-          section#dashboard .dashboard .badges .list .badge.badge3 {
-            background: url("/css/assets/badges.png") no-repeat;
-            background-position: -74px, 0; }
-          section#dashboard .dashboard .badges .list .badge.badge4 {
-            background: url("/css/assets/badges.png") no-repeat;
-            background-position: -111px, 0; }
-          section#dashboard .dashboard .badges .list .badge.badge5 {
-            background: url("/css/assets/badges.png") no-repeat;
-            background-position: -148px, 0; }
-          section#dashboard .dashboard .badges .list .badge.empty {
-            background: url("/css/assets/badges.png") no-repeat;
-            background-position: -185px, 0; }
-      section#dashboard .dashboard .badges .plus {
-        height: 38px;
-        width: 100%;
-        border: 3px solid white;
-        border-bottom-right-radius: 38px;
-        border-bottom-left-radius: 38px;
-        background-color: #d96c1c;
-        text-align: center; }
-        section#dashboard .dashboard .badges .plus a {
-          color: white;
-          font-size: 34px;
-          position: relative;
-          top: -8px; }
-    section#dashboard .dashboard .extend-badges {
-      height: 76px;
-      width: 100%;
-      background-color: #6090bd;
-      position: relative;
-      bottom: -76px; }
-  section#dashboard .lessons .inner-container {
+  .header .extend-header {
+    height: 5.677rem;
+    width: 100%;
+    background-color: #6090bd;
+    position: absolute; }
+
+.page .inner-container {
+  position: relative;
+  box-shadow: 0 -0.879rem 1.465rem rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  padding-bottom: 6.593rem; }
+
+#main section#dashboard .elo {
+  margin-top: 3.296rem;
+  display: inline-block;
+  float: left;
+  background-image: url("/css/assets/elo.png");
+  background-size: 100% 100%;
+  width: 32.967rem;
+  height: 12.234rem;
+  margin-right: 1.465rem; }
+  #main section#dashboard .elo .score-elo {
+    display: inline-block;
+    width: 13.186rem;
+    color: white;
+    text-align: center;
+    padding-top: 3.516rem; }
+    #main section#dashboard .elo .score-elo p.score {
+      font-size: 3.956rem;
+      line-height: 3.956rem;
+      font-weight: 700;
+      color: white; }
+    #main section#dashboard .elo .score-elo p:not(.score) {
+      margin-top: 1.685rem; }
+  #main section#dashboard .elo .evolution {
+    display: inline-block;
+    margin-left: 1.365rem;
+    text-align: center;
+    color: white;
     position: relative;
-    box-shadow: 0px -12px 20px rgba(0, 0, 0, 0.5);
-    background-color: #fff;
-    padding-bottom: 90px; }
-    section#dashboard .lessons .inner-container .filters {
-      line-height: 56px; }
-      section#dashboard .lessons .inner-container .filters .search {
-        line-height: initial;
-        position: relative;
-        display: inline-block;
-        float: left;
-        margin-left: 40px;
-        margin-right: 55px; }
-      section#dashboard .lessons .inner-container .filters .type {
-        position: relative;
-        display: inline-block;
-        float: left;
-        margin-right: 40px; }
-        section#dashboard .lessons .inner-container .filters .type label {
-          margin-left: 40px; }
-      section#dashboard .lessons .inner-container .filters .session {
-        position: relative;
-        display: inline-block;
-        float: left;
-        height: 56px; }
-        section#dashboard .lessons .inner-container .filters .session .select {
-          line-height: initial;
-          height: 30px;
-          padding: 0;
-          margin: 0;
-          border: 3px solid #d96c1c;
-          border-radius: 15px;
-          width: 286px;
-          overflow: hidden;
-          background: transparent;
-          margin-top: 13px; }
-    section#dashboard .lessons .inner-container .list {
-      margin-top: 80px; }
-      section#dashboard .lessons .inner-container .list table {
-        width: 100%; }
-        section#dashboard .lessons .inner-container .list table tr, section#dashboard .lessons .inner-container .list table td {
-          padding: 5px; }
-        section#dashboard .lessons .inner-container .list table thead tr th {
-          color: #6090bd;
-          font-size: 19px; }
-          section#dashboard .lessons .inner-container .list table thead tr th button {
-            background-color: transparent;
-            border: none; }
-            section#dashboard .lessons .inner-container .list table thead tr th button i {
-              padding-left: 5px;
-              color: #d96c1c; }
-        section#dashboard .lessons .inner-container .list table tbody tr {
-          height: 82px; }
-          section#dashboard .lessons .inner-container .list table tbody tr:nth-of-type(2n -1) {
-            background-color: #e2e6e8; }
-          section#dashboard .lessons .inner-container .list table tbody tr.free {
-            background-color: #d6eaf9; }
-          section#dashboard .lessons .inner-container .list table tbody tr td {
-            text-align: center; }
-            section#dashboard .lessons .inner-container .list table tbody tr td .description {
-              max-height: 72px;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              -webkit-hyphens: auto;
-                 -moz-hyphens: auto;
-                  -ms-hyphens: auto;
-                      hyphens: auto;
-              word-wrap: break-word; }
-            section#dashboard .lessons .inner-container .list table tbody tr td:nth-of-type(1) {
-              width: 8.8%;
-              text-align: left; }
-            section#dashboard .lessons .inner-container .list table tbody tr td:nth-of-type(2) {
-              color: #3f4248;
-              font-size: 13px;
-              width: 23%;
-              text-align: left; }
-            section#dashboard .lessons .inner-container .list table tbody tr td:not(:nth-of-type(2)) {
-              color: #5f90bc;
-              font-size: 22px;
-              font-weight: bold; }
-              section#dashboard .lessons .inner-container .list table tbody tr td:not(:nth-of-type(2)) a {
-                font-size: 14px;
-                font-family: "Questrial", sans-serif;
-                font-weight: 500;
-                color: white;
-                background-color: #d96c1c;
-                padding-left: 42px;
-                padding-right: 42px;
-                height: 26px;
-                border-radius: 13px;
-                padding-top: 5px;
-                padding-bottom: 5px;
-                vertical-align: middle;
-                margin-right: 26px; }
-            section#dashboard .lessons .inner-container .list table tbody tr td:first-of-type img {
-              width: 78px;
-              height: 64px;
-              vertical-align: middle; }
-  section#dashboard .recommandations {
-    background-color: #c1c4c6; }
-    section#dashboard .recommandations .vignettes {
-      position: relative;
-      display: block;
-      width: 1150px;
-      margin: 0 auto;
-      margin-bottom: 55px; }
-      section#dashboard .recommandations .vignettes a.back, section#dashboard .recommandations .vignettes a.next {
-        color: #d96c1c;
-        font-size: 30px;
-        font-weight: bold;
+    width: 16.67rem;
+    height: 8.059rem;
+    top: 1rem; }
+
+#main section#dashboard .average {
+  margin-top: 3.296rem;
+  display: inline-block;
+  float: left;
+  height: 12.234rem;
+  width: 12.234rem;
+  border: 0.146rem solid white;
+  border-bottom-right-radius: 6.153rem;
+  border-top-right-radius: 6.153rem;
+  border-top-left-radius: 6.153rem;
+  text-align: center;
+  color: white;
+  padding-top: 3.516rem;
+  margin-right: 2.930rem; }
+  #main section#dashboard .average p.note {
+    font-size: 3.956rem;
+    line-height: 3.956rem;
+    font-weight: 700; }
+    #main section#dashboard .average p.note span {
+      font-size: 2.271rem;
+      font-weight: 700;
+      vertical-align: sub; }
+  #main section#dashboard .average p:not(.note) {
+    text-align: left;
+    padding-left: 0.366rem; }
+
+#main section#dashboard .sessions {
+  display: inline-block;
+  width: 34.7rem;
+  color: white; }
+  #main section#dashboard .sessions .session1 {
+    margin-top: 3.296rem;
+    display: inline-block;
+    width: 15.824rem;
+    height: 5.128rem;
+    position: relative;
+    float: left; }
+    #main section#dashboard .sessions .session1 .text .points {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      height: 1.831rem;
+      width: 12.454rem;
+      border-top: 0.220rem dotted white;
+      border-left: 0.220rem dotted white; }
+    #main section#dashboard .sessions .session1 .text p {
+      display: inline-block;
+      width: 8.937rem;
+      padding-left: 0.513rem;
+      padding-top: 0.513rem;
+      font-size: 0.952rem;
+      float: left;
+      max-height: 4.762rem;
+      overflow: hidden; }
+    #main section#dashboard .sessions .session1 .text .plus {
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      right: 6.227rem;
+      line-height: 2.124rem;
+      font-size: 1.758rem; }
+      #main section#dashboard .sessions .session1 .text .plus .orange {
         position: absolute;
-        top: calc(50% - 15px); }
-      section#dashboard .recommandations .vignettes a.back {
-        left: 0; }
-      section#dashboard .recommandations .vignettes a.next {
-        right: 0; }
-      section#dashboard .recommandations .vignettes a.vignette {
         display: inline-block;
-        width: 185px;
-        height: 150px;
-        position: relative;
-        margin-left: 25px; }
-        section#dashboard .recommandations .vignettes a.vignette:nth-of-type(2) {
-          margin-left: 55px; }
-        section#dashboard .recommandations .vignettes a.vignette .content {
-          width: 100%;
-          height: 100%;
-          position: relative;
-          background-color: #3d5379;
-          border-top-left-radius: 50px;
-          border-bottom-right-radius: 50px;
-          padding: 3px;
-          overflow: hidden;
-          word-wrap: break-word;
-          text-overflow: ellipsis; }
-          section#dashboard .recommandations .vignettes a.vignette .content .img {
-            width: 100%;
-            height: 73px;
-            border-top-left-radius: 47px;
-            margin-bottom: 13px; }
-          section#dashboard .recommandations .vignettes a.vignette .content p {
-            font-family: "Questrial", sans-serif;
-            font-size: 14px;
-            color: white; }
-        section#dashboard .recommandations .vignettes a.vignette .orange {
-          width: 50px;
-          height: 50px;
+        width: 3.882rem;
+        height: 2.124rem;
+        border-radius: 0.439rem;
+        background-color: #d96c1c; }
+      #main section#dashboard .sessions .session1 .text .plus a {
+        position: absolute;
+        color: white;
+        z-index: 3;
+        padding-left: 0.366rem; }
+    #main section#dashboard .sessions .session1 .session-average {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 4.908rem;
+      height: 4.908rem;
+      background-color: #386895;
+      border: 0.146rem solid white;
+      border-top-left-radius: 2.49rem;
+      border-bottom-left-radius: 2.49rem;
+      border-top-right-radius: 2.49rem;
+      text-align: center; }
+      #main section#dashboard .sessions .session1 .session-average p {
+        font-size: 1.611rem;
+        line-height: 1.611rem;
+        font-weight: 900;
+        font-style: italic;
+        padding-top: 1.465rem;
+        position: relative; }
+        #main section#dashboard .sessions .session1 .session-average p span {
           position: absolute;
-          bottom: 0;
-          right: 0;
+          bottom: -1.392rem;
+          right: 0.44rem;
+          font-size: 0.88rem; }
+  #main section#dashboard .sessions .session2 {
+    margin-top: 2.051rem;
+    display: inline-block;
+    width: 17.582rem;
+    height: 6.153rem;
+    position: relative;
+    float: right; }
+    #main section#dashboard .sessions .session2 .session-average {
+      z-index: 2;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6.153rem;
+      height: 6.153rem;
+      background-color: #386895;
+      border: 0.146rem solid white;
+      border-top-left-radius: 3.0765rem;
+      border-bottom-right-radius: 3.0765rem;
+      border-top-right-radius: 3.0765rem;
+      text-align: center; }
+      #main section#dashboard .sessions .session2 .session-average p {
+        font-size: 1.831rem;
+        line-height: 1.831rem;
+        font-weight: 900;
+        font-style: italic;
+        padding-top: 1.465rem;
+        padding-right: 0.366rem;
+        position: relative; }
+        #main section#dashboard .sessions .session2 .session-average p span {
+          position: absolute;
+          bottom: -1.538rem;
+          right: 0.732rem;
+          font-size: 1.025rem; }
+    #main section#dashboard .sessions .session2 .text {
+      height: 6.153rem;
+      position: relative; }
+      #main section#dashboard .sessions .session2 .text .points {
+        z-index: 2;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 1.831rem;
+        width: 13.99rem;
+        border-bottom: 0.22rem dotted white;
+        border-right: 0.22rem dotted white; }
+      #main section#dashboard .sessions .session2 .text p {
+        display: inline-block;
+        width: 8.937rem;
+        position: absolute;
+        bottom: 0.513rem;
+        right: 0.513rem;
+        font-size: 0.952rem;
+        float: right;
+        max-height: 6.154rem;
+        overflow: hidden;
+        text-align: right; }
+      #main section#dashboard .sessions .session2 .text .plus {
+        position: absolute;
+        display: inline-block;
+        bottom: 0;
+        left: 3.296rem;
+        line-height: 2.124rem;
+        font-size: 1.758rem; }
+        #main section#dashboard .sessions .session2 .text .plus .orange {
+          display: inline-block;
+          position: absolute;
+          width: 3.882rem;
+          height: 2.124rem;
+          border-radius: 0.439rem;
           background-color: #d96c1c; }
+        #main section#dashboard .sessions .session2 .text .plus a {
+          color: white;
+          z-index: 3;
+          position: relative;
+          left: 2.564rem; }
+  #main section#dashboard .sessions .session3 {
+    margin-top: 0.952rem;
+    display: inline-block;
+    width: 15.824rem;
+    height: 6.447rem;
+    position: relative;
+    float: left; }
+    #main section#dashboard .sessions .session3 .text {
+      padding-left: 2.930rem; }
+      #main section#dashboard .sessions .session3 .text .points {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        height: 1.831rem;
+        width: 9.523rem;
+        margin-left: 2.930rem;
+        border-top: 0.22rem dotted white;
+        border-left: 0.22rem dotted white; }
+      #main section#dashboard .sessions .session3 .text p {
+        display: inline-block;
+        width: 8.937rem;
+        padding-left: 0.513rem;
+        padding-top: 0.513rem;
+        font-size: 0.952rem;
+        float: left;
+        max-height: 4.762rem;
+        overflow: hidden; }
+      #main section#dashboard .sessions .session3 .text .plus {
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        right: 7.326rem;
+        line-height: 2.125rem;
+        font-size: 1.758rem; }
+        #main section#dashboard .sessions .session3 .text .plus .orange {
+          position: absolute;
+          display: inline-block;
+          width: 3.882rem;
+          height: 2.125rem;
+          border-radius: 0.44rem;
+          background-color: #d96c1c; }
+        #main section#dashboard .sessions .session3 .text .plus a {
+          position: absolute;
+          color: white;
+          z-index: 3;
+          padding-left: 0.366rem; }
+    #main section#dashboard .sessions .session3 .session-average {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 6.447rem;
+      height: 6.447rem;
+      background-color: #386895;
+      border: 0.146rem solid white;
+      border-top-left-radius: 3.2235rem;
+      border-bottom-left-radius: 3.2235rem;
+      border-bottom-right-radius: 3.2235rem;
+      text-align: center; }
+      #main section#dashboard .sessions .session3 .session-average p {
+        font-size: 1.905rem;
+        line-height: 1.905rem;
+        font-weight: 900;
+        font-style: italic;
+        padding-top: 1.465rem;
+        position: relative; }
+        #main section#dashboard .sessions .session3 .session-average p span {
+          position: absolute;
+          bottom: -1.538rem;
+          right: 0.439rem;
+          font-size: 1.098rem; }
+  #main section#dashboard .sessions .session4 {
+    margin-top: 0.952rem;
+    display: inline-block;
+    width: 15.582rem;
+    height: 7.546rem;
+    position: relative;
+    float: right; }
+    #main section#dashboard .sessions .session4 .session-average {
+      z-index: 2;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 7.546rem;
+      height: 7.546rem;
+      background-color: #386895;
+      border: 0.146rem solid white;
+      border-bottom-left-radius: 3.773rem;
+      border-bottom-right-radius: 3.773rem;
+      border-top-right-radius: 3.773rem;
+      text-align: center; }
+      #main section#dashboard .sessions .session4 .session-average p {
+        font-size: 2.344rem;
+        line-height: 2.344rem;
+        font-weight: 900;
+        font-style: italic;
+        padding-top: 1.465rem;
+        padding-right: 0.366rem;
+        position: relative; }
+        #main section#dashboard .sessions .session4 .session-average p span {
+          position: absolute;
+          bottom: -1.831rem;
+          right: 0.732rem;
+          font-size: 1.392rem; }
+    #main section#dashboard .sessions .session4 .text {
+      height: 7.546rem;
+      position: relative; }
+      #main section#dashboard .sessions .session4 .text .points {
+        z-index: 2;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 1.832rem;
+        width: 13.99rem;
+        border-bottom: 0.220rem dotted white;
+        border-right: 0.22rem dotted white; }
+      #main section#dashboard .sessions .session4 .text p {
+        display: inline-block;
+        width: 8.937rem;
+        position: absolute;
+        bottom: 0.513rem;
+        right: 0.513rem;
+        font-size: 0.952rem;
+        float: right;
+        max-height: 6.154rem;
+        overflow: hidden;
+        text-align: right; }
+      #main section#dashboard .sessions .session4 .text .plus {
+        position: absolute;
+        display: inline-block;
+        bottom: 0;
+        left: 4.249rem;
+        line-height: 2.124rem;
+        font-size: 1.758rem; }
+        #main section#dashboard .sessions .session4 .text .plus .orange {
+          display: inline-block;
+          position: absolute;
+          width: 3.882rem;
+          height: 2.124rem;
+          border-radius: 0.439rem;
+          background-color: #d96c1c; }
+        #main section#dashboard .sessions .session4 .text .plus a {
+          color: white;
+          z-index: 3;
+          position: relative;
+          left: 2.564rem; }
+
+#main section#dashboard .badges {
+  float: right;
+  width: 5.567rem; }
+  #main section#dashboard .badges .list {
+    width: 100%;
+    border: 0.22rem dotted white;
+    background-color: #a4c5e4; }
+    #main section#dashboard .badges .list .badge {
+      width: calc(50% - 0.366rem);
+      display: inline-block;
+      margin-left: 0.146rem;
+      margin-top: 0.952rem;
+      margin-bottom: 1.611rem;
+      height: 2.271rem; }
+      #main section#dashboard .badges .list .badge.badge1 {
+        background: url("/css/assets/badges.svg") no-repeat;
+        background-size: 18.1685rem 2.271rem;
+        background-position: 0 0; }
+      #main section#dashboard .badges .list .badge.badge2 {
+        background: url("/css/assets/badges.svg") no-repeat;
+        background-size: 18.1685rem 2.271rem;
+        background-position: -2.271rem 0; }
+      #main section#dashboard .badges .list .badge.badge3 {
+        background: url("/css/assets/badges.svg") no-repeat;
+        background-size: 18.1685rem 2.271rem;
+        background-position: -4.542rem 0; }
+      #main section#dashboard .badges .list .badge.badge4 {
+        background: url("/css/assets/badges.svg") no-repeat;
+        background-size: 18.1685rem 2.271rem;
+        background-position: -6.813rem 0; }
+      #main section#dashboard .badges .list .badge.badge5 {
+        background: url("/css/assets/badges.svg") no-repeat;
+        background-size: 18.1685rem 2.271rem;
+        background-position: -9.084rem 0; }
+      #main section#dashboard .badges .list .badge.badge6 {
+        background: url("/css/assets/badges.svg") no-repeat;
+        background-size: 18.1685rem 2.271rem;
+        background-position: -11.355rem 0; }
+      #main section#dashboard .badges .list .badge.badge7 {
+        background: url("/css/assets/badges.svg") no-repeat;
+        background-size: 18.1685rem 2.271rem;
+        background-position: -13.626rem 0; }
+      #main section#dashboard .badges .list .badge.badge8 {
+        background: url("/css/assets/badges.svg") no-repeat;
+        background-size: 18.1685rem 2.271rem;
+        background-position: -15.897rem 0; }
+      #main section#dashboard .badges .list .badge.empty {
+        background: url("/css/assets/badges-empty.png") no-repeat; }
+  #main section#dashboard .badges .plus {
+    height: 2.784rem;
+    width: 100%;
+    border: 0.22rem solid white;
+    border-bottom-right-radius: 2.7835rem;
+    border-bottom-left-radius: 2.7835rem;
+    background-color: #d96c1c;
+    text-align: center; }
+    #main section#dashboard .badges .plus a {
+      color: white;
+      font-size: 2.49rem;
+      position: relative;
+      top: -0.586rem; }
+
+#main section h1 {
+  font-family: 'Questrial', sans-serif;
+  font-size: 2.198rem;
+  color: #2b4e86;
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 4.25rem;
+  padding-top: 2.93rem;
+  margin-top: 0; }
+
+#main section .page .inner-container .filters {
+  width: 94%;
+  line-height: 4.102rem;
+  margin: 0 auto; }
+  #main section .page .inner-container .filters .col3 {
+    display: inline-block;
+    width: 33%;
+    float: left;
+    text-align: center;
+    line-height: initial; }
+  #main section .page .inner-container .filters .search {
+    line-height: initial;
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-right: 4.029rem; }
+  #main section .page .inner-container .filters .type {
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-right: 2.93rem; }
+    #main section .page .inner-container .filters .type label {
+      margin-left: 2.93rem; }
+  #main section .page .inner-container .filters .session {
+    position: relative;
+    display: inline-block;
+    float: left;
+    height: 4.102rem; }
+    #main section .page .inner-container .filters .session .select {
+      line-height: initial;
+      height: 2.197rem;
+      padding: 0;
+      margin: 0;
+      border: 0.22rem solid #d96c1c;
+      border-radius: 1.0985rem;
+      width: 20.952rem;
+      overflow: hidden;
+      background: transparent;
+      margin-top: 0.9525rem; }
+
+#main section .page .inner-container .list {
+  margin-top: 5.86rem; }
+  #main section .page .inner-container .list table {
+    width: 100%; }
+    #main section .page .inner-container .list table tr, #main section .page .inner-container .list table td {
+      padding: 0.366rem; }
+    #main section .page .inner-container .list table thead tr th {
+      color: #6090bd;
+      font-size: 1.391rem; }
+      #main section .page .inner-container .list table thead tr th button {
+        background-color: transparent;
+        border: none; }
+        #main section .page .inner-container .list table thead tr th button i {
+          padding-left: 0.366rem;
+          color: #d96c1c; }
+    #main section .page .inner-container .list table tbody tr {
+      height: 6rem; }
+      #main section .page .inner-container .list table tbody tr:nth-of-type(2n -1) {
+        background-color: #e2e6e8; }
+      #main section .page .inner-container .list table tbody tr.free {
+        background-color: #d6eaf9; }
+      #main section .page .inner-container .list table tbody tr td {
+        text-align: center; }
+        #main section .page .inner-container .list table tbody tr td .description {
+          max-height: 5.274rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-hyphens: auto;
+             -moz-hyphens: auto;
+              -ms-hyphens: auto;
+                  hyphens: auto;
+          word-wrap: break-word; }
+        #main section .page .inner-container .list table tbody tr td:nth-of-type(1) {
+          width: 8.8%;
+          text-align: left; }
+        #main section .page .inner-container .list table tbody tr td:nth-of-type(2) {
+          color: #3f4248;
+          font-size: 0.952rem;
+          width: 23%;
+          text-align: left; }
+        #main section .page .inner-container .list table tbody tr td:not(:nth-of-type(2)) {
+          color: #5f90bc;
+          font-size: 1.612rem;
+          font-weight: bold; }
+          #main section .page .inner-container .list table tbody tr td:not(:nth-of-type(2)) a {
+            font-size: 1.025rem;
+            font-family: "Questrial", sans-serif;
+            font-weight: 500;
+            color: white;
+            background-color: #d96c1c;
+            padding-left: 3.077rem;
+            padding-right: 3.077rem;
+            height: 1.905rem;
+            border-radius: 0.952rem;
+            padding-top: 0.366rem;
+            padding-bottom: 0.366rem;
+            vertical-align: middle;
+            margin-right: 1.905rem; }
+        #main section .page .inner-container .list table tbody tr td:first-of-type img {
+          width: 5.714rem;
+          height: 4.688rem;
+          vertical-align: middle; }
+
+#main section .recommandations {
+  background-color: #c1c4c6; }
+  #main section .recommandations .vignettes {
+    position: relative;
+    display: block;
+    width: 84.25rem;
+    margin: 0 auto;
+    margin-bottom: 4.03rem; }
+    #main section .recommandations .vignettes a.back, #main section .recommandations .vignettes a.next {
+      color: #d96c1c;
+      font-size: 2.198rem;
+      font-weight: bold;
+      position: absolute;
+      top: calc(50% - 1.099rem); }
+    #main section .recommandations .vignettes a.back {
+      left: 0; }
+    #main section .recommandations .vignettes a.next {
+      right: 0; }
+    #main section .recommandations .vignettes a.vignette {
+      display: inline-block;
+      width: 13.55rem;
+      height: 10.99rem;
+      position: relative;
+      margin-left: 1.831rem; }
+      #main section .recommandations .vignettes a.vignette:nth-of-type(2) {
+        margin-left: 4.03rem; }
+      #main section .recommandations .vignettes a.vignette .content {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background-color: #3d5379;
+        border-top-left-radius: 3.663rem;
+        border-bottom-right-radius: 3.663rem;
+        padding: 0.22rem;
+        overflow: hidden;
+        word-wrap: break-word;
+        text-overflow: ellipsis; }
+        #main section .recommandations .vignettes a.vignette .content .img {
+          width: 100%;
+          height: 5.348rem;
+          border-top-left-radius: 3.443rem;
+          margin-bottom: 0.952rem; }
+        #main section .recommandations .vignettes a.vignette .content p {
+          font-family: "Questrial", sans-serif;
+          font-size: 1.025rem;
+          color: white; }
+      #main section .recommandations .vignettes a.vignette .orange {
+        width: 3.663rem;
+        height: 3.663rem;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: #d96c1c; }
+
+#poem-footer #partenaires h1 {
+  font-size: 1.392rem;
+  color: #3f4248;
+  margin-left: 16.996rem;
+  margin-top: 2.198rem;
+  margin-bottom: 3.663rem;
+  font-weight: 300; }
+
+#poem-footer #partenaires img {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 3.663rem; }
+
+#poem-footer section#infos {
+  background-color: #3f4248;
+  padding-bottom: 3.297rem;
+  position: relative; }
+  #poem-footer section#infos .columns {
+    position: relative; }
+    #poem-footer section#infos .columns .left {
+      width: 50%;
+      float: left; }
+      #poem-footer section#infos .columns .left form {
+        margin-left: 16.996rem;
+        margin-top: 3.077rem; }
+        #poem-footer section#infos .columns .left form label {
+          display: block;
+          color: white;
+          font-size: 1.392rem;
+          font-weight: 300; }
+        #poem-footer section#infos .columns .left form input, #poem-footer section#infos .columns .left form textarea {
+          width: 27.838rem;
+          margin-top: 0.952rem;
+          border-radius: 0.732rem;
+          border: none;
+          padding: 0.732rem;
+          font-size: 1.392rem; }
+          #poem-footer section#infos .columns .left form input::-webkit-input-placeholder, #poem-footer section#infos .columns .left form textarea::-webkit-input-placeholder {
+            color: black;
+            opacity: 1 !important; }
+          #poem-footer section#infos .columns .left form input::-moz-placeholder, #poem-footer section#infos .columns .left form textarea::-moz-placeholder {
+            color: black;
+            opacity: 1 !important; }
+          #poem-footer section#infos .columns .left form input:-ms-input-placeholder, #poem-footer section#infos .columns .left form textarea:-ms-input-placeholder {
+            color: black;
+            opacity: 1 !important; }
+          #poem-footer section#infos .columns .left form input::placeholder, #poem-footer section#infos .columns .left form textarea::placeholder {
+            color: black;
+            opacity: 1 !important; }
+        #poem-footer section#infos .columns .left form button {
+          width: 3.37rem;
+          height: 3.37rem;
+          border-radius: 1.685rem;
+          background-color: #d96c1c;
+          color: black;
+          box-shadow: 0.146rem 0.146rem 0.366rem black;
+          margin-left: 1.465rem;
+          border: none;
+          vertical-align: bottom; }
+    #poem-footer section#infos .columns .right {
+      float: left;
+      width: 50%;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      bottom: 0; }
+      #poem-footer section#infos .columns .right .apropos {
+        display: block;
+        width: 18.755rem;
+        border-radius: 0.512rem;
+        border: none;
+        background-color: #aeb0b4;
+        Color: black;
+        font-size: 1.392rem;
+        text-align: center;
+        padding-top: 0.366rem;
+        padding-bottom: 0.366rem;
+        margin-left: 7.546rem;
+        margin-top: 9.743rem;
+        box-shadow: 0.146rem 0.146rem 0.366rem black; }
+        #poem-footer section#infos .columns .right .apropos span {
+          color: #d96c1c; }
+      #poem-footer section#infos .columns .right .mentions {
+        display: block;
+        color: #d96c1c;
+        text-decoration: underline;
+        font-size: 1.392rem;
+        font-weight: 300;
+        position: absolute;
+        bottom: 0;
+        left: 5.641rem; }
