@@ -1153,6 +1153,7 @@ li {
               //left: calc(50% - 35.967rem);
               //top: calc(50% - 2.5rem);
               left: 5rem;
+              top: 3rem;
             }
 
             & button.forward {
@@ -1160,6 +1161,7 @@ li {
               //right: calc(50% - 35.967rem);
               //top: calc(50% - 2.5rem);
               right: 5rem;
+              top: 3rem;
             }
 
             & p.info-track {
@@ -1415,6 +1417,10 @@ li {
               color: black;
               opacity: 1 !important;
             }
+          }
+
+          & textarea {
+            min-height: 9rem;
           }
 
           & button {

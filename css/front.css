@@ -1007,10 +1007,12 @@ li.ui-autocomplete-item.ui-state-highlight {
       background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%); }
   #main section .page .inner-container #explorer .explorer button.backward {
     position: absolute;
-    left: 5rem; }
+    left: 5rem;
+    top: 3rem; }
   #main section .page .inner-container #explorer .explorer button.forward {
     position: absolute;
-    right: 5rem; }
+    right: 5rem;
+    top: 3rem; }
   #main section .page .inner-container #explorer .explorer p.info-track {
     margin-top: 2.93rem;
     font-size: 0.8rem;
@@ -1179,6 +1181,8 @@ li.ui-autocomplete-item.ui-state-highlight {
           #poem-footer section#infos .columns .left form input::placeholder, #poem-footer section#infos .columns .left form textarea::placeholder {
             color: black;
             opacity: 1 !important; }
+        #poem-footer section#infos .columns .left form textarea {
+          min-height: 9rem; }
         #poem-footer section#infos .columns .left form button {
           width: 3.37rem;
           height: 3.37rem;
