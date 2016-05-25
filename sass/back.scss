@@ -48,6 +48,12 @@ html {
 .ui-inputswitch {
   vertical-align: middle;
   line-height: 1rem;
+
+  & .ui-inputswitch-handle {
+    &.ui-state-focus {
+      outline: none;
+    }
+  }
 }
 
 button.ui-autocomplete-dropdown {

@@ -37,7 +37,7 @@
                 <span class="input-group-btn">
                     <button id="filter" class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </span>
-                <input type="text" class="form-control" placeholder="N°, Titre, Contenu">
+                <input type="search" class="form-control" placeholder="N°, Titre, Contenu">
             </div>
         </div>
     </div>

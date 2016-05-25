@@ -25,11 +25,11 @@
     };
     var settings = {
         //height of sphere container
-        height : 400,
+        height : 43.95,
         //width of sphere container
-        width : 400,
+        width : 43.95,
         //radius of sphere
-        radius : 150,
+        radius : 16.11,
         //maximum tag
         maxtags: 80,
         //rotation speed
@@ -39,7 +39,7 @@
         //delay between update position 
         //timer : 5, ==> obsolete avec requestAnimationFrame
         //dependence of a font size on axis Z
-        fontMultiplier : 15,
+        fontMultiplier : 1.1,
         //zoom font on mouseover
         fontZoomHover : 1.5,
         //tag max-width %
@@ -48,7 +48,7 @@
         imgBackUrl: '',
         //tag css stylies on mouse over
         hoverStyle : {
-            border : '1px solid #935C26',
+            border : '0.073rem solid #935C26',
             color : '#935C26'
         },
         //tag css stylies on mouse out
@@ -77,6 +77,8 @@
             options.requestAnimationFrameId ? window.cancelAnimationFrame(options.requestAnimationFrameId) : null;
         } else {
             options = jQuery.extend(settings, opt);
+            options.rootFontSize = getRootElementFontSize();
+            options.zIndexInit = 10000;
             initContainer(this);
             initTags(this);
             initMaths();
@@ -87,6 +89,18 @@
             return this;
         }
     };
+
+    var $html = document.querySelector('html');
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function (mutation) {
+            mutation.attributeName == 'style' ? options.rootFontSize = getRootElementFontSize() : null;
+        });
+    });
+    // configuration of the observer:
+    var config = { attributeFilter: ['style'] };
+
+    // pass in the target node, as well as the observer options
+    observer.observe($html, config);
 
     function initMaths() {
         mathAssets.halfHeight = options.height / 2;
@@ -101,6 +115,22 @@
         //curState.mouseOver = false;
         curState.lastFx = options.speed;
         curState.lastFy = options.speed;
+    }
+
+    function getRootElementFontSize( ) {
+        // Returns a number
+        return parseFloat(
+            // of the computed font-size, so in px
+            getComputedStyle(
+                // for the root <html> element
+                document.documentElement
+            )
+                .fontSize
+        );
+    }
+
+    function convertRem(value) {
+        return value / options.rootFontSize;
     }
 
     function getOffsetLeft( elem ) {
@@ -127,11 +157,12 @@
 
     function initContainer(tagContainer) {
         $first=true;
-        tagContainer.height(options.height);
-        tagContainer.width(options.width);
+        tagContainer.height(options.height + 'rem');
+        tagContainer.width(options.width + 'rem');
         tagContainer.css( {
             'position' : 'relative',
-            'border-radius' : options.height / 2
+            'border-radius' : options.height / 2 + 'rem',
+            'z-index' : options.zIndexInit
         });
         tagContainer.mousemove( function(e) {
             //correction bug coordonnées Sylvain GAGNOT
@@ -149,11 +180,21 @@
         if(!$('#imgcloud').length){
             tagContainer.append('<img src="'+ options.imgBackUrl + '" id="imgcloud"/>');
         }
+
+        var $topImg =  (70*options.height/100)/2;
+
         $('#imgcloud').css({
             'display' : 'block',
             'margin' : '0 auto',
-            'width' : (70*options.height/100) + 'px',
-            'height' : (70*options.height/100) + 'px'
+            'width' : (70*options.height/100) + 'rem',
+            'height' : (70*options.height/100) + 'rem',
+            'position' : 'absolute',
+            'top' : 'calc(50% - ' + $topImg + 'rem)',
+            'left' : 'calc(50% - ' + $topImg + 'rem)',
+            'z-index' : options.zIndexInit
+        });
+        tagContainer.find('h3').css({
+            'z-index' : options.zIndexInit
         });
     }
 
@@ -200,8 +241,8 @@
             tags[i - 1].cx = options.radius * Math.cos(theta) * Math.sin(phi);
             tags[i - 1].cy = options.radius * Math.sin(theta) * Math.sin(phi);
             tags[i - 1].cz = options.radius * Math.cos(phi);
-            tags[i - 1].h = jQuery(tags[i - 1]).height() / 4;
-            tags[i - 1].w = jQuery(tags[i - 1]).width() / 4;
+            tags[i - 1].h = convertRem(jQuery(tags[i - 1]).height() / 4);
+            tags[i - 1].w = convertRem(jQuery(tags[i - 1]).width() / 4);
             tags[i - 1].zoomFont = 1;
         }
     }
@@ -218,8 +259,8 @@
         var fx;
 
         if (curState.mouseOver) {
-            fy = options.speed - mathAssets.speedY * curState.mouseY;
-            fx = mathAssets.speedX * curState.mouseX - options.speed;
+            fy = options.speed - mathAssets.speedY * convertRem(curState.mouseY);
+            fx = mathAssets.speedX * convertRem(curState.mouseX) - options.speed;
         } else {
             fy = curState.lastFy * options.slower;
             fx = curState.lastFx * options.slower;
@@ -248,10 +289,10 @@
                 tags[j].tagMaxWidth = options.tagMaxWidth*options.fontZoomHover;
                 var left = mathAssets.whratio * (tags[j].x - tags[j].w * per) + mathAssets.halfWidth;
                 var top = mathAssets.hwratio * (tags[j].y - tags[j].h * per) + mathAssets.halfHeight;
-                tags[j][0].style.transform = 'translateX(' + left + 'px) translateY(' + top + 'px)';
-                tags[j][0].style.fontSize = options.fontMultiplier * tags[j].zoomFont  * tags[j].alpha + 'px';
+                tags[j][0].style.transform = 'translateX(' + left + 'rem) translateY(' + top + 'rem)';
+                tags[j][0].style.fontSize = options.fontMultiplier * tags[j].zoomFont  * tags[j].alpha + 'rem';
                 tags[j][0].style.maxWidth = tags[j].tagMaxWidth * tags[j].alpha + '%';
-                tags[j][0].style.zIndex = Math.round(-tags[j].cz);
+                tags[j][0].style.zIndex = Math.round(-tags[j].cz) + options.zIndexInit;
                 tags[j][0].style.opacity = tags[j].alpha;
             }
         }

@@ -10,6 +10,7 @@
     <!-- Page -->
         <div class="page">
             <div class="inner-container">
+                <div id="messages"></div>
                 <?php include('./includes/front/layout/main/page/' . $_SESSION['page'] . '.php') ?>
             </div>
             <div class="clearfix"></div>

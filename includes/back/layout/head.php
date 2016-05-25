@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/jquery-ui.min.css" rel="stylesheet">
-    <link href="css/primeui-theme.css" rel="stylesheet">
+    <link href="css/primeui-theme-back.css" rel="stylesheet">
     <link href="css/primeui.min.css" rel="stylesheet">
     <link href="css/back.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">

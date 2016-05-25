@@ -1,16 +1,15 @@
-<section class="explorer">
+<section id="explorer">
     <div class="filters">
         <div class="col3">
-            <h3 class="text-xs-center"><a href="#">Domaines</a></h3>
+            <h3><a href="#">Domaines</a></h3>
             <input id="dropdown1" name="dropdown" type="text" placeholder="domaine"/>
         </div>
         <div class="col3">
-            <h3 class="text-xs-center"><a href="#">Champs</a></h3>
+            <h3><a href="#">Champs</a></h3>
             <input id="dropdown2" name="dropdown" type="text" placeholder="champs"/>
-
         </div>
         <div class="col3">
-            <h3 class="text-xs-center"><a href="#">Lecon</a></h3>
+            <h3><a href="#">Lecon</a></h3>
             <input id="dropdown3" name="dropdown" type="text" placeholder="leçon"/>
         </div>
         <div class="clearfix"></div>
@@ -25,86 +24,58 @@
         <div class="col3">
             <p class="language">Uniquement dans ma langue préférée?</p>
             <div class="language">
-                <input id="language" type="checkbox" />
+                <input type="checkbox" id="language" name="language"/>
             </div>
         </div>
         <div class="col3">
             <p class="filter">Ajouter un filtre</p>
-            <div class="input-group filter">
-                <span class="input-group-btn">
-                    <button id="filter" class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </span>
-                <input type="text" class="form-control" placeholder="N°, Titre, Contenu">
+            <div class="search">
+                <input type="search" name="search" />
+                <button type="button"><i class="fa fa-search"></i></button>
             </div>
         </div>
+        <div class="clearfix"></div>
     </div>
 
-    <div class="row load">
-        <div class="col-sm-12">
-            <img class="center-block hidden-xs-up" src="/css/assets/loader1.gif" alt="loader fourmis" />
+    <div class="explorer">
+        <div class="load">
+            <img src="/css/assets/loader1.gif" alt="loader fourmis" />
         </div>
-    </div>
-    <div class="row hidden-lg-down">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10">
-            <div id="tagcloud" class="tag-cloud">
-                <h3 class="text-xs-center"></h3>
-                <ul>
-                </ul>
-            </div>
-            <button class="btn btn-info-outline backward"></button>
-            <button class="btn btn-info-outline forward"></button>
-            <?php if($_SESSION['explorermode'] == 'attractive'){ ?>
-                <p class="text-xs-center text-muted info-track">Mode souris attractive<br />(<a href="/back.php?want=back_explorer&explorermode=trackball" title="glisser votre doigt sur la sphere ou maintenez le clic de la souris pour tourner">recharger l'exploreur en mode digital trackball</a>)</p>
-            <?php } else { ?>
-                <p class="text-xs-center text-muted info-track">Mode digital trackball<br />(<a href="/back.php?want=back_explorer&explorermode=attractive" title="la position du curseur de la souris attire les tags vers lui">recharger l'explorer en mode souris attractive</a>)</p>
-            <?php } ?>
+        <div id="tagcloud" class="tag-cloud">
+            <h3></h3>
+            <ul>
+            </ul>
         </div>
-        <div class="col-sm-1"></div>
+        <button class="btn btn-info-outline backward"></button>
+        <button class="btn btn-info-outline forward"></button>
+        <?php if($_SESSION['explorermode'] == 'attractive'){ ?>
+            <p class="info-track">Mode souris attractive<br />(<a href="/index.php?want=front_explorer&explorermode=trackball" title="glisser votre doigt sur la sphere ou maintenez le clic de la souris pour tourner">recharger l'exploreur en mode digital trackball</a>)</p>
+        <?php } else { ?>
+            <p class="info-track">Mode digital trackball<br />(<a href="/index.php?want=front_explorer&explorermode=attractive" title="la position du curseur de la souris attire les tags vers lui">recharger l'explorer en mode souris attractive</a>)</p>
+        <?php } ?>
     </div>
-    <div class="row hidden-xl-up">
-        <div class="col-sm-12">
-            <p class="text-warning no-explorer">l'affichage de l'explorateur graphique est restreint aux écrans de plus de 1140px de largeur.</p>
-        </div>
-    </div>
-</section>
-<section class="selection">
-    <div class="row">
-        <div class="col-sm-12">
-            <h2>Résultat de la recherche</h2>
-        </div>
-    </div>
-    <!-- leçons trouvées -->
-    <?php for($i = 1; $i<=5 ; $i++) {?>
-        <div class="row">
-            <div class="col-sm-12 arianne">
-                <hr />
-                <p>
-                    Résumé de la leçon:
-                    <span>biological and biomedical science</span><i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    <span>génétic</span><i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </p>
-                <hr />
-            </div>
-            <div class="col-md-2 thumb-lesson">
-                <a href="#" title="vers la leçon"><img src="http://lorempixel.com/300/200/technics/<?php echo (($i+1) % 10) ?>" class="img-fluid" alt="image de la leçon n°<?php print $i ?>"></a>
-            </div>
-            <div class="col-md-7 description">
-                <h3><a href="#" title="vers la leçon">Titre de la leçon trouvée n°<?php print $i ?></a></h3>
+
+    <div class="selection">
+        <h2>Quelques résultats de votre recherche</h2>
+        <!-- leçons trouvées -->
+        <p>
+            <span>biological and biomedical science</span><i class="fa fa-chevron-right" aria-hidden="true"></i>
+            <span>génétic</span><i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </p>
+        <?php for($i = 1; $i<=4 ; $i++) {?>
+            <a href="#" class="vignette">
+                <div class="orange"></div>
+                <div class="content">
+                    <div class="img" data-img="neurone.jpg"></div>
+                    <p>Titre de la leçon</p>
+                </div>
+            </a>
+            <div class="description">
                 <h4>Description de la leçon en une dixaine de mots...</h4>
-                <p>Ce paragraphe decrit la leçon plus precisement car  on aime bien decrire precisement les choses</p>
-                <blockquote class="blockquote">
-                    <p class="m-b-0">Ce paragraphe est le mot du prof qui encourage à suivre cette leçon et à la réussire</p>
-                </blockquote>
+                <p>Ce paragraphe decrit la leçon plus precisement car  on aime bien decrire precisement les choses Ce paragraphe decrit la leçon plus precisement car  on aime bien decrire precisement les choses Ce paragraphe decrit la leçon plus precisement car  on aime bien decrire precisement les choses Ce paragraphe decrit la leçon plus precisement car  on aime bien decrire precisement les choses </p>
             </div>
-            <div class="col-md-3 avatar">
-                <img src="./css/assets/avatar.png" alt="avatar professeur" class="img-rounded center-block">
-                <p class="small text-xs-center">Pr. Pierre C.</p>
-            </div>
-            <div class="col-sm-12">
-                <hr />
-            </div>
-        </div>
-    <?php } ?>
-
+            <div class="clearfix"></div>
+        <?php } ?>
+    </div>
+    <div class="clearfix"></div>
 </section>

@@ -23,7 +23,7 @@ var poem = {
     //var objet modifiables
     imgTagCloudUrl: './css/assets/ball5.png', // image de fond de l'explorateur
     maxTagInCloud: 80, //nombre de tags maxi de l'explorateur
-    tagfontMultiplier: 13, //taille initiale des fonts de l'explorateur
+    tagfontMultiplier: 0.952, //taille initiale des fonts de l'explorateur rem
     tagZoomFontHover: 1, //zoom lors du survol des tags de l'explorateur
     delayAnimCards : 300, //delay animation entre chaque carte
     notifsLife: 6000, //durée de vie des notifications
@@ -53,6 +53,7 @@ var poem = {
     addEventClickLesson: poem_addEventClickLesson, //Ajout de l'evenement en cas de click sur bouton ajouter leçon page creer sessions ou modifier session
     initSessions: poem_init_sessions, //Init des UI de la page creer une session ou modifier une session
     recommandations: poem_recommandations, //gere l'integration en background des imagettes recommandations
+    selections: poem_selection, //gere l'integration en background des imagettes selections
     initDashboard: poem_init_dashboard //init du dashboard front
 };
 
@@ -558,36 +559,16 @@ function poem_update_explorer(data, $tagCloudsettings) {
 }
 
 //Function de chargement de l'explorer: AJAX + lancement de poem_update_explorer
-function poem_load_explorer() {
-    var $tagCloudsettings = {
-        height: 600, //height of sphere container
-        width: 600, //width of sphere container
-        radius: 220, //radius of sphere
-        maxtags: poem.maxTagInCloud, //maximum of visible tags
-        imgBackUrl: poem.imgTagCloudUrl, //image du background
-        speed: 3, //rotation speed
-        slower: 0.7, //sphere rotations slower
-        //timer: 40, OBSOLETE AVEC requestAnimationFrame //40 = 25img/seconde //delay between up<a href="http://www.jqueryscript.net/time-clock/">date</a> position
-        fontMultiplier: poem.tagfontMultiplier, //dependence of a font size on axis Z
-        fontZoomHover: poem.tagZoomFontHover,
-        tagMaxWidth : 20, //max width tag in %
-        hoverStyle: { //tag css stylies on mouse over
-            cursor: 'pointer',
-            textDecoration: 'underline'
-        },
-        mouseOutStyle: { //tag css stylies on mouse out
-            textDecoration: 'none'
-        }
-    };
+function poem_load_explorer($tagCloudsettings) {
 
     var $img = $('.load img');
-    $img.toggleClass('hidden-xs-up');
+    $img.hasClass('hidden-xs-up') ? $img.toggleClass('hidden-xs-up') : $img.toggleClass('hidden');
 
     var $url = poem.host + poem.dataOfExplorer;
     var jqxhr = $.ajax($url)
         .done(function(data, textStatus, jqXHR) {
             var $img = $('.load img');
-            $img.toggleClass('hidden-xs-up');
+            $img.addClass('hidden');
             poem_update_explorer(data, $tagCloudsettings)
         })
         .fail(function() {
@@ -1141,15 +1122,26 @@ function poem_addEventClickLesson(elem, $lesson) {
     });
 }
 
-//function gestion des imagettes recommandations
-function poem_recommandations() {
-    $('.recommandations .content .img').each(function () {
+//function d'ajout d'un background sur une selection DOM en fonction de leur data-img
+function poem_addBackgound($selecteur) {
+    $($selecteur).each(function () {
         $(this).css({
             "backgroundImage" : 'url("./public/img/' + $(this).data('img')+'")'
         });
     });
 }
 
+//function gestion des imagettes recommandations
+function poem_recommandations() {
+    var $selecteur = '.recommandations .content .img';
+    poem_addBackgound($selecteur);
+}
+
+//function de gestion des imagettes de la selection de l'explorateur
+function poem_selection() {
+    var $selecteur = '.selection .content .img';
+    poem_addBackgound($selecteur);
+}
 //function init_dashboard front
 function poem_init_dashboard() {
     Chart.defaults.global.defaultFontColor = '#fff';

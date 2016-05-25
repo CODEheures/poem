@@ -280,7 +280,20 @@ input[type="search"] {
     font-size: 2.051rem;
     line-height: 2.051rem;
     background-color: transparent;
-    border: none; }
+    border: none;
+    padding: 0; }
+
+input.ui-inputtext {
+  border: 0.22rem solid #d96c1c;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 2.4rem;
+  border-bottom-left-radius: 2.4rem;
+  border-right: none;
+  background: transparent; }
+  input.ui-inputtext.ui-state-focus {
+    border-color: #d96c1c;
+    box-shadow: inset 0 0.11rem 0.11rem rgba(0, 0, 0, 0.075), 0 0 0.586rem rgba(217, 108, 28, 0.6); }
 
 select {
   z-index: 2;
@@ -308,6 +321,52 @@ select {
     line-height: 1.025rem; }
   select:focus {
     outline: none; }
+
+button {
+  border: 0.22rem solid #d96c1c;
+  background: none;
+  padding: 0.22rem 0.44rem;
+  border-radius: 1.72rem;
+  font-size: 1.5rem;
+  color: #2b4e86; }
+  button.ui-autocomplete-dropdown {
+    border: 0.22rem solid #d96c1c;
+    border-top-right-radius: 2.4rem;
+    border-bottom-right-radius: 2.4rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+    background: transparent;
+    color: #d96c1c; }
+
+div.ui-inputswitch {
+  border: 0.22rem solid #d96c1c;
+  width: 5.3rem !important;
+  height: 2rem !important; }
+  div.ui-inputswitch .ui-inputswitch-off, div.ui-inputswitch .ui-inputswitch-on {
+    padding-top: 0.1465rem; }
+    div.ui-inputswitch .ui-inputswitch-off span, div.ui-inputswitch .ui-inputswitch-on span {
+      width: 2.45rem !important; }
+  div.ui-inputswitch .ui-inputswitch-on span {
+    color: #d96c1c; }
+  div.ui-inputswitch .ui-inputswitch-handle {
+    background-image: -webkit-linear-gradient(top, #e78741, #d96c1c);
+    background-image: linear-gradient(to bottom, #e78741, #d96c1c);
+    width: 2.35rem !important;
+    height: 1.75rem !important; }
+    div.ui-inputswitch .ui-inputswitch-handle.ui-state-focus {
+      outline: none; }
+
+div.ui-slider .ui-slider-range {
+  background-color: #d96c1c; }
+
+div.ui-slider span.ui-state-focus {
+  outline: none; }
+
+li.ui-autocomplete-item.ui-state-highlight {
+  background-color: #d96c1c;
+  background-image: -webkit-linear-gradient(top, #e78741, #d96c1c);
+  background-image: linear-gradient(to bottom, #e78741, #d96c1c); }
 
 #poem-navbar .navbar {
   display: block;
@@ -376,6 +435,7 @@ select {
   position: relative;
   box-shadow: 0 -0.879rem 1.465rem rgba(0, 0, 0, 0.5);
   background-color: #fff;
+  padding-top: 2.93rem;
   padding-bottom: 6.593rem; }
 
 #main section#dashboard .elo {
@@ -797,26 +857,94 @@ select {
       position: relative;
       top: -0.586rem; }
 
-#main section h1 {
+#main section h1, #main section h2, #main section h3, #main section h4 {
   font-family: 'Questrial', sans-serif;
-  font-size: 2.198rem;
   color: #2b4e86;
   text-transform: capitalize;
-  text-align: center;
-  margin-bottom: 4.25rem;
-  padding-top: 2.93rem;
   margin-top: 0; }
+
+#main section h1 {
+  font-size: 2.198rem;
+  margin-bottom: 4.25rem;
+  text-align: center; }
+
+#main section h2 {
+  font-size: 1.758rem;
+  margin-bottom: 0.25rem; }
+
+#main section h3 {
+  font-size: 1.458rem;
+  margin-bottom: 0.15rem; }
+
+#main section h4 {
+  font-size: 1.258rem;
+  margin-bottom: 0.10rem; }
+
+#main section a.vignette {
+  display: inline-block;
+  position: relative; }
+  #main section a.vignette .content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #3d5379;
+    border-top-left-radius: 27%;
+    border-bottom-right-radius: 27%;
+    padding: 0.22rem;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-overflow: ellipsis; }
+    #main section a.vignette .content .img {
+      width: 100%;
+      height: 5.348rem;
+      border-top-left-radius: 3.443rem;
+      margin-bottom: 0.952rem; }
+    #main section a.vignette .content p {
+      font-family: "Questrial", sans-serif;
+      font-size: 1.025rem;
+      color: white; }
+  #main section a.vignette .orange {
+    width: 3.663rem;
+    height: 3.663rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #d96c1c; }
 
 #main section .page .inner-container .filters {
   width: 94%;
   line-height: 4.102rem;
   margin: 0 auto; }
+  #main section .page .inner-container .filters .clearfix ~ .col3 {
+    margin-top: 2rem;
+    padding-left: 4.5rem;
+    padding-right: 3rem;
+    text-align: left; }
+    #main section .page .inner-container .filters .clearfix ~ .col3 .elo-slider input {
+      border: 0;
+      color: #d96c1c;
+      font-weight: bold; }
+    #main section .page .inner-container .filters .clearfix ~ .col3 p {
+      padding-bottom: 0.5rem;
+      color: #3f4248;
+      font-size: 1.025rem;
+      line-height: 1.904rem; }
   #main section .page .inner-container .filters .col3 {
     display: inline-block;
     width: 33%;
     float: left;
     text-align: center;
     line-height: initial; }
+    #main section .page .inner-container .filters .col3 h3 {
+      padding-bottom: 0.22rem; }
+      #main section .page .inner-container .filters .col3 h3 a {
+        font-family: "Questrial", sans-serif;
+        font-size: 1.611rem;
+        color: #2b4e86; }
+    #main section .page .inner-container .filters .col3 span.ui-autocomplete {
+      width: 21rem; }
+      #main section .page .inner-container .filters .col3 span.ui-autocomplete input {
+        width: 100%; }
   #main section .page .inner-container .filters .search {
     line-height: initial;
     position: relative;
@@ -846,6 +974,84 @@ select {
       overflow: hidden;
       background: transparent;
       margin-top: 0.9525rem; }
+
+#main section .page .inner-container #explorer .explorer {
+  position: relative;
+  display: inline-block;
+  margin-left: 3%;
+  float: left;
+  width: 57%; }
+  #main section .page .inner-container #explorer .explorer .load {
+    display: block; }
+    #main section .page .inner-container #explorer .explorer .load img {
+      margin: 0 auto;
+      margin-top: 7rem; }
+  #main section .page .inner-container #explorer .explorer div.tag-cloud {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    background: -webkit-radial-gradient(center ellipse, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(55, 171, 191, 0.2) 100%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(55, 171, 191, 0.2) 100%);
+    box-shadow: 0 0 5.12rem 0 rgba(55, 171, 191, 0.2); }
+    #main section .page .inner-container #explorer .explorer div.tag-cloud h3 {
+      position: relative;
+      top: calc(50% - 3rem);
+      font-size: 5rem;
+      color: rgba(150, 150, 150, 0.5);
+      text-align: center; }
+    #main section .page .inner-container #explorer .explorer div.tag-cloud ul li {
+      font-family: "PT Sans", sans-serif;
+      padding: 0.293rem;
+      background-color: white;
+      background: -webkit-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+      background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%); }
+  #main section .page .inner-container #explorer .explorer button.backward {
+    position: absolute;
+    left: 5rem; }
+  #main section .page .inner-container #explorer .explorer button.forward {
+    position: absolute;
+    right: 5rem; }
+  #main section .page .inner-container #explorer .explorer p.info-track {
+    margin-top: 2.93rem;
+    font-size: 0.8rem;
+    text-align: center; }
+
+#main section .page .inner-container #explorer .selection {
+  padding-top: 3rem;
+  display: inline-block;
+  float: left;
+  width: 37%;
+  margin-right: 3%; }
+  #main section .page .inner-container #explorer .selection > p {
+    font-size: 0.9rem;
+    color: white;
+    padding: 0.5rem 0.1rem;
+    background-color: #6090bd;
+    border-top: 1px solid black; }
+    #main section .page .inner-container #explorer .selection > p i {
+      padding-left: 0.22rem; }
+  #main section .page .inner-container #explorer .selection a.vignette {
+    width: 13.55rem;
+    height: 10.99rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 1.5rem; }
+  #main section .page .inner-container #explorer .selection .description {
+    padding-top: 0.22rem; }
+    #main section .page .inner-container #explorer .selection .description p {
+      padding-top: 0.5rem;
+      max-height: 8rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-hyphens: auto;
+         -moz-hyphens: auto;
+          -ms-hyphens: auto;
+              hyphens: auto;
+      word-wrap: break-word;
+      text-align: justify;
+      color: #3f4248; }
 
 #main section .page .inner-container .list {
   margin-top: 5.86rem; }
@@ -912,71 +1118,30 @@ select {
 
 #main section .recommandations {
   background-color: #c1c4c6; }
-  #main section .recommandations .vignettes {
-    position: relative;
-    display: block;
-    width: 84.25rem;
-    margin: 0 auto;
-    margin-bottom: 4.03rem; }
-    #main section .recommandations .vignettes a.back, #main section .recommandations .vignettes a.next {
-      color: #d96c1c;
-      font-size: 2.198rem;
-      font-weight: bold;
-      position: absolute;
-      top: calc(50% - 1.099rem); }
-    #main section .recommandations .vignettes a.back {
-      left: 0; }
-    #main section .recommandations .vignettes a.next {
-      right: 0; }
-    #main section .recommandations .vignettes a.vignette {
-      display: inline-block;
-      width: 13.55rem;
-      height: 10.99rem;
+  #main section .recommandations .inner-container {
+    padding-top: 2.93rem; }
+    #main section .recommandations .inner-container .vignettes {
       position: relative;
-      margin-left: 1.831rem; }
-      #main section .recommandations .vignettes a.vignette:nth-of-type(2) {
-        margin-left: 4.03rem; }
-      #main section .recommandations .vignettes a.vignette .content {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        background-color: #3d5379;
-        border-top-left-radius: 3.663rem;
-        border-bottom-right-radius: 3.663rem;
-        padding: 0.22rem;
-        overflow: hidden;
-        word-wrap: break-word;
-        text-overflow: ellipsis; }
-        #main section .recommandations .vignettes a.vignette .content .img {
-          width: 100%;
-          height: 5.348rem;
-          border-top-left-radius: 3.443rem;
-          margin-bottom: 0.952rem; }
-        #main section .recommandations .vignettes a.vignette .content p {
-          font-family: "Questrial", sans-serif;
-          font-size: 1.025rem;
-          color: white; }
-      #main section .recommandations .vignettes a.vignette .orange {
-        width: 3.663rem;
-        height: 3.663rem;
+      display: block;
+      width: 84.25rem;
+      margin: 0 auto;
+      margin-bottom: 4.03rem; }
+      #main section .recommandations .inner-container .vignettes a.back, #main section .recommandations .inner-container .vignettes a.next {
+        color: #d96c1c;
+        font-size: 2.198rem;
+        font-weight: bold;
         position: absolute;
-        bottom: 0;
-        right: 0;
-        background-color: #d96c1c; }
-
-#poem-footer #partenaires h1 {
-  font-size: 1.392rem;
-  color: #3f4248;
-  margin-left: 16.996rem;
-  margin-top: 2.198rem;
-  margin-bottom: 3.663rem;
-  font-weight: 300; }
-
-#poem-footer #partenaires img {
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 3.663rem;
-  max-width: 70%; }
+        top: calc(50% - 1.099rem); }
+      #main section .recommandations .inner-container .vignettes a.back {
+        left: 0; }
+      #main section .recommandations .inner-container .vignettes a.next {
+        right: 0; }
+      #main section .recommandations .inner-container .vignettes a.vignette {
+        width: 13.55rem;
+        height: 10.99rem;
+        margin-left: 1.831rem; }
+        #main section .recommandations .inner-container .vignettes a.vignette:nth-of-type(2) {
+          margin-left: 4.03rem; }
 
 #poem-footer section#infos {
   background-color: #3f4248;
@@ -1031,28 +1196,59 @@ select {
       position: absolute;
       top: 0;
       bottom: 0; }
+      #poem-footer section#infos .columns .right .partenaires {
+        width: 28.1325rem;
+        border-radius: 0.512rem;
+        height: 5.97039rem;
+        border: none;
+        background: url("/css/assets/partenaires.png") no-repeat center;
+        background-size: 90% 90%;
+        background-color: white;
+        margin-left: 7.546rem;
+        margin-top: 0.952rem;
+        -webkit-transition-duration: 200ms;
+                transition-duration: 200ms;
+        -webkit-transition-property: all;
+        transition-property: all; }
+        #poem-footer section#infos .columns .right .partenaires:hover {
+          -webkit-transform: scale(1.3);
+                  transform: scale(1.3);
+          cursor: zoom-in; }
       #poem-footer section#infos .columns .right .apropos {
         display: block;
+        margin-top: 6rem;
         width: 18.755rem;
         border-radius: 0.512rem;
         border: none;
         background-color: #aeb0b4;
         Color: black;
+        padding-top: 0.732rem;
+        padding-bottom: 0.732rem;
         font-size: 1.392rem;
         text-align: center;
-        padding-top: 0.366rem;
-        padding-bottom: 0.366rem;
         margin-left: 7.546rem;
-        margin-top: 9.743rem;
-        box-shadow: 0.146rem 0.146rem 0.366rem black; }
+        box-shadow: 0.146rem 0.146rem 0.366rem black;
+        -webkit-transition-duration: 200ms;
+                transition-duration: 200ms;
+        -webkit-transition-property: all;
+        transition-property: all; }
         #poem-footer section#infos .columns .right .apropos span {
           color: #d96c1c; }
-      #poem-footer section#infos .columns .right .mentions {
+        #poem-footer section#infos .columns .right .apropos:hover {
+          -webkit-transform: scale(1.05);
+                  transform: scale(1.05); }
+      #poem-footer section#infos .columns .right .links {
         display: block;
-        color: #d96c1c;
-        text-decoration: underline;
-        font-size: 1.392rem;
-        font-weight: 300;
         position: absolute;
         bottom: 0;
-        left: 5.641rem; }
+        left: 6.846rem; }
+        #poem-footer section#infos .columns .right .links a {
+          text-decoration: underline;
+          font-size: 1.392rem;
+          font-weight: 300;
+          padding: 0.3rem 0.7rem;
+          border-radius: 0.22rem;
+          border: none;
+          color: white; }
+          #poem-footer section#infos .columns .right .links a:hover {
+            background-color: #d96c1c; }

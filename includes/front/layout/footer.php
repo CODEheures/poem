@@ -1,9 +1,3 @@
-<section id="partenaires">
-    <h1>Nos partenaires</h1>
-    <div class="logos">
-        <img src="./css/assets/partenaires.png"
-    </div>
-</section>
 <div class="clearfix"></div>
 <section id="infos">
     <div class="columns">
@@ -17,7 +11,11 @@
         </div>
         <div class="right">
             <a href="#" title="En savoir plus sur POEM" class="apropos">A propos de <span>POEM</span></a>
-            <a href="#" title="mentions légales" class="mentions">Mentions légales</a>
+            <a href="./css/assets/partenaires.png"><div class="partenaires"></div></a>
+            <div class="links">
+                <a href="#" title="mentions légales">Mentions légales</a>
+                <a href="#" title="A propos">A propos</a>
+            </div>
         </div>
         <div class="clearfix"></div>
     </div>
