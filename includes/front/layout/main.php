@@ -4,12 +4,12 @@
         <div class="inner-container">
             <?php include('./includes/front/layout/main/header/' . $_SESSION['page'] . '.php') ?>
         </div>
-        <div class="extend-header"></div>
+        <div class="extend-header <?php print $_SESSION['page'] ?>"></div>
         <div class="clearfix"></div>
     </div>
     <!-- Page -->
         <div class="page">
-            <div class="inner-container">
+            <div class="inner-container <?php print $_SESSION['page'] ?>">
                 <div id="messages"></div>
                 <?php include('./includes/front/layout/main/page/' . $_SESSION['page'] . '.php') ?>
             </div>

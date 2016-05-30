@@ -3,6 +3,7 @@
 <?php include('./includes/front/layout/head.php'); ?>
 <body>
 <div id="notification"></div>
+<div id="ligthbox"></div>
 <div class="container">
     <!-- navbar -->
     <div id="poem-navbar">

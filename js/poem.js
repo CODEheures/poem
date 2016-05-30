@@ -35,6 +35,8 @@ var poem = {
     lessonsList: '/fake_remote_data/lessons-list.php', //AJAX url liste leçons pour ajouter leçon à un cours
     collaborateursList: '/fake_remote_data/collaborateurs-list.php', //AJAX url liste collaborateurs pour ajouter leçon à un cours
     elevesList: '/fake_remote_data/eleves-list.php', //AJAX url liste leçons pour ajouter leçon à un cours
+    questionProf: '/fake_remote_data/question-prof.php', //AJAX url page question du prof
+    reponseEleveEtape1: '/fake_remote_data/reponse-eleve-etape1.php', //AJAX url page question du prof
     
     //Fonctions objet utiles
     animCard: poem_animCard,  //Animation d'une carte
@@ -689,7 +691,9 @@ function poem_formLesson() {
         CKEDITOR.replace( 'answerEditor' + ($lis.length+1) );
     });
 
-    //CJeditor des textarea questions/responses
+    //CKeditor des textarea questions/responses
+    // voir ici pour config: http://docs.ckeditor.com/#!/api/CKEDITOR.config
+    // voir ici pour lire les données: http://docs.ckeditor.com/#!/guide/dev_savedata
     CKEDITOR.replace( 'questionEditor1' );
     CKEDITOR.replace( 'answerEditor1' );
     CKEDITOR.replace( 'questionEditor2' );
@@ -1245,5 +1249,14 @@ function poem_init_dashboard() {
         $(this).parent().parent().find('.list .badge').each(function() {
             $(this).slideToggle();
         });
+    });
+
+    $('.list').find('table').dataTable({
+        //voir options ici: https://www.datatables.net/reference/option/
+        autoWidth: false,
+        lengthChange: false,
+        searching: false,
+        pageLength: 4,
+        order: [[4, 'asc']]
     });
 }

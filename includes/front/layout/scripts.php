@@ -27,6 +27,7 @@ if($_SESSION['page']=='dashboard') {
     //scripts de la page dashboard
     print '<script src="js/poem-front-dashboard.js"></script>';
     print '<script src="js/Chart.js"></script>';
+    print '<script src="js/datatables.min.js"></script>';
 } elseif($_SESSION['page']=='explorer') {
     //scripts de la page explorer
     print '<script src="js/jquery-mousewheel.min.js"></script>';
@@ -38,5 +39,6 @@ if($_SESSION['page']=='dashboard') {
     print '<script src="js/poem-front-explorer.js"></script>';
 } elseif ($_SESSION['page']=='lesson') {
     //scripts de la page dashboard
+    print '<script src="ckeditor/ckeditor.js"></script>';
     print '<script src="js/poem-front-lesson.js"></script>';
 }

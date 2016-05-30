@@ -6,6 +6,7 @@
     <link href="css/jquery-ui.min.css" rel="stylesheet">
     <link href="css/primeui-theme-front.css" rel="stylesheet">
     <link href="css/primeui.min.css" rel="stylesheet">
+    <link href="css/datatables.min.css" rel="stylesheet"/>
     <link href="css/front.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <title>POEM</title>

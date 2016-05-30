@@ -44,7 +44,7 @@ $type = array(
         'type' => 'front',
         'page' => 'lesson',
         'menu' => 'lesson',
-        'titre' => 'lesson',
+        'titre' => 'leçon',
         'recommandations' => false
     )
 );
