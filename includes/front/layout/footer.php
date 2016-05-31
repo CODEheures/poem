@@ -10,11 +10,10 @@
             </form>
         </div>
         <div class="right">
-            <a href="#" title="En savoir plus sur POEM" class="apropos">A propos de <span>POEM</span></a>
+            <a href="/index.php?want=front_about" title="En savoir plus sur POEM" class="apropos">A propos de <span>POEM</span></a>
             <a href="./css/assets/partenaires.png"><div class="partenaires"></div></a>
             <div class="links">
-                <a href="#" title="mentions légales">Mentions légales</a>
-                <a href="#" title="A propos">A propos</a>
+                <a href="/index.php?want=front_legal" title="mentions légales">Mentions légales</a>
             </div>
         </div>
         <div class="clearfix"></div>

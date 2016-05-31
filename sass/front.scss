@@ -4,7 +4,7 @@
 
 $color-menu-actif: #d96c1c;
 $color-vignette-recommandation: #3d5379;
-$color-menu-font: #2b4e86;
+$color-menu-font: #2a4d86;
 $color-input-search: #2f528b;
 $color-tabs-lesson: #244e89;
 $color-background-session-average: #386895;
@@ -38,6 +38,7 @@ html {
 
 body {
   position: relative;
+  min-height: 100vh;
 }
 
 *, *:before, *:after {
@@ -404,7 +405,7 @@ li {
     background-color: $color-background-dash;
     position: absolute;
 
-    &.lesson, &.explorer {
+    &.lesson, &.explorer, &.about {
       height: $debordementLesson;
     }
   }
@@ -1596,6 +1597,119 @@ li {
 
         }
 
+        & .about {
+          & .intro {
+            padding-left: 3.3rem;
+            padding-right: 3.3rem;
+
+            & .left {
+              float: left;
+              width: 66%;
+              & p {
+                font-size: 2.051rem;
+                font-weight: 900;
+                color: $color-menu-font;
+                text-align: justify;
+                line-height: 3.1rem;
+              }
+            }
+
+            & .right {
+              float: right;
+              width: 34%;
+
+              & img {
+                padding-top: 1rem;
+                display: block;
+                width: 14.65rem;
+                height: auto;
+                margin: 0 auto;
+              }
+
+              & p {
+                margin-top: 2rem;
+                font-size: 1.172rem;
+                font-weight: 900;
+                text-align: center;
+                & a {
+                  color: $color-menu-actif;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          & .second {
+            padding-left: 3.3rem;
+            padding-right: 3.3rem;
+            margin-top: 4.29rem;
+            & p {
+              color: $color-menu-font;
+              font-size: 1.172rem;
+              letter-spacing: 0.05rem;
+            }
+            & .left {
+              float: left;
+              width: 50%;
+              padding-right: 2.014rem;
+            }
+            & .right {
+              float: right;
+              width: 50%;
+              padding-left: 2.014rem;
+            }
+          }
+
+          & .separator {
+            margin-top: 2rem;
+            & img {
+              width: 100%;
+              height: auto;
+            }
+          }
+
+          & .third {
+            padding-left: 3.3rem;
+            padding-right: 3.3rem;
+            margin-top: 4.29rem;
+            & p {
+              color: $color-menu-font;
+              font-size: 1.172rem;
+              letter-spacing: 0.05rem;
+            }
+            & .left {
+              float: left;
+              width: 33%;
+              padding-right: 2.014rem;
+            }
+            & .middle {
+              float: left;
+              width: 33%;
+              padding-right: 2.014rem;
+              padding-left: 2.014rem;
+            }
+            & .right {
+              float: right;
+              width: 33%;
+              padding-left: 2.014rem;
+            }
+          }
+        }
+
+        & .legal {
+          padding-left: 3.3em;
+          color: $color-menu-font;
+          & .role {
+            font-size: 1.904rem;
+            font-weight: 900;
+            padding-bottom: 0.805rem;
+          }
+          & .data {
+            font-size: 1.172rem;
+            margin-bottom: 2.2rem;
+            max-width: 50%;
+          }
+        }
       }
     }
 

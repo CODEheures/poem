@@ -46,6 +46,20 @@ $type = array(
         'menu' => 'lesson',
         'titre' => 'leçon',
         'recommandations' => false
+    ),
+    'front_about' => array(
+        'type' => 'front',
+        'page' => 'about',
+        'menu' => 'about',
+        'titre' => 'à propos de poem',
+        'recommandations' => false
+    ),
+    'front_legal' => array(
+        'type' => 'front',
+        'page' => 'legal',
+        'menu' => 'legal',
+        'titre' => 'Mentions légales',
+        'recommandations' => false
     )
 );
 

@@ -185,7 +185,8 @@ html {
   font-family: "Open Sans", sans-serif; }
 
 body {
-  position: relative; }
+  position: relative;
+  min-height: 100vh; }
 
 *, *:before, *:after {
   box-sizing: border-box !important;
@@ -332,7 +333,7 @@ button {
   padding: 0.22rem 0.44rem;
   border-radius: 1.72rem;
   font-size: 1.5rem;
-  color: #2b4e86; }
+  color: #2a4d86; }
   button.ui-autocomplete-dropdown {
     border: 0.22rem solid #d96c1c;
     border-top-right-radius: 2.4rem;
@@ -419,13 +420,13 @@ li.ui-autocomplete-item.ui-state-highlight {
         #poem-navbar .navbar .menu ul li a {
           font-family: 'Questrial', sans-serif;
           font-size: 1.611rem;
-          color: #2b4e86; }
+          color: #2a4d86; }
   #poem-navbar .navbar .user {
     float: right;
     height: 11.355rem;
     width: 5.677rem;
     text-align: center;
-    color: #2b4e86;
+    color: #2a4d86;
     line-height: initial; }
     #poem-navbar .navbar .user img {
       padding-top: 3.296rem;
@@ -442,9 +443,9 @@ li.ui-autocomplete-item.ui-state-highlight {
   .header .arianne {
     padding-top: 3.296rem;
     font-size: 1.392rem;
-    color: #2b4e86; }
+    color: #2a4d86; }
     .header .arianne a {
-      color: #2b4e86; }
+      color: #2a4d86; }
     .header .arianne span.actif {
       color: white; }
   .header .extend-header {
@@ -452,7 +453,7 @@ li.ui-autocomplete-item.ui-state-highlight {
     width: 100%;
     background-color: #6090bd;
     position: absolute; }
-    .header .extend-header.lesson, .header .extend-header.explorer {
+    .header .extend-header.lesson, .header .extend-header.explorer, .header .extend-header.about {
       height: 15.677rem; }
 
 .page .inner-container {
@@ -886,7 +887,7 @@ li.ui-autocomplete-item.ui-state-highlight {
 
 #main section h1, #main section h2, #main section h3, #main section h4 {
   font-family: 'Questrial', sans-serif;
-  color: #2b4e86;
+  color: #2a4d86;
   text-transform: capitalize;
   margin-top: 0; }
 
@@ -982,7 +983,7 @@ li.ui-autocomplete-item.ui-state-highlight {
       #main section .page .inner-container .filters .col3 h3 a {
         font-family: "Questrial", sans-serif;
         font-size: 1.611rem;
-        color: #2b4e86; }
+        color: #2a4d86; }
     #main section .page .inner-container .filters .col3 span.ui-autocomplete {
       width: 21rem; }
       #main section .page .inner-container .filters .col3 span.ui-autocomplete input {
@@ -1201,7 +1202,7 @@ li.ui-autocomplete-item.ui-state-highlight {
             background-color: white;
             outline: none; }
             #main section .page .inner-container.lesson #etapes.ui-tabs .ui-tabs-nav li.ui-state-active a {
-              color: #2b4e86;
+              color: #2a4d86;
               outline: none; }
     #main section .page .inner-container.lesson #etapes .ui-tabs-panel {
       background-color: white;
@@ -1221,7 +1222,7 @@ li.ui-autocomplete-item.ui-state-highlight {
           #main section .page .inner-container.lesson #etapes .ui-tabs-panel .tab-header div.buttons a:last-of-type {
             margin-right: 0; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .tab-header p.consigne {
-          color: #2b4e86;
+          color: #2a4d86;
           font-size: 1.245rem; }
       #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-frame iframe, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-frame object {
         display: block;
@@ -1232,7 +1233,7 @@ li.ui-autocomplete-item.ui-state-highlight {
         float: left; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question .title, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .title {
           font-size: 1.75rem;
-          color: #2b4e86;
+          color: #2a4d86;
           font-family: "Questrial", sans-serif;
           padding-bottom: 0rem;
           padding-top: 1rem;
@@ -1247,7 +1248,7 @@ li.ui-autocomplete-item.ui-state-highlight {
         padding-left: 2.27rem; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right p {
           font-size: 1.17rem;
-          color: #2b4e86;
+          color: #2a4d86;
           letter-spacing: 0.15rem; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .slider {
           width: 100%;
@@ -1317,7 +1318,94 @@ li.ui-autocomplete-item.ui-state-highlight {
             line-height: 2.318rem;
             letter-spacing: 0.15rem;
             text-align: center;
-            color: #2b4e86; }
+            color: #2a4d86; }
+
+#main section .page .inner-container .about .intro {
+  padding-left: 3.3rem;
+  padding-right: 3.3rem; }
+  #main section .page .inner-container .about .intro .left {
+    float: left;
+    width: 66%; }
+    #main section .page .inner-container .about .intro .left p {
+      font-size: 2.051rem;
+      font-weight: 900;
+      color: #2a4d86;
+      text-align: justify;
+      line-height: 3.1rem; }
+  #main section .page .inner-container .about .intro .right {
+    float: right;
+    width: 34%; }
+    #main section .page .inner-container .about .intro .right img {
+      padding-top: 1rem;
+      display: block;
+      width: 14.65rem;
+      height: auto;
+      margin: 0 auto; }
+    #main section .page .inner-container .about .intro .right p {
+      margin-top: 2rem;
+      font-size: 1.172rem;
+      font-weight: 900;
+      text-align: center; }
+      #main section .page .inner-container .about .intro .right p a {
+        color: #d96c1c;
+        text-decoration: underline; }
+
+#main section .page .inner-container .about .second {
+  padding-left: 3.3rem;
+  padding-right: 3.3rem;
+  margin-top: 4.29rem; }
+  #main section .page .inner-container .about .second p {
+    color: #2a4d86;
+    font-size: 1.172rem;
+    letter-spacing: 0.05rem; }
+  #main section .page .inner-container .about .second .left {
+    float: left;
+    width: 50%;
+    padding-right: 2.014rem; }
+  #main section .page .inner-container .about .second .right {
+    float: right;
+    width: 50%;
+    padding-left: 2.014rem; }
+
+#main section .page .inner-container .about .separator {
+  margin-top: 2rem; }
+  #main section .page .inner-container .about .separator img {
+    width: 100%;
+    height: auto; }
+
+#main section .page .inner-container .about .third {
+  padding-left: 3.3rem;
+  padding-right: 3.3rem;
+  margin-top: 4.29rem; }
+  #main section .page .inner-container .about .third p {
+    color: #2a4d86;
+    font-size: 1.172rem;
+    letter-spacing: 0.05rem; }
+  #main section .page .inner-container .about .third .left {
+    float: left;
+    width: 33%;
+    padding-right: 2.014rem; }
+  #main section .page .inner-container .about .third .middle {
+    float: left;
+    width: 33%;
+    padding-right: 2.014rem;
+    padding-left: 2.014rem; }
+  #main section .page .inner-container .about .third .right {
+    float: right;
+    width: 33%;
+    padding-left: 2.014rem; }
+
+#main section .page .inner-container .legal {
+  padding-left: 3.3em;
+  color: #2a4d86; }
+  #main section .page .inner-container .legal .role {
+    font-size: 1.904rem;
+    font-weight: 900;
+    padding-bottom: 0.805rem; }
+  #main section .page .inner-container .legal .data {
+    font-size: 1.172rem;
+    margin-bottom: 2.2rem;
+    max-width: 50%; }
 
 #main section .recommandations {
   background-color: #c1c4c6; }
