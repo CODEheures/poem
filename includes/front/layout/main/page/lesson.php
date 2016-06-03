@@ -44,7 +44,7 @@
             <div class="slider">
                 <div class="bar"></div>
                 <div class="bar2"></div>
-                <div class="circle">18</div>
+                <div class="circle">0</div>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -63,7 +63,7 @@
             <div class="slider">
                 <div class="bar"></div>
                 <div class="bar2"></div>
-                <div class="circle">18</div>
+                <div class="circle">0</div>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -82,7 +82,7 @@
             <div class="slider">
                 <div class="bar"></div>
                 <div class="bar2"></div>
-                <div class="circle">18</div>
+                <div class="circle">0</div>
             </div>
         </div>
         <div class="clearfix"></div>

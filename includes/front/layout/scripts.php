@@ -41,4 +41,10 @@ if($_SESSION['page']=='dashboard') {
     //scripts de la page dashboard
     print '<script src="ckeditor/ckeditor.js"></script>';
     print '<script src="js/poem-front-lesson.js"></script>';
+} elseif ($_SESSION['page']=='profil') {
+    //scripts de la page dashboard
+    print '<script src="js/parsleyjs/parsley.js"></script>';
+    print '<script src="js/parsleyjs/i18n/fr.js"></script>';
+    print '<script src="js/dropzone.js"></script>';
+    print '<script src="js/poem-front-profil.js"></script>';
 }

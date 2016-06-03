@@ -33,6 +33,7 @@ var poem = {
     champsList: '/fake_remote_data/champs-list.php', //AJAX url liste champs pour creer leçon
     levelsList: '/fake_remote_data/levels-list.php', //AJAX url liste niveaux pour creer leçon
     lessonsList: '/fake_remote_data/lessons-list.php', //AJAX url liste leçons pour ajouter leçon à un cours
+    languagesList: '/fake_remote_data/languages-list.php', //AJAX url liste langues pour preferences utilisateur
     collaborateursList: '/fake_remote_data/collaborateurs-list.php', //AJAX url liste collaborateurs pour ajouter leçon à un cours
     elevesList: '/fake_remote_data/eleves-list.php', //AJAX url liste leçons pour ajouter leçon à un cours
     questionProf: '/fake_remote_data/question-prof.php', //AJAX url page question du prof
@@ -58,6 +59,7 @@ var poem = {
     selections: poem_selection, //gere l'integration en background des imagettes selections
     initDashboard: poem_init_dashboard, //init du dashboard front
     init_lesson: poem_init_lesson, //init de la page des leçons
+    init_profil: poem_init_profil, //init de la page du profil
 };
 
 //function d'animation de chargement d'une carte
@@ -191,6 +193,42 @@ function poem_loadResults($button) {
                 },$poem.delayAnimCards*$num);
             });
         });
+}
+
+//function pour mettre à jour les data dans un dropdown autocomplétion
+function poem_init_dropdown($url, $dropName) {
+    //Fonction Ajax pour mise à jour des dropdown champs domaine
+    function ajax($url, $dropName) {
+        $.ajax($url)
+            .done(function(data, textStatus, jqXHR) {
+                updateDropdown($dropName, data);
+            })
+            .fail(function() {
+                alert( "erreur de chargement" );
+            })
+            .always(function () {
+
+            });
+    }
+
+    //Fonction Mise à jour des dropdown Domaine champs et level
+    function updateDropdown($name, $data) {
+        var $dropDown = $('#' + $name);
+        $dropDown.puiautocomplete({
+            completeSource: $data,
+            forceSelection: true,
+            dropdown: true,
+            select: function (event, item) {
+                //si c'est un select du dropdown domaines on met à jour le dropdown champs
+                if($name == 'domaines'){
+                    ajax(poem.host + poem.champsList, 'champs');
+                    $messages.puimessages('show', 'info', {summary: 'requete AJAX à faire', detail: 'Mise à jour de l\'input champs à faire sur AJAX'});
+                }
+            }
+        });
+    }
+    
+    ajax($url, $dropName);
 }
  
 //Function qui initie la mise en place des div message et notification
@@ -585,39 +623,10 @@ function poem_load_explorer($tagCloudsettings) {
 //Function du form de la page creer leçons
 function poem_formLesson() {
 
-    //Fonction Ajax pour mise à jour des dropdown champs domaine level
-    function ajax($url, $dropName) {
-        var jqxhr = $.ajax($url)
-            .done(function(data, textStatus, jqXHR) {
-                updateDropdown($dropName, data);
-            })
-            .fail(function() {
-                alert( "erreur de chargement" );
-            })
-            .always(function () {
 
-            });
-    }
-
-    //Fonction Mise à jour des dropdown Domaine champs et level
-    function updateDropdown($name, $data) {
-        $dropDown = $('#' + $name);
-        $dropDown.puiautocomplete({
-            completeSource: $data,
-            forceSelection: true,
-            dropdown: true,
-            select: function (event, item) {
-                //si c'est un select du dropdown domaines on met à jour le dropdown champs
-                if($name == 'domaines'){
-                    ajax(poem.host + poem.champsList, 'champs');
-                    $messages.puimessages('show', 'info', {summary: 'requete AJAX à faire', detail: 'Mise à jour de l\'input champs à faire sur AJAX'});
-                }
-            }
-        });
-    }
 
     //Init Dropdowns domaines et champs
-    ajax(poem.host + poem.domainesList, 'domaines');
+    poem_init_dropdown(poem.host + poem.domainesList, 'domaines');
     $('#champs').puiautocomplete({
         completeSource: [],
         forceSelection: true,
@@ -641,7 +650,7 @@ function poem_formLesson() {
     $('#lang').puiautocomplete();
 
     //init dropdown level
-    ajax(poem.host + poem.levelsList, 'level');
+    poem_init_dropdown(poem.host + poem.levelsList, 'level');
 
     //init textareas en autoresize
     $('#description').puiinputtextarea({autoResize: true});
@@ -1281,12 +1290,37 @@ function poem_init_lesson() {
         $('#ligthbox').fadeToggle();
     }
 
+    // voir [url_base_poem]/ckeditor/samples/toolbarconfigurator/index.html#basic
+    var toolbarGroups = [
+        { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+        { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+        { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+        { name: 'forms', groups: [ 'forms' ] },
+        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+        '/',
+        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+        { name: 'links', groups: [ 'links' ] },
+        { name: 'insert', groups: [ 'insert' ] },
+        '/',
+        { name: 'styles', groups: [ 'styles' ] },
+        { name: 'colors', groups: [ 'colors' ] },
+        { name: 'tools', groups: [ 'tools' ] },
+        { name: 'others', groups: [ 'others' ] },
+        { name: 'about', groups: [ 'about' ] },
+        ];
+
+    var removeButtons = 'Source,Save,NewPage,Templates,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CreateDiv,Anchor,Flash,Smiley,PageBreak,Iframe,Styles,Format,ShowBlocks,About,PasteFromWord';
+
+
     //CKEDITOR pour les questions
+    // voir ici pour config: http://docs.ckeditor.com/#!/api/CKEDITOR.config
     var $questionEditors = $('.questionEditor');
     $questionEditors.each(function () {
         var $questionEditor = CKEDITOR.replace( $(this)[0].id, {
             toolbarCanCollapse: true,
             toolbarStartupExpanded : false,
+            toolbarGroups : toolbarGroups,
+            removeButtons: removeButtons,
             readOnly: true,
             skin: 'flat'
         });
@@ -1311,6 +1345,8 @@ function poem_init_lesson() {
         var $reponseEditor = CKEDITOR.replace( $(this)[0].id, {
             toolbarCanCollapse: true,
             toolbarStartupExpanded : false,
+            toolbarGroups : toolbarGroups,
+            removeButtons: removeButtons,
             readOnly: false,
             skin: 'flat'
         });
@@ -1359,4 +1395,95 @@ function poem_init_lesson() {
         });
     });
 
+}
+
+//function d'init du profil
+function poem_init_profil() {
+    $('#form-profil').parsley().on('field:validated', function() {
+        var ok = $('.parsley-error').length === 0;
+        if(!ok) {
+            $messages.puimessages('show', 'warn', [{
+                summary: 'Oh mince!',
+                detail: " Le formulaire n'est pas valide"
+            }]);
+        } else {
+            $messages.puimessages('clear');
+        }
+    })
+        .on('form:submit', function() {
+            $messages.puimessages('hide');
+            return false; // Don't submit form for this demo
+        });
+
+    poem_init_dropdown(poem.host + poem.languagesList, 'presentation-language');
+    poem_init_dropdown(poem.host + poem.languagesList, 'content-language');
+    poem_init_dropdown(poem.host + poem.levelsList, 'levelbefore');
+    poem_init_dropdown(poem.host + poem.levelsList, 'levelafter');
+    poem_init_dropdown(poem.host + poem.domainesList, 'domainebefore');
+    poem_init_dropdown(poem.host + poem.domainesList, 'domaineafter');
+    poem_init_dropdown(poem.host + poem.champsList, 'champsbefore');
+    poem_init_dropdown(poem.host + poem.champsList, 'champsafter');
+
+    $passwdInputs = $('input[type="password"]');
+    $passwdInputs.each(function () {
+        var $input = $(this);
+        var $button = $input.siblings('button')
+        var $reveal = $input.siblings('div.reveal');
+        $button.on('mousedown', function (e) {
+            e.preventDefault();
+            $reveal.html($input.val());
+            $input.css({'color' : 'transparent'});
+            $reveal.fadeIn();
+        });
+        $button.on('mouseup', function (e) {
+            e.preventDefault();
+            $reveal.html('');
+            $reveal.fadeOut();
+            $input.css({'color' : ''});
+        });
+    });
+
+    Dropzone.options.avatar = {
+        previewTemplate: document.querySelector('#preview-template').innerHTML,
+        maxFiles: 1,
+        parallelUploads: 1,
+        thumbnailHeight: 200,
+        thumbnailWidth: 170,
+        maxFilesize: 1,
+        filesizeBase: 1000,
+        uploadMultiple: false,
+        addRemoveLinks: true,
+        acceptedFiles: 'image/png, image/jpeg',
+        dictCancelUpload: 'stoper le téléchargement',
+        dictRemoveFile: 'supprimer cet avatar',
+        thumbnail: function(file, dataUrl) {
+            if (file.previewElement) {
+                file.previewElement.classList.remove("dz-file-preview");
+                var images = file.previewElement.querySelectorAll("[data-dz-thumbnail]");
+                for (var i = 0; i < images.length; i++) {
+                    var thumbnailElement = images[i];
+                    thumbnailElement.alt = file.name;
+                    thumbnailElement.src = dataUrl;
+                }
+                setTimeout(function() { file.previewElement.classList.add("dz-image-preview"); }, 1);
+            }
+        },
+        accept: function(file, done) {
+            if(this.files.length > this.options.maxFiles) {
+                this.removeFile(this.files[0]);
+            }
+            done();
+            $('.dropzone').css({'background-image': 'none'});
+            $('.dz-message').hide();
+        },
+        error: function (file) {
+            if(this.files.length > this.options.maxFiles) {
+                this.removeFile(this.files[0]);
+            }
+        },
+        reset: function () {
+            $('.dropzone').css({'background-image': ''});
+            $('.dz-message').show();
+        }
+    };
 }

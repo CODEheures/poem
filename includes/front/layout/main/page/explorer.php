@@ -1,4 +1,4 @@
-<div class="filters">
+<div class="inputs">
     <div class="col3">
         <h3><a href="#">Domaines</a></h3>
         <input id="dropdown1" name="dropdown" type="text" placeholder="domaine"/>

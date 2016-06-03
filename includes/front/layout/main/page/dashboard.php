@@ -1,5 +1,5 @@
 <h1>mes leçons</h1>
-<div class="filters">
+<div class="inputs">
     <form action="#">
         <div class="search">
             <input type="search" name="search" />
