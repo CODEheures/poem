@@ -1273,8 +1273,26 @@ function poem_init_dashboard() {
 
 //function init_lesson de la page des leçon du front
 function poem_init_lesson() {
+
+    //creation des onglet jquery-ui
     $( "#etapes" ).tabs();
 
+    //Btn Voir la leçon
+    $("#to-lesson").click(function (e) {
+        e.preventDefault();
+        $( "#etapes" ).tabs("option", "active", 0);
+    });
+
+    //Btn s'inscrire à cette leçon
+    $("#inscription").click(function (e) {
+        e.preventDefault();
+        $messages.puimessages('show', 'info', [{
+            summary: 'Fonction à creer ici:',
+            detail: " creer ici la fonction qui gere l'inscription de l'utilisateur à la leçon"
+        }]);
+    });
+
+    //Btn no-distraction
     $noDistraction = $('#no-distraction');
     $noDistraction2 = $('#no-distraction2');
     $noDistraction.puiswitch({
@@ -1290,6 +1308,7 @@ function poem_init_lesson() {
         $('#ligthbox').fadeToggle();
     }
 
+    //CKEDITOR
     // voir [url_base_poem]/ckeditor/samples/toolbarconfigurator/index.html#basic
     var toolbarGroups = [
         { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },

@@ -1099,7 +1099,7 @@ li {
       }
     }
 
-    & a.btn, & input.btn {
+    & a.btn, & input.btn, & span.btn {
       font-size: 1.025rem;
       font-family: "Questrial", sans-serif;
       font-weight: 500;
@@ -1114,6 +1114,12 @@ li {
       vertical-align: middle;
       margin-right: 1.905rem;
       border: none;
+      &.btn-info {
+        background-color: $color-background-dash;
+      }
+      &.btn-big {
+        font-size: 1.5rem;
+      }
     }
 
     & .page {
@@ -1813,8 +1819,11 @@ li {
                   }
 
                   &.unable {
+                    opacity: 0.5;
+                    //background-color: lighten($color-tabs-lesson, 10%);
                     & a {
                       cursor: not-allowed;
+
                     }
                   }
 
@@ -1999,6 +2008,91 @@ li {
                   }
                 }
 
+              }
+
+              & .lesson-description {
+                $width-img-lesson: 15rem;
+                $width-img-avatar: 7rem;
+                $paddings : 1.5rem;
+                padding: $paddings;
+                box-shadow: 0 0 0.512rem rgba(0,0,0,0.1);
+                position: relative;
+                margin-bottom: 3rem;
+
+                & .middle {
+                  margin-left: $width-img-lesson+2;
+                  width: calc(100% - #{$width-img-avatar+$width-img-lesson+2+3+$paddings});
+                  margin-bottom: 2rem;
+                }
+
+                & div.lesson-vignette {
+                  float: left;
+                  & img {
+                    width: $width-img-lesson;
+                  }
+                }
+
+                & div.prof-avatar {
+                  position: absolute;
+                  right: 2.5rem;
+                  bottom: 4.5rem;
+                  & img {
+                    width: $width-img-avatar;
+                    border-radius: 0.5rem;
+                  }
+                  & p {
+                    text-align: center;
+                    font-size: 0.85rem;
+                  }
+                }
+
+                & .title {
+                  color: $color-background-dash;
+                  margin-bottom: 1rem;
+                  letter-spacing: 0.12rem;
+                }
+
+                & .description-longue {
+                  margin-top: 0.5rem;
+                  color: $color-check-label;
+                }
+
+                & .prof-quote {
+                  margin-top: 1.5rem;
+                  font-size: 1.2rem;
+                  color: $color-menu-font;
+                  border-right: 3px solid $color-menu-font;
+                  padding-right: 2rem;
+                  text-align: right;
+                }
+                & .infos {
+                  text-align: right;
+                }
+              }
+
+              & .lesson-action {
+                margin-bottom: 3rem;
+                & p {
+                  text-align: center;
+                }
+              }
+
+              & .complements {
+                & h2 {
+                  border-bottom: 2px solid $color-background-dash;
+                  padding-bottom: 0.5rem;
+                }
+                & p {
+                  &.guide {
+                    font-size: 0.85rem;
+                    text-align: right;
+                    margin-bottom: 1rem;
+                  }
+                  &.infos {
+                    font-size: 1.2rem;
+                    letter-spacing: 0.04rem;
+                  }
+                }
               }
             }
           }

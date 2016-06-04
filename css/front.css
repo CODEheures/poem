@@ -968,7 +968,7 @@ li.ui-autocomplete-item.ui-state-highlight {
     right: 0;
     background-color: #d96c1c; }
 
-#main section a.btn, #main section input.btn {
+#main section a.btn, #main section input.btn, #main section span.btn {
   font-size: 1.025rem;
   font-family: "Questrial", sans-serif;
   font-weight: 500;
@@ -983,6 +983,10 @@ li.ui-autocomplete-item.ui-state-highlight {
   vertical-align: middle;
   margin-right: 1.905rem;
   border: none; }
+  #main section a.btn.btn-info, #main section input.btn.btn-info, #main section span.btn.btn-info {
+    background-color: #6090bd; }
+  #main section a.btn.btn-big, #main section input.btn.btn-big, #main section span.btn.btn-big {
+    font-size: 1.5rem; }
 
 #main section .page .inner-container .inputs {
   width: 94%;
@@ -1475,8 +1479,10 @@ li.ui-autocomplete-item.ui-state-highlight {
               width: 100%;
               line-height: 3rem;
               outline: none; }
-          #main section .page .inner-container.lesson #etapes.ui-tabs .ui-tabs-nav li.unable a {
-            cursor: not-allowed; }
+          #main section .page .inner-container.lesson #etapes.ui-tabs .ui-tabs-nav li.unable {
+            opacity: 0.5; }
+            #main section .page .inner-container.lesson #etapes.ui-tabs .ui-tabs-nav li.unable a {
+              cursor: not-allowed; }
           #main section .page .inner-container.lesson #etapes.ui-tabs .ui-tabs-nav li.ui-state-active {
             background-color: white;
             outline: none; }
@@ -1604,6 +1610,59 @@ li.ui-autocomplete-item.ui-state-highlight {
             letter-spacing: 0.15rem;
             text-align: center;
             color: #2a4d86; }
+      #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-description {
+        padding: 1.5rem;
+        box-shadow: 0 0 0.512rem rgba(0, 0, 0, 0.1);
+        position: relative;
+        margin-bottom: 3rem; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-description .middle {
+          margin-left: 17rem;
+          width: calc(100% - 28.5rem);
+          margin-bottom: 2rem; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-description div.lesson-vignette {
+          float: left; }
+          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-description div.lesson-vignette img {
+            width: 15rem; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-description div.prof-avatar {
+          position: absolute;
+          right: 2.5rem;
+          bottom: 4.5rem; }
+          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-description div.prof-avatar img {
+            width: 7rem;
+            border-radius: 0.5rem; }
+          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-description div.prof-avatar p {
+            text-align: center;
+            font-size: 0.85rem; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-description .title {
+          color: #6090bd;
+          margin-bottom: 1rem;
+          letter-spacing: 0.12rem; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-description .description-longue {
+          margin-top: 0.5rem;
+          color: #3f4248; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-description .prof-quote {
+          margin-top: 1.5rem;
+          font-size: 1.2rem;
+          color: #2a4d86;
+          border-right: 3px solid #2a4d86;
+          padding-right: 2rem;
+          text-align: right; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-description .infos {
+          text-align: right; }
+      #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-action {
+        margin-bottom: 3rem; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-action p {
+          text-align: center; }
+      #main section .page .inner-container.lesson #etapes .ui-tabs-panel .complements h2 {
+        border-bottom: 2px solid #6090bd;
+        padding-bottom: 0.5rem; }
+      #main section .page .inner-container.lesson #etapes .ui-tabs-panel .complements p.guide {
+        font-size: 0.85rem;
+        text-align: right;
+        margin-bottom: 1rem; }
+      #main section .page .inner-container.lesson #etapes .ui-tabs-panel .complements p.infos {
+        font-size: 1.2rem;
+        letter-spacing: 0.04rem; }
 
 #main section .page .inner-container .about .intro {
   padding-left: 3.3rem;
