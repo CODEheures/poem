@@ -328,15 +328,6 @@ li {
 }
 
 //ckeditor
-.cke_contents {
-  border-left: 0.293rem solid $color-ckeditor !important;
-  border-right: 0.293rem solid $color-ckeditor !important;
-}
-
-.cke_top, .cke_bottom {
-  background-color: $color-ckeditor !important;
-}
-
 .cke_button {
   height: 25px;
 }
@@ -1863,7 +1854,12 @@ li {
                 & p.consigne {
                   color: $color-menu-font;
                   font-size: 1.245rem;
+                  max-width: 63rem;
                 }
+              }
+
+              & .row:not(:last-of-type) {
+                margin-bottom: 5rem;
               }
 
               & .lesson-frame {
@@ -1874,37 +1870,92 @@ li {
                 }
               }
 
+              & .title {
+                font-size: 1.75rem;
+                color: $color-menu-font;
+                font-family: "Questrial", sans-serif;
+                padding-bottom: 0rem;
+                padding-top: 1rem;
+                padding-left: 2rem;
+                background-color: $color-ckeditor;
+              }
+
+              $border: 0.293rem solid $color-ckeditor;
               & .left {
                 width: 57%;
                 float: left;
 
-                & .question, & .reponse {
-                  & .title {
-                    font-size: 1.75rem;
-                    color: $color-menu-font;
-                    font-family: "Questrial", sans-serif;
-                    padding-bottom: 0rem;
-                    padding-top: 1rem;
-                    padding-left: 2rem;
+
+                & .question, & .reponse, & .prof-response {
+                  & .cke_bottom {
+                    border-top: none;
+                  }
+                  & .cke_top {
+                    border-bottom: none;
+                  }
+                  &:not(.etape3) .cke_contents {
+                    border-left: $border;
+                    border-right: $border;
+                  }
+                  & .cke_top, &:not(.etape3) .cke_bottom {
                     background-color: $color-ckeditor;
+                  }
+                  &.etape3 .cke_bottom {
+                    background-color: transparent;
                   }
                 }
 
-                & .question {
+                & .question, & .prof-response {
                   & .cke_toolbox_collapser {
                     display: none;
                   }
                   & .cke_path {
                     display: none;
                   }
+
+                  & .cke_contents {
+                    background-color: $color-ckeditor;
+                    height: auto;
+                  }
+                  &.etape3 body {
+                    margin-bottom: 0;
+                    margin-top: 0;
+                  }
                 }
 
                 & .reponse {
                   padding-top: 1.90rem;
-                  padding-bottom: 5rem;
+                  //padding-bottom: 5rem;
+                  &.etape3 {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    border: 0.44rem solid $color-tabs-lesson;
+                    & .title {
+                      background-color: white;
+                    }
+                    & .cke_contents {
+                      background-color: white;
+                      border: none;
+                    }
+                    & .cke_toolbox_collapser {
+                      display: none;
+                    }
+                    & .cke_top {
+                      display: none;
+                    }
+                    & .cke_bottom {
+
+                    }
+                  }
                   & .cke_path {
                     display: none;
                   }
+                }
+
+                & .prof-response {
+                  padding-top: 0;
+                  padding-bottom: 0;
+                  display: none;
                 }
 
               }
@@ -1923,7 +1974,7 @@ li {
                 & .slider {
                   width: 100%;
                   position: relative;
-
+                  margin-bottom: 3rem;
                   $margin-top-bar: 2.19rem;
                   $height-bar: 1rem;
 
@@ -2008,6 +2059,59 @@ li {
                   }
                 }
 
+                & .comments {
+                  border-left: $border;
+                  border-right: $border;
+                  background-color: $color-ckeditor;
+                  & .title {
+                    padding-bottom: 1rem;
+                    & a {
+                      float: right;
+                      &:after {
+                        clear: right;
+                      }
+                    }
+                  }
+                  & textarea {
+                    border: none;
+                    width: 100%;
+                    max-width: 100%;
+                    min-width: 100%;
+                    font-size: 1.2rem;
+                    font-family: "Open Sans", sans-serif;
+                  }
+                  & .exist-comments {
+                    background-color: $color-ckeditor;
+                    display: none;
+                    & p {
+                      font-size: 0.905rem;
+                      padding: 0.5rem;
+                      letter-spacing: initial;
+                      &.exist-comment-info {
+                        font-weight: 700;
+                      }
+                      &.exist-comment {
+                        padding-bottom: 2rem;
+                      }
+                    }
+                  }
+                }
+
+              }
+
+              & .extend-prof-response, & .extend-comments {
+                background-color: $color-menu-actif;
+                border-bottom-right-radius: 1.1rem;
+                border-bottom-left-radius: 1.1rem;
+                text-align: center;
+                padding-top: 0.58rem;
+                padding-bottom: 0.58rem;
+                color: white;
+                font-size: 1.318rem;
+                cursor: pointer;
+                & .cacher {
+                  display: none;
+                }
               }
 
               & .lesson-description {

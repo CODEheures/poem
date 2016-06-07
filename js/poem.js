@@ -37,17 +37,18 @@ var poem = {
     collaborateursList: '/fake_remote_data/collaborateurs-list.php', //AJAX url liste collaborateurs pour ajouter leçon à un cours
     elevesList: '/fake_remote_data/eleves-list.php', //AJAX url liste leçons pour ajouter leçon à un cours
     questionProf: '/fake_remote_data/question-prof.php', //AJAX url page question du prof
+    responseProf: '/fake_remote_data/response-prof.php', //AJAX url page question du prof
     reponseEleveEtape1: '/fake_remote_data/reponse-eleve-etape1.php', //AJAX url page question du prof
     
     //Fonctions objet utiles
+    //***********************
+    //Back Office
     animCard: poem_animCard,  //Animation d'une carte
     animCards: poem_animCards, //Animation des cartes du tableau de bord et de la page liste des sessions
     findEndAnimCards: poem_findEndAnimCards, //Recherche de fin de sequence animation carte
     moreCards: poem_moreCards, //Affichage de plus de cartes dans le parent d'un bouton nommé
     initResults: poem_init_results, //Init de l'input result de la page Voir les résultats
     loadResults: poem_loadResults, //Chargement des résultats demandés de la page Voir les résultats
-    initNotifAndMessages: poem_init_notification_and_messages, //Init des div #messages et #notification
-    loadExplorer: poem_load_explorer, //Chargement de l'explorer
     formLesson: poem_formLesson, //Init des UI de la page creer une leçon ou modifier une leçon
     addCours: poem_addCours, //Ajouter un cours page creer session ou modifier session
     addLesson: poem_addLesson, //Ajouter une leçon page creer session ou modifier session
@@ -55,8 +56,14 @@ var poem = {
     addEleve: poem_addEleve, //Ajouter une leçon page creer session ou modifier session
     addEventClickLesson: poem_addEventClickLesson, //Ajout de l'evenement en cas de click sur bouton ajouter leçon page creer sessions ou modifier session
     initSessions: poem_init_sessions, //Init des UI de la page creer une session ou modifier une session
-    recommandations: poem_recommandations, //gere l'integration en background des imagettes recommandations
-    selections: poem_selection, //gere l'integration en background des imagettes selections
+
+    //Common
+    initNotifAndMessages: poem_init_notification_and_messages, //Init des div #messages et #notification
+    loadExplorer: poem_load_explorer, //Chargement de l'explorer
+
+    //Front Office
+    recommandations: poem_recommandations, //gere l'integration css background des imagettes recommandations
+    selections: poem_selection, //gere l'integration css background des imagettes selections
     initDashboard: poem_init_dashboard, //init du dashboard front
     init_lesson: poem_init_lesson, //init de la page des leçons
     init_profil: poem_init_profil, //init de la page du profil
@@ -1333,7 +1340,7 @@ function poem_init_lesson() {
 
     //CKEDITOR pour les questions
     // voir ici pour config: http://docs.ckeditor.com/#!/api/CKEDITOR.config
-    var $questionEditors = $('.questionEditor');
+    var $questionEditors = $('.etape1QuestionEditor, .etape2QuestionEditor, .etape3QuestionEditor');
     $questionEditors.each(function () {
         var $questionEditor = CKEDITOR.replace( $(this)[0].id, {
             toolbarCanCollapse: true,
@@ -1356,10 +1363,35 @@ function poem_init_lesson() {
             });
     });
 
+    //CKEDITOR pour les responses du prof
+    // voir ici pour config: http://docs.ckeditor.com/#!/api/CKEDITOR.config
+    var $profResponseEditors = $('.etape3ResponseProfEditor');
+    $profResponseEditors.each(function () {
+        var $profResponseEditor = CKEDITOR.replace( $(this)[0].id, {
+            toolbarCanCollapse: true,
+            toolbarStartupExpanded : false,
+            toolbarGroups : toolbarGroups,
+            removeButtons: removeButtons,
+            readOnly: true,
+            skin: 'flat'
+        });
+
+        var jqxhr = $.ajax(poem.host + poem.responseProf)
+            .done(function(data, textStatus, jqXHR) {
+                $profResponseEditor.setData(data);
+            })
+            .fail(function() {
+                alert( "erreur de chargement de la liste des leçons" );
+            })
+            .always(function () {
+
+            });
+    });
+
     //CKEDITOR pour les réponses
     // voir ici pour config: http://docs.ckeditor.com/#!/api/CKEDITOR.config
     // voir ici pour lire les données: http://docs.ckeditor.com/#!/guide/dev_savedata
-    var $reponseEditors = $('.reponseEditor');
+    var $reponseEditors = $('.etape1ReponseEditor, .etape2ReponseEditor, .etape3ReponseEditor');
     $reponseEditors.each(function () {
         var $reponseEditor = CKEDITOR.replace( $(this)[0].id, {
             toolbarCanCollapse: true,
@@ -1380,6 +1412,28 @@ function poem_init_lesson() {
             .always(function () {
 
             });
+    });
+
+    //afichage de la réponse attendue
+    $('.extend-prof-response').each(function () {
+        $(this).click(function (e) {
+            e.preventDefault();
+            $(this).parent().find('.prof-response').slideToggle();
+            $(this).find('p').each(function () {
+                $(this).toggle();
+            });
+        });
+    });
+
+    //afichage des commentaire
+    $('.extend-comments').each(function () {
+        $(this).click(function (e) {
+            e.preventDefault();
+            $(this).parent().find('.exist-comments').slideToggle();
+            $(this).find('p').each(function () {
+                $(this).toggle();
+            });
+        });
     });
 
     //Notation
@@ -1416,7 +1470,7 @@ function poem_init_lesson() {
 
 }
 
-//function d'init du profil
+//function d'init de la page mon profil
 function poem_init_profil() {
     $('#form-profil').parsley().on('field:validated', function() {
         var ok = $('.parsley-error').length === 0;

@@ -400,13 +400,6 @@ li.ui-autocomplete-item.ui-state-highlight {
   background-image: -webkit-linear-gradient(top, #e78741, #d96c1c);
   background-image: linear-gradient(to bottom, #e78741, #d96c1c); }
 
-.cke_contents {
-  border-left: 0.293rem solid #e2e6e8 !important;
-  border-right: 0.293rem solid #e2e6e8 !important; }
-
-.cke_top, .cke_bottom {
-  background-color: #e2e6e8 !important; }
-
 .cke_button {
   height: 25px; }
 
@@ -1508,31 +1501,67 @@ li.ui-autocomplete-item.ui-state-highlight {
             margin-right: 0; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .tab-header p.consigne {
           color: #2a4d86;
-          font-size: 1.245rem; }
+          font-size: 1.245rem;
+          max-width: 63rem; }
+      #main section .page .inner-container.lesson #etapes .ui-tabs-panel .row:not(:last-of-type) {
+        margin-bottom: 5rem; }
       #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-frame iframe, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-frame object {
         display: block;
         width: 100%;
         height: 800px; }
+      #main section .page .inner-container.lesson #etapes .ui-tabs-panel .title {
+        font-size: 1.75rem;
+        color: #2a4d86;
+        font-family: "Questrial", sans-serif;
+        padding-bottom: 0rem;
+        padding-top: 1rem;
+        padding-left: 2rem;
+        background-color: #e2e6e8; }
       #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left {
         width: 57%;
         float: left; }
-        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question .title, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .title {
-          font-size: 1.75rem;
-          color: #2a4d86;
-          font-family: "Questrial", sans-serif;
-          padding-bottom: 0rem;
-          padding-top: 1rem;
-          padding-left: 2rem;
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question .cke_bottom, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .cke_bottom, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response .cke_bottom {
+          border-top: none; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question .cke_top, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .cke_top, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response .cke_top {
+          border-bottom: none; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question:not(.etape3) .cke_contents, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse:not(.etape3) .cke_contents, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response:not(.etape3) .cke_contents {
+          border-left: 0.293rem solid #e2e6e8;
+          border-right: 0.293rem solid #e2e6e8; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question .cke_top, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question:not(.etape3) .cke_bottom, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .cke_top, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse:not(.etape3) .cke_bottom, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response .cke_top, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response:not(.etape3) .cke_bottom {
           background-color: #e2e6e8; }
-        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question .cke_toolbox_collapser {
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question.etape3 .cke_bottom, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse.etape3 .cke_bottom, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response.etape3 .cke_bottom {
+          background-color: transparent; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question .cke_toolbox_collapser, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response .cke_toolbox_collapser {
           display: none; }
-        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question .cke_path {
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question .cke_path, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response .cke_path {
           display: none; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question .cke_contents, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response .cke_contents {
+          background-color: #e2e6e8;
+          height: auto; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question.etape3 body, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response.etape3 body {
+          margin-bottom: 0;
+          margin-top: 0; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse {
-          padding-top: 1.90rem;
-          padding-bottom: 5rem; }
+          padding-top: 1.90rem; }
+          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse.etape3 {
+            padding-top: 0;
+            padding-bottom: 0;
+            border: 0.44rem solid #244e89; }
+            #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse.etape3 .title {
+              background-color: white; }
+            #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse.etape3 .cke_contents {
+              background-color: white;
+              border: none; }
+            #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse.etape3 .cke_toolbox_collapser {
+              display: none; }
+            #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse.etape3 .cke_top {
+              display: none; }
           #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .cke_path {
             display: none; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response {
+          padding-top: 0;
+          padding-bottom: 0;
+          display: none; }
       #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right {
         float: left;
         width: 43%;
@@ -1543,7 +1572,8 @@ li.ui-autocomplete-item.ui-state-highlight {
           letter-spacing: 0.15rem; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .slider {
           width: 100%;
-          position: relative; }
+          position: relative;
+          margin-bottom: 3rem; }
           #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .slider .bar {
             width: 88%;
             height: 1rem;
@@ -1610,6 +1640,46 @@ li.ui-autocomplete-item.ui-state-highlight {
             letter-spacing: 0.15rem;
             text-align: center;
             color: #2a4d86; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .comments {
+          border-left: 0.293rem solid #e2e6e8;
+          border-right: 0.293rem solid #e2e6e8;
+          background-color: #e2e6e8; }
+          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .comments .title {
+            padding-bottom: 1rem; }
+            #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .comments .title a {
+              float: right; }
+              #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .comments .title a:after {
+                clear: right; }
+          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .comments textarea {
+            border: none;
+            width: 100%;
+            max-width: 100%;
+            min-width: 100%;
+            font-size: 1.2rem;
+            font-family: "Open Sans", sans-serif; }
+          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .comments .exist-comments {
+            background-color: #e2e6e8;
+            display: none; }
+            #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .comments .exist-comments p {
+              font-size: 0.905rem;
+              padding: 0.5rem;
+              letter-spacing: initial; }
+              #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .comments .exist-comments p.exist-comment-info {
+                font-weight: 700; }
+              #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .comments .exist-comments p.exist-comment {
+                padding-bottom: 2rem; }
+      #main section .page .inner-container.lesson #etapes .ui-tabs-panel .extend-prof-response, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .extend-comments {
+        background-color: #d96c1c;
+        border-bottom-right-radius: 1.1rem;
+        border-bottom-left-radius: 1.1rem;
+        text-align: center;
+        padding-top: 0.58rem;
+        padding-bottom: 0.58rem;
+        color: white;
+        font-size: 1.318rem;
+        cursor: pointer; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .extend-prof-response .cacher, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .extend-comments .cacher {
+          display: none; }
       #main section .page .inner-container.lesson #etapes .ui-tabs-panel .lesson-description {
         padding: 1.5rem;
         box-shadow: 0 0 0.512rem rgba(0, 0, 0, 0.1);

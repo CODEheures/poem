@@ -3,35 +3,35 @@
         <h1>POEM vous recommande</h1>
         <div class="vignettes">
             <a href="#" class="back"><i class="fa fa-chevron-left"></i></a>
-            <a href="/index.php?want=front_lesson" class="vignette">
+            <a href="/index.php?want=front_lesson#tabs-5" class="vignette">
                 <div class="orange"></div>
                 <div class="content">
                     <div class="img" data-img="neurone.jpg"></div>
                     <p>Titre de la leçon</p>
                 </div>
             </a>
-            <a href="/index.php?want=front_lesson" class="vignette">
+            <a href="/index.php?want=front_lesson#tabs-5" class="vignette">
                 <div class="orange"></div>
                 <div class="content">
                     <div class="img" data-img="neurone.jpg"></div>
                     <p>Titre de la leçon</p>
                 </div>
             </a>
-            <a href="/index.php?want=front_lesson" class="vignette">
+            <a href="/index.php?want=front_lesson#tabs-5" class="vignette">
                 <div class="orange"></div>
                 <div class="content">
                     <div class="img" data-img="neurone.jpg"></div>
                     <p>Titre de la leçon</p>
                 </div>
             </a>
-            <a href="/index.php?want=front_lesson" class="vignette">
+            <a href="/index.php?want=front_lesson#tabs-5" class="vignette">
                 <div class="orange"></div>
                 <div class="content">
                     <div class="img" data-img="neurone.jpg"></div>
                     <p>Titre de la leçon</p>
                 </div>
             </a>
-            <a href="/index.php?want=front_lesson" class="vignette">
+            <a href="/index.php?want=front_lesson#tabs-5" class="vignette">
                 <div class="orange"></div>
                 <div class="content">
                     <div class="img" data-img="neurone.jpg"></div>
