@@ -90,6 +90,14 @@ $type = array(
         'titre' => 'leçon',
         'recommandations' => false,
         'anonymous' => true
+    ),
+    'front_anonymous_legal' => array(
+        'type' => 'front',
+        'page' => 'legal',
+        'menu' => 'legal',
+        'titre' => 'Mentions légales',
+        'recommandations' => false,
+        'anonymous' => true
     )
 );
 

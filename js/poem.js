@@ -68,7 +68,6 @@ var poem = {
     initDashboard: poem_init_dashboard, //init du dashboard front
     init_lesson: poem_init_lesson, //init de la page des leçons
     init_profil: poem_init_profil, //init de la page du profil
-    init_about: poem_init_about, // init de la page front about
 };
 
 //function d'animation de chargement d'une carte
@@ -266,6 +265,9 @@ function poem_init_notification_and_messages() {
             $input.css({'color' : ''});
         });
     });
+
+    //en cas d'anonyme
+    poem_login();
 }
 
 //Function de mise à jour de l'explorer
@@ -1304,6 +1306,9 @@ function poem_init_dashboard() {
 //function init_lesson de la page des leçon du front
 function poem_init_lesson() {
 
+    //en cas d'anonyme
+    poem_login();
+
     //creation des onglet jquery-ui
     $( "#etapes" ).tabs();
 
@@ -1594,8 +1599,7 @@ function poem_init_profil() {
     };
 }
 
-//function d'init de la page about
-function poem_init_about() {
+function poem_login() {
     $('#login').click(function (e) {
         e.preventDefault();
         $('div.login').fadeToggle(300);

@@ -13,7 +13,7 @@
             <a href="/index.php?want=front_about" title="En savoir plus sur POEM" class="apropos">A propos de <span>POEM</span></a>
             <a href="./css/assets/partenaires.png"><div class="partenaires"></div></a>
             <div class="links">
-                <a href="/index.php?want=front_legal" title="mentions légales">Mentions légales</a>
+                <a <?php if(!$_SESSION['anonymous']) { print 'href="/index.php?want=front_legal"'; } else { print 'href="/index.php?want=front_anonymous_legal"'; } ?> title="mentions légales">Mentions légales</a>
             </div>
         </div>
         <div class="clearfix"></div>
