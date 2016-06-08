@@ -1901,6 +1901,13 @@ li {
 
                 & .reponse {
                   padding-top: 1.90rem;
+                }
+
+                & .question.etape2 {
+                  margin-bottom: 1.9rem;
+                }
+
+                & .reponse, & .question.etape2 {
                   & .cke_bottom {
                     border-top: none;
                   }
@@ -1943,6 +1950,11 @@ li {
                   font-size: 1.17rem;
                   color: $color-menu-font;
                   letter-spacing: 0.15rem;
+                }
+
+                & img.pairs {
+                  float: right;
+                  margin-top: 2rem;
                 }
 
                 & .slider {
@@ -2081,6 +2093,10 @@ li {
                 padding-top: 0.58rem;
                 padding-bottom: 0.58rem;
                 cursor: pointer;
+                //opacity: 0.75;
+                //&:hover {
+                //  opacity: 1;
+                //}
                 & p {
                   color: white;
                   font-size: 1.318rem;

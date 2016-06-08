@@ -1532,23 +1532,25 @@ li.ui-autocomplete-item.ui-state-highlight {
           background-color: #e2e6e8; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse {
           padding-top: 1.90rem; }
-          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .cke_bottom {
-            border-top: none; }
-          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .cke_top {
-            border-bottom: none; }
-          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse:not(.etape3) .cke_contents {
-            border-left: 0.293rem solid #e2e6e8;
-            border-right: 0.293rem solid #e2e6e8; }
-          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .cke_top, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse:not(.etape3) .cke_bottom {
-            background-color: #e2e6e8; }
-          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse.etape3 {
-            padding-top: 0;
-            padding-bottom: 0;
-            border: 0.44rem solid #244e89; }
-            #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse.etape3 .title {
-              background-color: white; }
-          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .cke_path {
-            display: none; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question.etape2 {
+          margin-bottom: 1.9rem; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .cke_bottom, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question.etape2 .cke_bottom {
+          border-top: none; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .cke_top, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question.etape2 .cke_top {
+          border-bottom: none; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse:not(.etape3) .cke_contents, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question.etape2:not(.etape3) .cke_contents {
+          border-left: 0.293rem solid #e2e6e8;
+          border-right: 0.293rem solid #e2e6e8; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .cke_top, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse:not(.etape3) .cke_bottom, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question.etape2 .cke_top, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question.etape2:not(.etape3) .cke_bottom {
+          background-color: #e2e6e8; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse.etape3, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question.etape2.etape3 {
+          padding-top: 0;
+          padding-bottom: 0;
+          border: 0.44rem solid #244e89; }
+          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse.etape3 .title, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question.etape2.etape3 .title {
+            background-color: white; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse .cke_path, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question.etape2 .cke_path {
+          display: none; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response {
           display: none; }
       #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right {
@@ -1559,6 +1561,9 @@ li.ui-autocomplete-item.ui-state-highlight {
           font-size: 1.17rem;
           color: #2a4d86;
           letter-spacing: 0.15rem; }
+        #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right img.pairs {
+          float: right;
+          margin-top: 2rem; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .right .slider {
           width: 100%;
           position: relative;

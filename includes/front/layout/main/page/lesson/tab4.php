@@ -8,7 +8,7 @@
 </div>
 <div class="row">
     <div class="left">
-        <div class="question">
+        <div class="question etape3">
             <div class="title">Question 1</div>
                 <textarea class="etape3QuestionEditor" name="etape3QuestionEditor1" id="etape3QuestionEditor1" rows="10"
                           cols="80"></textarea>
@@ -63,7 +63,7 @@
 </div>
 <div class="row">
     <div class="left">
-        <div class="question">
+        <div class="question etape3">
             <div class="title">Question 1</div>
                 <textarea class="etape3QuestionEditor" name="etape3QuestionEditor2" id="etape3QuestionEditor2" rows="10"
                           cols="80"></textarea>

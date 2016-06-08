@@ -39,6 +39,7 @@ var poem = {
     questionProf: '/fake_remote_data/question-prof.php', //AJAX url page question du prof
     responseProf: '/fake_remote_data/response-prof.php', //AJAX url page question du prof
     reponseEleveEtape1: '/fake_remote_data/reponse-eleve-etape1.php', //AJAX url page question du prof
+    questionEleveEtape2: '/fake_remote_data/question-eleve-etape2.php', //AJAX url page question du prof
     
     //Fonctions objet utiles
     //***********************
@@ -1339,8 +1340,8 @@ function poem_init_lesson() {
 
 
     //Affichage des questions
-    var $questionEditors = $('.etape1QuestionEditor, .etape2QuestionEditor, .etape3QuestionEditor');
-    $questionEditors.each(function () {
+    var $etape1et3QuestionEditors = $('.etape1QuestionEditor, .etape3QuestionEditor');
+    $etape1et3QuestionEditors.each(function () {
         var $divToUpdate = $(this).parent();
         var jqxhr = $.ajax(poem.host + poem.questionProf)
             .done(function(data, textStatus, jqXHR) {
@@ -1358,8 +1359,8 @@ function poem_init_lesson() {
 
 
     //Affichage des réponses attendues
-    var $profResponseEditors = $('.etape3ResponseProfEditor');
-    $profResponseEditors.each(function () {
+    var $etape3ProfResponseEditors = $('.etape3ResponseProfEditor');
+    $etape3ProfResponseEditors.each(function () {
         var $divToUpdate = $(this).parent();
         var jqxhr = $.ajax(poem.host + poem.responseProf)
             .done(function(data, textStatus, jqXHR) {
@@ -1374,9 +1375,19 @@ function poem_init_lesson() {
             });
     });
 
+    $('.extend-prof-response').each(function () {
+        $(this).click(function (e) {
+            e.preventDefault();
+            $(this).parent().find('.prof-response').slideToggle();
+            $(this).find('p').each(function () {
+                $(this).toggle();
+            });
+        });
+    });
+
     //Affichage des réponses données
-    var $reponseDonnees = $('.etape3ReponseEditor');
-    $reponseDonnees.each(function () {
+    var $etape3ReponseDonnees = $('.etape3ReponseEditor');
+    $etape3ReponseDonnees.each(function () {
         var $divToUpdate = $(this).parent();
 
         var jqxhr = $.ajax(poem.host + poem.reponseEleveEtape1)
@@ -1392,11 +1403,11 @@ function poem_init_lesson() {
             });
     });
 
-    //CKEDITOR pour les réponses
+    //CKEDITOR pour les réponses étape 1 et 2
     // voir ici pour config: http://docs.ckeditor.com/#!/api/CKEDITOR.config
     // voir ici pour lire les données: http://docs.ckeditor.com/#!/guide/dev_savedata
-    var $reponseEditors = $('.etape1ReponseEditor, .etape2ReponseEditor');
-    $reponseEditors.each(function () {
+    var $etape1et2ReponseEditors = $('.etape1ReponseEditor, .etape2ReponseEditor');
+    $etape1et2ReponseEditors.each(function () {
         var $reponseEditor = CKEDITOR.replace( $(this)[0].id, {
             toolbarCanCollapse: true,
             toolbarStartupExpanded : false,
@@ -1418,15 +1429,30 @@ function poem_init_lesson() {
             });
     });
 
-    //afichage de la réponse attendue
-    $('.extend-prof-response').each(function () {
-        $(this).click(function (e) {
-            e.preventDefault();
-            $(this).parent().find('.prof-response').slideToggle();
-            $(this).find('p').each(function () {
-                $(this).toggle();
-            });
+    //CKEDITOR pour les questions étape 2
+    // voir ici pour config: http://docs.ckeditor.com/#!/api/CKEDITOR.config
+    // voir ici pour lire les données: http://docs.ckeditor.com/#!/guide/dev_savedata
+    var $etape2QuestionEditors = $('.etape2QuestionEditor');
+    $etape2QuestionEditors.each(function () {
+        var $questionEditor = CKEDITOR.replace( $(this)[0].id, {
+            toolbarCanCollapse: true,
+            toolbarStartupExpanded : false,
+            toolbarGroups : toolbarGroups,
+            removeButtons: removeButtons,
+            readOnly: false,
+            skin: 'flat'
         });
+
+        var jqxhr = $.ajax(poem.host + poem.questionEleveEtape2)
+            .done(function(data, textStatus, jqXHR) {
+                $questionEditor.setData(data);
+            })
+            .fail(function() {
+                alert( "erreur de chargement de la liste des leçons" );
+            })
+            .always(function () {
+
+            });
     });
 
     //afichage des commentaire
