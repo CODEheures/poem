@@ -1,6 +1,6 @@
 <nav class="navbar inner-container">
     <div class="brand">
-        <a href="/index.php" title="Acceuil POEM"><img src="./css/assets/logo.png" alt="logo POEM"></a>
+        <a <?php if($_SESSION['anonymous']) { print 'href="/index.php" title="Acceuil POEM"'; } else { print 'href="/index.php?want=front_dashboard" title="Votre dashboard POEM"';} ?>><img src="./css/assets/logo.png" alt="logo POEM"></a>
     </div>
     <div class="menu <?php if($_SESSION['anonymous']) { print 'anonymous'; } ?>">
         <?php include('./includes/front/layout/navbar/menu.php'); ?>
