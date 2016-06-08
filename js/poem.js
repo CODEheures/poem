@@ -1306,9 +1306,6 @@ function poem_init_dashboard() {
 //function init_lesson de la page des leçon du front
 function poem_init_lesson() {
 
-    //en cas d'anonyme
-    poem_login();
-
     //creation des onglet jquery-ui
     $( "#etapes" ).tabs();
 
