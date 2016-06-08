@@ -24,42 +24,72 @@ $type = array(
         'page' => 'dashboard',
         'menu' => 'Mon tableau de bord',
         'titre' => 'tableau de bord',
-        'recommandations' => true
+        'recommandations' => true,
+        'anonymous' => false
     ),
     'front_explorer' => array(
         'type' => 'front',
         'page' => 'explorer',
         'menu' => 'Explorateur des leçons',
         'titre' => 'Explorateur des leçons',
-        'recommandations' => false
+        'recommandations' => false,
+        'anonymous' => false
     ),
     'front_profil' => array(
         'type' => 'front',
         'page' => 'profil',
         'menu' => 'Mon profil',
         'titre' => 'mon profil',
-        'recommandations' => false
+        'recommandations' => false,
+        'anonymous' => false
     ),
     'front_lesson' => array(
         'type' => 'front',
         'page' => 'lesson',
         'menu' => 'lesson',
         'titre' => 'leçon',
-        'recommandations' => false
+        'recommandations' => false,
+        'anonymous' => false
     ),
     'front_about' => array(
         'type' => 'front',
         'page' => 'about',
         'menu' => 'about',
         'titre' => 'à propos de poem',
-        'recommandations' => false
+        'recommandations' => false,
+        'anonymous' => false
     ),
     'front_legal' => array(
         'type' => 'front',
         'page' => 'legal',
         'menu' => 'legal',
         'titre' => 'Mentions légales',
-        'recommandations' => false
+        'recommandations' => false,
+        'anonymous' => false
+    ),
+    'front_anonymous_home' => array(
+        'type' => 'front',
+        'page' => 'about',
+        'menu' => 'about',
+        'titre' => 'à propos de poem',
+        'recommandations' => false,
+        'anonymous' => true
+    ),
+    'front_anonymous_explorer' => array(
+        'type' => 'front',
+        'page' => 'explorer',
+        'menu' => 'Explorateur des leçons',
+        'titre' => 'Explorateur des leçons',
+        'recommandations' => false,
+        'anonymous' => true
+    ),
+    'front_anonymous_lesson' => array(
+        'type' => 'front',
+        'page' => 'lesson',
+        'menu' => 'lesson',
+        'titre' => 'leçon',
+        'recommandations' => false,
+        'anonymous' => true
     )
 );
 
@@ -69,6 +99,7 @@ if(isset($_GET['want']) && key_exists($_GET['want'],$type)){
     $_SESSION['menu']=$type[$_GET['want']]['menu'];
     $_SESSION['titre']=$type[$_GET['want']]['titre'];
     $_SESSION['recommandations']=$type[$_GET['want']]['recommandations'];
+    $_SESSION['anonymous']=$type[$_GET['want']]['anonymous'];
     //pour les 2 modes possibles de l'explorateur 'trackball' ou 'attractive'
     if(isset($_GET['explorermode']) && $_GET['explorermode'] == 'attractive') {
         $_SESSION['explorermode'] = 'attractive';
@@ -77,11 +108,12 @@ if(isset($_GET['want']) && key_exists($_GET['want'],$type)){
     }
     
 } else {
-    $_SESSION['type']=$type['front_dashboard']['type'];
-    $_SESSION['page']=$type['front_dashboard']['page'];
-    $_SESSION['menu']=$type['front_dashboard']['menu'];
-    $_SESSION['titre']=$type['front_dashboard']['titre'];
-    $_SESSION['recommandations']=$type['front_dashboard']['recommandations'];
+    $_SESSION['type']=$type['front_anonymous_home']['type'];
+    $_SESSION['page']=$type['front_anonymous_home']['page'];
+    $_SESSION['menu']=$type['front_anonymous_home']['menu'];
+    $_SESSION['titre']=$type['front_anonymous_home']['titre'];
+    $_SESSION['recommandations']=$type['front_anonymous_home']['recommandations'];
+    $_SESSION['anonymous']=$type['front_anonymous_home']['anonymous'];
 }
 
 

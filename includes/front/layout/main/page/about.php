@@ -65,4 +65,9 @@
         </div>
         <div class="clearfix"></div>
     </div>
+    <?php if($_SESSION['anonymous']) { ?>
+    <div class="go">
+        <p><a href="/index.php?want=front_anonymous_explorer" class="btn btn-big">Accedez à l'explorateur</a></p>
+    </div>
+    <?php } ?>
 </div>

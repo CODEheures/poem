@@ -72,6 +72,27 @@ a {
   margin: 0 auto;
 }
 
+label {
+  display: inline-block;
+  text-align: left;
+  color: $color-check-label;
+  font-size: 1.025rem;
+  position: relative;
+  &[for="passwd"] span {
+    position: absolute;
+    width: auto;
+    left: 0;
+    top: 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+div.input-group {
+  display: inline-block;
+  width: auto;
+  position: relative;
+}
+
 input {
   &[type="checkbox"] {
     $font-size: 1.025rem;
@@ -209,6 +230,29 @@ input {
       border-color: $color-menu-actif;
       box-shadow: inset 0 0.11rem 0.11rem rgba(0, 0, 0, 0.075), 0 0 0.586rem rgba($color-menu-actif, 0.6);
     }
+  }
+}
+
+a.btn, input.btn, span.btn {
+  font-size: 1.025rem;
+  font-family: "Questrial", sans-serif;
+  font-weight: 500;
+  color: white;
+  background-color: $color-menu-actif;
+  padding-left: 3.077rem;
+  padding-right: 3.077rem;
+  height: 1.905rem;
+  border-radius: 0.952rem;
+  padding-top: 0.366rem;
+  padding-bottom: 0.366rem;
+  vertical-align: middle;
+  margin-right: 1.905rem;
+  border: none;
+  &.btn-info {
+    background-color: $color-background-dash;
+  }
+  &.btn-big {
+    font-size: 1.5rem;
   }
 }
 
@@ -367,6 +411,9 @@ li {
     & .menu {
       float: left;
       margin-left: 10.256rem;
+      &.anonymous {
+        float: right;
+      }
       & ul {
         list-style-type: none;
         margin: 0;
@@ -376,7 +423,7 @@ li {
           display: inline-block;
           line-height: initial;
           padding-bottom: 0.220rem;
-
+          position: relative;
           &:not(:first-of-type) {
             margin-left: 3.663rem;
           }
@@ -389,7 +436,22 @@ li {
             font-family: 'Questrial', sans-serif;
             font-size: 1.611rem;
             color: $color-menu-font;
-
+          }
+          & div.login {
+            position: absolute;
+            display: none;
+            right: -2rem;
+            top: 3rem;
+            background-color: white;
+            border-radius: 0.44rem;
+            border: 0.219rem solid $color-menu-font;
+            padding: 0.44rem;
+            z-index: 2;
+            & input[type="submit"] {
+              margin-top: 1rem;
+              float: right;
+              margin-right: 0;
+            }
           }
         }
       }
@@ -1090,29 +1152,6 @@ li {
       }
     }
 
-    & a.btn, & input.btn, & span.btn {
-      font-size: 1.025rem;
-      font-family: "Questrial", sans-serif;
-      font-weight: 500;
-      color: white;
-      background-color: $color-menu-actif;
-      padding-left: 3.077rem;
-      padding-right: 3.077rem;
-      height: 1.905rem;
-      border-radius: 0.952rem;
-      padding-top: 0.366rem;
-      padding-bottom: 0.366rem;
-      vertical-align: middle;
-      margin-right: 1.905rem;
-      border: none;
-      &.btn-info {
-        background-color: $color-background-dash;
-      }
-      &.btn-big {
-        font-size: 1.5rem;
-      }
-    }
-
     & .page {
       & .inner-container {
 
@@ -1461,25 +1500,7 @@ li {
             width: 49%;
             $width-label: 14rem;
             & label {
-              display: inline-block;
               width: $width-label;
-              text-align: left;
-              color: $color-check-label;
-              font-size: 1.025rem;
-              position: relative;
-              &[for="passwd"] span {
-                position: absolute;
-                width: auto;
-                left: 0;
-                top: 1.5rem;
-                font-size: 0.8rem;
-              }
-            }
-
-            & div.input-group {
-              display: inline-block;
-              width: auto;
-              position: relative;
             }
 
             & ul.parsley-errors-list {
@@ -2290,6 +2311,13 @@ li {
               float: right;
               width: 33%;
               padding-left: 2.014rem;
+            }
+          }
+
+          & .go {
+            margin-top: 4rem;
+            & p {
+              text-align: center;
             }
           }
         }

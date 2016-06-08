@@ -62,7 +62,7 @@
         <span>génétic</span><i class="fa fa-chevron-right" aria-hidden="true"></i>
     </p>
     <?php for($i = 1; $i<=4 ; $i++) {?>
-        <a href="/index.php?want=front_lesson#tabs-5" class="vignette">
+        <a <?php if(!$_SESSION['anonymous']) { print 'href="/index.php?want=front_lesson#tabs-5"'; } else {  print 'href="/index.php?want=front_anonymous_lesson#tabs-5"'; } ?> class="vignette">
             <div class="orange"></div>
             <div class="content">
                 <div class="img" data-img="neurone.jpg"></div>

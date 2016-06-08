@@ -68,6 +68,7 @@ var poem = {
     initDashboard: poem_init_dashboard, //init du dashboard front
     init_lesson: poem_init_lesson, //init de la page des leçons
     init_profil: poem_init_profil, //init de la page du profil
+    init_about: poem_init_about, // init de la page front about
 };
 
 //function d'animation de chargement d'une carte
@@ -246,6 +247,25 @@ function poem_init_notification_and_messages() {
     $messages = $('#messages');
     $notification.puigrowl({life: poem.notifsLife});
     $messages.puimessages();
+
+    var $passwdInputs = $('input[type="password"]');
+    $passwdInputs.each(function () {
+        var $input = $(this);
+        var $button = $input.siblings('button')
+        var $reveal = $input.siblings('div.reveal');
+        $button.on('mousedown', function (e) {
+            e.preventDefault();
+            $reveal.html($input.val());
+            $input.css({'color' : 'transparent'});
+            $reveal.fadeIn();
+        });
+        $button.on('mouseup', function (e) {
+            e.preventDefault();
+            $reveal.html('');
+            $reveal.fadeOut();
+            $input.css({'color' : ''});
+        });
+    });
 }
 
 //Function de mise à jour de l'explorer
@@ -1277,6 +1297,8 @@ function poem_init_dashboard() {
         pageLength: 4,
         order: [[4, 'asc']]
     });
+    
+    
 }
 
 //function init_lesson de la page des leçon du front
@@ -1527,25 +1549,6 @@ function poem_init_profil() {
     poem_init_dropdown(poem.host + poem.champsList, 'champsbefore');
     poem_init_dropdown(poem.host + poem.champsList, 'champsafter');
 
-    $passwdInputs = $('input[type="password"]');
-    $passwdInputs.each(function () {
-        var $input = $(this);
-        var $button = $input.siblings('button')
-        var $reveal = $input.siblings('div.reveal');
-        $button.on('mousedown', function (e) {
-            e.preventDefault();
-            $reveal.html($input.val());
-            $input.css({'color' : 'transparent'});
-            $reveal.fadeIn();
-        });
-        $button.on('mouseup', function (e) {
-            e.preventDefault();
-            $reveal.html('');
-            $reveal.fadeOut();
-            $input.css({'color' : ''});
-        });
-    });
-
     Dropzone.options.avatar = {
         previewTemplate: document.querySelector('#preview-template').innerHTML,
         maxFiles: 1,
@@ -1589,4 +1592,17 @@ function poem_init_profil() {
             $('.dz-message').show();
         }
     };
+}
+
+//function d'init de la page about
+function poem_init_about() {
+    $('#login').click(function (e) {
+        e.preventDefault();
+        $('div.login').fadeToggle(300);
+    });
+
+    $('#welcome').click(function (e) {
+        e.preventDefault();
+        document.location.href="/index.php?want=front_dashboard&from=anonymous";
+    });
 }

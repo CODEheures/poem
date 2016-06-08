@@ -40,7 +40,7 @@
                            data-parsley-error-message="8 caractères minimum dont au moins 1 majuscule, 1 minuscule et 1 chiffre ou 1 caractère spécial"
                     /><!-- 2ieme patern ici : http://html5pattern.com/Passwords -->
                     <button type="button"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
-                    <div class="reveal">12456</div>
+                    <div class="reveal"></div>
                 </div>
             </div>
             <div class="col2">

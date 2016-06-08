@@ -28,6 +28,9 @@ if($_SESSION['page']=='dashboard') {
     print '<script src="js/poem-front-dashboard.js"></script>';
     print '<script src="js/Chart.js"></script>';
     print '<script src="js/datatables.min.js"></script>';
+    if(isset($_GET['from']) && $_GET['from']=='anonymous') {
+        print '<script src="js/poem-front-welcome.js"></script>';
+    }
 } elseif($_SESSION['page']=='explorer') {
     //scripts de la page explorer
     print '<script src="js/jquery-mousewheel.min.js"></script>';
@@ -47,4 +50,7 @@ if($_SESSION['page']=='dashboard') {
     print '<script src="js/parsleyjs/i18n/fr.js"></script>';
     print '<script src="js/dropzone.js"></script>';
     print '<script src="js/poem-front-profil.js"></script>';
+} elseif ($_SESSION['page']=='about') {
+    //scripts de la page dashboard
+    print '<script src="js/poem-front-about.js"></script>';
 }
