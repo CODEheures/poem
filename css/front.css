@@ -493,7 +493,7 @@ li.ui-autocomplete-item.ui-state-highlight {
           border-radius: 0.44rem;
           border: 0.219rem solid #2a4d86;
           padding: 0.44rem;
-          z-index: 2; }
+          z-index: 3000; }
           #poem-navbar .navbar .menu ul li div.login input[type="submit"] {
             margin-top: 1rem;
             float: right;

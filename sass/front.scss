@@ -446,7 +446,7 @@ li {
             border-radius: 0.44rem;
             border: 0.219rem solid $color-menu-font;
             padding: 0.44rem;
-            z-index: 2;
+            z-index: 3000;
             & input[type="submit"] {
               margin-top: 1rem;
               float: right;
