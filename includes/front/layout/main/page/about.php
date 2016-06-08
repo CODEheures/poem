@@ -2,10 +2,8 @@
     <h1>Présentation de POEM</h1>
     <div class="intro">
         <div class="left">
-            <p>Personalized Open Education for the Masses (POEM) a pour but de faciliter l’acquisition de la
-                connaissance par le peuple à travers des cursus créés sur-mesure et impliquants l’apprenant Personalized
-                Open Education for the Masses (POEM) a pour but de faciliter l’acquisition de la connaissance par le
-                peuple à travers des cursus créés sur-mesure et impliquants l’apprenant.
+            <p>POEM (Personalized Open Education for the Masses) a pour but de faciliter l’acquisition de la
+                connaissance par le peuple à travers des cursus créés sur-mesure et impliquants l’apprenant.
             </p>
         </div>
         <div class="right">
