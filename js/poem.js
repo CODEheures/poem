@@ -1338,22 +1338,15 @@ function poem_init_lesson() {
     var removeButtons = 'Source,Save,NewPage,Templates,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CreateDiv,Anchor,Flash,Smiley,PageBreak,Iframe,Styles,Format,ShowBlocks,About,PasteFromWord';
 
 
-    //CKEDITOR pour les questions
-    // voir ici pour config: http://docs.ckeditor.com/#!/api/CKEDITOR.config
+    //Affichage des questions
     var $questionEditors = $('.etape1QuestionEditor, .etape2QuestionEditor, .etape3QuestionEditor');
     $questionEditors.each(function () {
-        var $questionEditor = CKEDITOR.replace( $(this)[0].id, {
-            toolbarCanCollapse: true,
-            toolbarStartupExpanded : false,
-            toolbarGroups : toolbarGroups,
-            removeButtons: removeButtons,
-            readOnly: true,
-            skin: 'flat'
-        });
-
+        var $divToUpdate = $(this).parent();
         var jqxhr = $.ajax(poem.host + poem.questionProf)
             .done(function(data, textStatus, jqXHR) {
-                $questionEditor.setData(data);
+                // $questionEditor.setData(data);
+                $divToUpdate.find('textarea').remove();
+                $('<div class="data">' + data + '</div>').appendTo($divToUpdate);
             })
             .fail(function() {
                 alert( "erreur de chargement de la liste des leçons" );
@@ -1363,22 +1356,33 @@ function poem_init_lesson() {
             });
     });
 
-    //CKEDITOR pour les responses du prof
-    // voir ici pour config: http://docs.ckeditor.com/#!/api/CKEDITOR.config
+
+    //Affichage des réponses attendues
     var $profResponseEditors = $('.etape3ResponseProfEditor');
     $profResponseEditors.each(function () {
-        var $profResponseEditor = CKEDITOR.replace( $(this)[0].id, {
-            toolbarCanCollapse: true,
-            toolbarStartupExpanded : false,
-            toolbarGroups : toolbarGroups,
-            removeButtons: removeButtons,
-            readOnly: true,
-            skin: 'flat'
-        });
-
+        var $divToUpdate = $(this).parent();
         var jqxhr = $.ajax(poem.host + poem.responseProf)
             .done(function(data, textStatus, jqXHR) {
-                $profResponseEditor.setData(data);
+                $divToUpdate.find('textarea').remove();
+                $('<div class="data">' + data + '</div>').appendTo($divToUpdate);
+            })
+            .fail(function() {
+                alert( "erreur de chargement de la liste des leçons" );
+            })
+            .always(function () {
+
+            });
+    });
+
+    //Affichage des réponses données
+    var $reponseDonnees = $('.etape3ReponseEditor');
+    $reponseDonnees.each(function () {
+        var $divToUpdate = $(this).parent();
+
+        var jqxhr = $.ajax(poem.host + poem.reponseEleveEtape1)
+            .done(function(data, textStatus, jqXHR) {
+                $divToUpdate.find('textarea').remove();
+                $('<div class="data">' + data + '</div>').appendTo($divToUpdate);
             })
             .fail(function() {
                 alert( "erreur de chargement de la liste des leçons" );
@@ -1391,7 +1395,7 @@ function poem_init_lesson() {
     //CKEDITOR pour les réponses
     // voir ici pour config: http://docs.ckeditor.com/#!/api/CKEDITOR.config
     // voir ici pour lire les données: http://docs.ckeditor.com/#!/guide/dev_savedata
-    var $reponseEditors = $('.etape1ReponseEditor, .etape2ReponseEditor, .etape3ReponseEditor');
+    var $reponseEditors = $('.etape1ReponseEditor, .etape2ReponseEditor');
     $reponseEditors.each(function () {
         var $reponseEditor = CKEDITOR.replace( $(this)[0].id, {
             toolbarCanCollapse: true,

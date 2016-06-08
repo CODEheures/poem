@@ -8,7 +8,7 @@
         <p>Pr Pierre C</p>
     </div>
     <div class="middle">
-        <h2 class="title">Programmation Génétique : Introns, Bloat et Surapprentissage</h2>
+        <h2 class="title-lesson">Programmation Génétique : Introns, Bloat et Surapprentissage</h2>
         <h3 class="description-courte">Cette ligne décrit la leçon en 10 mots Lorem Ipsum</h3>
         <p class="description-longue">Ce paragraphe décrit la léçon plus précisement car on aime bien decrire les choses .Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda error expedita illo iure
             laborum, nemo recusandae sequi suscipit voluptatibus! Aspernatur eligendi est, laborum laudantium non odio

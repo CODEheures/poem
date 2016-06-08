@@ -1874,7 +1874,7 @@ li {
                 font-size: 1.75rem;
                 color: $color-menu-font;
                 font-family: "Questrial", sans-serif;
-                padding-bottom: 0rem;
+                padding-bottom: 1rem;
                 padding-top: 1rem;
                 padding-left: 2rem;
                 background-color: $color-ckeditor;
@@ -1885,8 +1885,22 @@ li {
                 width: 57%;
                 float: left;
 
+                & .data {
+                  padding-left: 2rem;
+                  resize: vertical;
+                  overflow: auto;
+                  color: $color-menu-font;
+                  padding-bottom: 1rem;
+                  & ol, ul {
+                    list-style-position: inside;
+                  }
+                }
+                & .question, & .prof-response {
+                  background-color:$color-ckeditor;
+                }
 
-                & .question, & .reponse, & .prof-response {
+                & .reponse {
+                  padding-top: 1.90rem;
                   & .cke_bottom {
                     border-top: none;
                   }
@@ -1900,32 +1914,6 @@ li {
                   & .cke_top, &:not(.etape3) .cke_bottom {
                     background-color: $color-ckeditor;
                   }
-                  &.etape3 .cke_bottom {
-                    background-color: transparent;
-                  }
-                }
-
-                & .question, & .prof-response {
-                  & .cke_toolbox_collapser {
-                    display: none;
-                  }
-                  & .cke_path {
-                    display: none;
-                  }
-
-                  & .cke_contents {
-                    background-color: $color-ckeditor;
-                    height: auto;
-                  }
-                  &.etape3 body {
-                    margin-bottom: 0;
-                    margin-top: 0;
-                  }
-                }
-
-                & .reponse {
-                  padding-top: 1.90rem;
-                  //padding-bottom: 5rem;
                   &.etape3 {
                     padding-top: 0;
                     padding-bottom: 0;
@@ -1933,28 +1921,14 @@ li {
                     & .title {
                       background-color: white;
                     }
-                    & .cke_contents {
-                      background-color: white;
-                      border: none;
-                    }
-                    & .cke_toolbox_collapser {
-                      display: none;
-                    }
-                    & .cke_top {
-                      display: none;
-                    }
-                    & .cke_bottom {
-
-                    }
                   }
                   & .cke_path {
                     display: none;
                   }
+
                 }
 
                 & .prof-response {
-                  padding-top: 0;
-                  padding-bottom: 0;
                   display: none;
                 }
 
@@ -2106,11 +2080,13 @@ li {
                 text-align: center;
                 padding-top: 0.58rem;
                 padding-bottom: 0.58rem;
-                color: white;
-                font-size: 1.318rem;
                 cursor: pointer;
-                & .cacher {
-                  display: none;
+                & p {
+                  color: white;
+                  font-size: 1.318rem;
+                  &.cacher {
+                    display: none;
+                  }
                 }
               }
 
@@ -2150,7 +2126,7 @@ li {
                   }
                 }
 
-                & .title {
+                & .title-lesson {
                   color: $color-background-dash;
                   margin-bottom: 1rem;
                   letter-spacing: 0.12rem;
