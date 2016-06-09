@@ -39,7 +39,7 @@
         <div class="comment-block">
             <div class="comments">
                 <div class="title">
-                    Commentaire
+                    Appréciation de la réponse
                     <a class="btn" href="#">Publier</a>
                 </div>
         <textarea class="comment" name="comment" id="comment1" rows="3"
@@ -54,8 +54,8 @@
                 </div>
             </div>
             <div class="extend-comments">
-                <p class="voir">Afficher plus de commentaires</p>
-                <p class="cacher">Masquer les commentaires</p>
+                <p class="voir">Afficher plus d'appréciations</p>
+                <p class="cacher">Masquer les appréciations</p>
             </div>
         </div>
     </div>
@@ -94,7 +94,7 @@
         <div class="comment-block">
             <div class="comments">
                 <div class="title">
-                    Commentaire
+                    Appréciation de la réponse
                     <a class="btn" href="#">Publier</a>
                 </div>
         <textarea class="comment" name="comment" id="comment2" rows="3"
@@ -109,8 +109,8 @@
                 </div>
             </div>
             <div class="extend-comments">
-                <p class="voir">Afficher plus de commentaires</p>
-                <p class="cacher">Masquer les commentaires</p>
+                <p class="voir">Afficher plus d'appréciations</p>
+                <p class="cacher">Masquer les appréciations</p>
             </div>
         </div>
     </div>

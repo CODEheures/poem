@@ -1372,6 +1372,7 @@ function poem_init_lesson() {
                 // $questionEditor.setData(data);
                 $divToUpdate.find('textarea').remove();
                 $('<div class="data">' + data + '</div>').appendTo($divToUpdate);
+                $('<p class="signal">signaler cette question comme: <a href="#">non-pertinente</a> <a href="#">redondante</a> <a href="#">inappropriée</a></p>').appendTo($divToUpdate);
             })
             .fail(function() {
                 alert( "erreur de chargement de la liste des leçons" );
@@ -1390,6 +1391,7 @@ function poem_init_lesson() {
             .done(function(data, textStatus, jqXHR) {
                 $divToUpdate.find('textarea').remove();
                 $('<div class="data">' + data + '</div>').appendTo($divToUpdate);
+                $('<p class="signal">signaler cette réponse comme: <a href="#">non-pertinente</a> <a href="#">redondante</a> <a href="#">inappropriée</a></p>').appendTo($divToUpdate);
             })
             .fail(function() {
                 alert( "erreur de chargement de la liste des leçons" );

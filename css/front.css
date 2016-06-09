@@ -1550,6 +1550,15 @@ li.ui-autocomplete-item.ui-state-highlight {
             list-style-position: inside; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response {
           background-color: #e2e6e8; }
+          #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question p.signal, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response p.signal {
+            text-align: right;
+            font-size: 0.8rem;
+            padding-top: 1rem;
+            padding-right: 1rem;
+            padding-bottom: 0.5rem; }
+            #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question p.signal a, #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .prof-response p.signal a {
+              text-decoration: underline;
+              color: #2a4d86; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .reponse {
           padding-top: 1.90rem; }
         #main section .page .inner-container.lesson #etapes .ui-tabs-panel .left .question.etape2 {
