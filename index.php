@@ -69,9 +69,9 @@ $type = array(
     ),
     'front_anonymous_home' => array(
         'type' => 'front',
-        'page' => 'about',
-        'menu' => 'about',
-        'titre' => 'à propos de poem',
+        'page' => 'home',
+        'menu' => 'home',
+        'titre' => 'Accueil',
         'recommandations' => false,
         'anonymous' => true
     ),

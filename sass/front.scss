@@ -504,7 +504,7 @@ li {
     background-color: $color-background-dash;
     position: absolute;
 
-    &.lesson, &.explorer, &.about, &.legal, &.profil {
+    &.lesson, &.explorer, &.about, &.legal, &.profil, &.home {
       height: $debordementLesson;
     }
   }
@@ -2228,7 +2228,7 @@ li {
 
         }
 
-        & .about {
+        & .about, &.home {
           & .intro {
             padding-left: 3.3rem;
             padding-right: 3.3rem;
@@ -2329,6 +2329,51 @@ li {
           & .go {
             margin-top: 4rem;
             & p {
+              text-align: center;
+            }
+          }
+        }
+
+        & .home {
+          & h1 {
+            background: url('/css/assets/branches.png') no-repeat center;
+            background-size: contain;
+            height: 8rem;
+            line-height: 10rem;
+            padding-left: 1rem;
+          }
+
+          $home_width : 55.89rem;
+          & .intro {
+            width: $home_width;
+            margin: 0 auto;
+            & p {
+              color: $color-menu-font;
+              font-size: 1.611rem;
+              letter-spacing: 0.02rem;
+              line-height: 200%;
+            }
+            & a {
+              color: $color-menu-actif;
+              text-decoration: underline;
+              font-weight: 900;
+              font-size: 1.318rem;
+              line-height: 200%;
+            }
+          }
+
+          & .third {
+            width: $home_width;
+            margin: 0 auto;
+            margin-top: 10.4rem;
+
+            & img {
+              width: 12.45rem;
+            }
+
+            & p {
+              margin-top: 2rem;
+              margin-bottom: 11.6rem;
               text-align: center;
             }
           }

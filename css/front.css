@@ -530,7 +530,7 @@ li.ui-autocomplete-item.ui-state-highlight {
     width: 100%;
     background-color: #6090bd;
     position: absolute; }
-    .header .extend-header.lesson, .header .extend-header.explorer, .header .extend-header.about, .header .extend-header.legal, .header .extend-header.profil {
+    .header .extend-header.lesson, .header .extend-header.explorer, .header .extend-header.about, .header .extend-header.legal, .header .extend-header.profil, .header .extend-header.home {
       height: 15.677rem; }
 
 .page .inner-container {
@@ -1758,84 +1758,117 @@ li.ui-autocomplete-item.ui-state-highlight {
         font-size: 1.2rem;
         letter-spacing: 0.04rem; }
 
-#main section .page .inner-container .about .intro {
+#main section .page .inner-container .about .intro, #main section .page .inner-container.home .intro {
   padding-left: 3.3rem;
   padding-right: 3.3rem; }
-  #main section .page .inner-container .about .intro .left {
+  #main section .page .inner-container .about .intro .left, #main section .page .inner-container.home .intro .left {
     float: left;
     width: 66%; }
-    #main section .page .inner-container .about .intro .left p {
+    #main section .page .inner-container .about .intro .left p, #main section .page .inner-container.home .intro .left p {
       font-size: 2.051rem;
       font-weight: 900;
       color: #2a4d86;
       text-align: justify;
       line-height: 3.1rem; }
-  #main section .page .inner-container .about .intro .right {
+  #main section .page .inner-container .about .intro .right, #main section .page .inner-container.home .intro .right {
     float: right;
     width: 34%; }
-    #main section .page .inner-container .about .intro .right img {
+    #main section .page .inner-container .about .intro .right img, #main section .page .inner-container.home .intro .right img {
       padding-top: 1rem;
       display: block;
       width: 14.65rem;
       height: auto;
       margin: 0 auto; }
-    #main section .page .inner-container .about .intro .right p {
+    #main section .page .inner-container .about .intro .right p, #main section .page .inner-container.home .intro .right p {
       margin-top: 2rem;
       font-size: 1.172rem;
       font-weight: 900;
       text-align: center; }
-      #main section .page .inner-container .about .intro .right p a {
+      #main section .page .inner-container .about .intro .right p a, #main section .page .inner-container.home .intro .right p a {
         color: #d96c1c;
         text-decoration: underline; }
 
-#main section .page .inner-container .about .second {
+#main section .page .inner-container .about .second, #main section .page .inner-container.home .second {
   padding-left: 3.3rem;
   padding-right: 3.3rem;
   margin-top: 4.29rem; }
-  #main section .page .inner-container .about .second p {
+  #main section .page .inner-container .about .second p, #main section .page .inner-container.home .second p {
     color: #2a4d86;
     font-size: 1.172rem;
     letter-spacing: 0.05rem; }
-  #main section .page .inner-container .about .second .left {
+  #main section .page .inner-container .about .second .left, #main section .page .inner-container.home .second .left {
     float: left;
     width: 50%;
     padding-right: 2.014rem; }
-  #main section .page .inner-container .about .second .right {
+  #main section .page .inner-container .about .second .right, #main section .page .inner-container.home .second .right {
     float: right;
     width: 50%;
     padding-left: 2.014rem; }
 
-#main section .page .inner-container .about .separator {
+#main section .page .inner-container .about .separator, #main section .page .inner-container.home .separator {
   margin-top: 2rem; }
-  #main section .page .inner-container .about .separator img {
+  #main section .page .inner-container .about .separator img, #main section .page .inner-container.home .separator img {
     width: 100%;
     height: auto; }
 
-#main section .page .inner-container .about .third {
+#main section .page .inner-container .about .third, #main section .page .inner-container.home .third {
   padding-left: 3.3rem;
   padding-right: 3.3rem;
   margin-top: 4.29rem; }
-  #main section .page .inner-container .about .third p {
+  #main section .page .inner-container .about .third p, #main section .page .inner-container.home .third p {
     color: #2a4d86;
     font-size: 1.172rem;
     letter-spacing: 0.05rem; }
-  #main section .page .inner-container .about .third .left {
+  #main section .page .inner-container .about .third .left, #main section .page .inner-container.home .third .left {
     float: left;
     width: 33%;
     padding-right: 2.014rem; }
-  #main section .page .inner-container .about .third .middle {
+  #main section .page .inner-container .about .third .middle, #main section .page .inner-container.home .third .middle {
     float: left;
     width: 33%;
     padding-right: 2.014rem;
     padding-left: 2.014rem; }
-  #main section .page .inner-container .about .third .right {
+  #main section .page .inner-container .about .third .right, #main section .page .inner-container.home .third .right {
     float: right;
     width: 33%;
     padding-left: 2.014rem; }
 
-#main section .page .inner-container .about .go {
+#main section .page .inner-container .about .go, #main section .page .inner-container.home .go {
   margin-top: 4rem; }
-  #main section .page .inner-container .about .go p {
+  #main section .page .inner-container .about .go p, #main section .page .inner-container.home .go p {
+    text-align: center; }
+
+#main section .page .inner-container .home h1 {
+  background: url("/css/assets/branches.png") no-repeat center;
+  background-size: contain;
+  height: 8rem;
+  line-height: 10rem;
+  padding-left: 1rem; }
+
+#main section .page .inner-container .home .intro {
+  width: 55.89rem;
+  margin: 0 auto; }
+  #main section .page .inner-container .home .intro p {
+    color: #2a4d86;
+    font-size: 1.611rem;
+    letter-spacing: 0.02rem;
+    line-height: 200%; }
+  #main section .page .inner-container .home .intro a {
+    color: #d96c1c;
+    text-decoration: underline;
+    font-weight: 900;
+    font-size: 1.318rem;
+    line-height: 200%; }
+
+#main section .page .inner-container .home .third {
+  width: 55.89rem;
+  margin: 0 auto;
+  margin-top: 10.4rem; }
+  #main section .page .inner-container .home .third img {
+    width: 12.45rem; }
+  #main section .page .inner-container .home .third p {
+    margin-top: 2rem;
+    margin-bottom: 11.6rem;
     text-align: center; }
 
 #main section .page .inner-container .legal {
