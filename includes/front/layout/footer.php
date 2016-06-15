@@ -10,7 +10,7 @@
             </form>
         </div>
         <div class="right">
-            <a href="/index.php?want=front_about" title="En savoir plus sur POEM" class="apropos">A propos de <span>POEM</span></a>
+            <a <?php if(!$_SESSION['anonymous']) { print 'href="/index.php?want=front_about"'; } else { print 'href="/index.php?want=front_anonymous_about"'; } ?> title="En savoir plus sur POEM" class="apropos">A propos de <span>POEM</span></a>
             <a href="./css/assets/partenaires.png"><div class="partenaires"></div></a>
             <div class="links">
                 <a <?php if(!$_SESSION['anonymous']) { print 'href="/index.php?want=front_legal"'; } else { print 'href="/index.php?want=front_anonymous_legal"'; } ?> title="mentions légales">Mentions légales</a>

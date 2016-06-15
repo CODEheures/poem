@@ -53,6 +53,9 @@ if($_SESSION['page']=='dashboard') {
 } elseif ($_SESSION['page']=='about') {
     //scripts de la page dashboard
     print '<script src="js/poem-front-about.js"></script>';
+} elseif ($_SESSION['page']=='home') {
+    //scripts de la page dashboard
+    print '<script src="js/poem-front-home.js"></script>';
 } elseif ($_SESSION['page']=='legal') {
     //scripts de la page dashboard
     print '<script src="js/poem-front-legal.js"></script>';

@@ -75,6 +75,14 @@ $type = array(
         'recommandations' => false,
         'anonymous' => true
     ),
+    'front_anonymous_about' => array(
+        'type' => 'front',
+        'page' => 'about',
+        'menu' => 'à propos',
+        'titre' => 'à propos',
+        'recommandations' => false,
+        'anonymous' => true
+    ),
     'front_anonymous_explorer' => array(
         'type' => 'front',
         'page' => 'explorer',
